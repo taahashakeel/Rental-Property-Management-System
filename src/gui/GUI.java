@@ -11,3 +11,8 @@
 package gui;
 
 import java.awt.Component;
+
+import javax.swing.JFrame;
+
+public class GUI extends JFrame{
+}
