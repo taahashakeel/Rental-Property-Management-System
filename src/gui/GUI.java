@@ -25,6 +25,7 @@ public class GUI extends JFrame{
     super();
     this.width = width;
     this.height = height;
+    init();
   }
 
   public GUI(){
@@ -37,5 +38,6 @@ public class GUI extends JFrame{
    * This will simply create a window to the provided size.
    */
   private void init(){
+    setSize(width, height);
   }
 }
