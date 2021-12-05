@@ -21,9 +21,13 @@ public class GUI extends JFrame{
   private int width;
   private int height;
 
-  public class GUI(int width, int height){
+  public GUI(int width, int height){
     super();
     this.width = width;
     this.height = height;
+  }
+
+  public GUI(){
+    this(INIT_WIDTH, INIT_HEIGHT);
   }
 }
