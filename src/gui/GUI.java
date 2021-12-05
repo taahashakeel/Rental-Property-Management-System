@@ -30,4 +30,12 @@ public class GUI extends JFrame{
   public GUI(){
     this(INIT_WIDTH, INIT_HEIGHT);
   }
+
+  /**
+   * Initialize the current GUI window.
+   *
+   * This will simply create a window to the provided size.
+   */
+  private void init(){
+  }
 }
