@@ -15,4 +15,15 @@ import java.awt.Component;
 import javax.swing.JFrame;
 
 public class GUI extends JFrame{
+  private static final int INIT_WIDTH = 600;
+  private static final int INIT_HEIGHT = 400;
+
+  private int width;
+  private int height;
+
+  public class GUI(int width, int height){
+    super();
+    this.width = width;
+    this.height = height;
+  }
 }
