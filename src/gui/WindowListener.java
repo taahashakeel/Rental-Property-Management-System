@@ -14,4 +14,12 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 public class WindowListener extends WindowAdapter{
+  /**
+   * Listen for any window closing events.
+   */
+  public void windowClosing(WindowEvent evt){
+    JFrame focusWindow = (JFrame) evt.getWindow();
+    focusWindow.setVisible(false);
+    focusWindow.dispose();
+  }
 }
