@@ -24,6 +24,7 @@ import java.io.File;
 
 import javax.swing.JFrame;
 
+<<<<<<< HEAD
 public class GUI extends JFrame {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
@@ -136,5 +137,4 @@ public class GUI extends JFrame {
 			}
 		});
 	}
-
 }
