@@ -17,6 +17,7 @@ import java.awt.Insets;
 
 public class UnregisteredRenterUI extends FocusPanel{
   private static final int PADDING = 5;
+  // private UnregisteredRenter userRepresntation;
 
   public UnregisteredRenterUI(){
     super();
