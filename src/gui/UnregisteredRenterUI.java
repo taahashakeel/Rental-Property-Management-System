@@ -15,10 +15,11 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class UnregisteredRenterUI implements FocusPanel{
+public class UnregisteredRenterUI extends FocusPanel{
   private static final int PADDING = 5;
 
-  public FocusPanel(){
+  public UnregisteredRenterUI(){
+    super();
     init();
   }
 
