@@ -47,7 +47,7 @@ public class GUI extends JFrame {
 	private ImageIcon loginIcon = new ImageIcon("./images/loginButton.png");
 	private ImageIcon guestIcon = new ImageIcon("./images/guestButton.png");
 	private int buttonW = 280;
-	private int buttonH = 150;
+	private int buttonH = 175;
 
 	// button action flag
 	private boolean buttonPressed = false;
