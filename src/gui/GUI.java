@@ -22,6 +22,8 @@ public class GUI extends JFrame{
   private int width;
   private int height;
 
+  private FocusPanel currentPanel;
+
   public GUI(int width, int height){
     super();
     this.width = width;
@@ -40,5 +42,14 @@ public class GUI extends JFrame{
    */
   private void init(){
     setSize(width, height);
+  }
+
+  /**
+   * Sets the panel to view.
+   */
+  public void setCurrentPanel(FocusPanel panel){
+    if(currentPanel != null) remove(currentPanel);
+    currentPanel = panel;
+    add(currentPanel);
   }
 }
