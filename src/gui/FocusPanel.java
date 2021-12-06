@@ -17,6 +17,9 @@ public abstract class FocusPanel extends JPanel{
   private GridBagLayout panelLayout;
   private GridBagConstraints panelConstraints;
 
+  public FocusPanel(){
+  }
+
   public renderDisplay(GUI frame);
 
   /**
