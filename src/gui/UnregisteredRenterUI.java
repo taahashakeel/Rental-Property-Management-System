@@ -31,9 +31,4 @@ public class UnregisteredRenterUI extends FocusPanel{
     panelConstraints = new GridBagConstraints();
     panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
   }
-
-  @Override
-  public void renderDisplay(GUI frame){
-    return;
-  }
 }

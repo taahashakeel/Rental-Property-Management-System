@@ -21,8 +21,6 @@ public abstract class FocusPanel extends JPanel{
     super();
   }
 
-  public abstract void renderDisplay(GUI frame);
-
   /**
    * Adds a specified widget into the panel at the specified position
    * and size.
