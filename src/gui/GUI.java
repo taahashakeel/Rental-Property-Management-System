@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 public class GUI extends JFrame{
   private static final int INIT_WIDTH = 600;
   private static final int INIT_HEIGHT = 400;
-  private static final String title = "Rental Properties"
+  private static final String title = "Rental Properties";
 
   private int width;
   private int height;

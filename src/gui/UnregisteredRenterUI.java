@@ -10,7 +10,7 @@
  */
 package gui;
 
-import javax.swing.Components;
+import javax.swing.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
