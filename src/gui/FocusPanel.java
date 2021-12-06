@@ -11,7 +11,7 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
 
-public interface FocusPanel extends JPanel{
+public abstract class FocusPanel extends JPanel{
   private GridBagLayout panelLayout;
   private GridBagConstraints panelConstraints;
 
