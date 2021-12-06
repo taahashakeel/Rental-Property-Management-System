@@ -23,6 +23,9 @@ public class UnregisteredRenterUI extends FocusPanel{
     init();
   }
 
+  /**
+   * Initialize the current user interface for unregistered renters.
+   */
   public void init(){
     panelLayout = new GridBagLayout();
     panelConstraints = new GridBagConstraints();
