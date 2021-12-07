@@ -71,5 +71,24 @@ public class SearchMenu extends JPanel{
 
     // Checkboxes
     JCheckBox furnishCheckbox = new JCheckbox("Furnished");
+
+    // place items within a 5-column grid.
+    // Quadrant menu
+    FocusPanel.addWidget(cityQuadLabel, 0, 0, 4, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidget(cityQuadMenu, 0, 4, 1, 1, panelConstraints, panelLayout);
+
+    // House type menu
+    FocusPanel.addWidget(houseTypeLabel, 0, 1, 4, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidget(houseTypeMenu, 4, 1, 1, 1, panelConstraints, panelLayout);
+
+    // Bedroom + Bathroom count
+    FocusPanel.addWidget(bedroomLabel, 0, 2, 4, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidget(bedroomInput, 4, 2, 1, 1, panelConstraints, panelLayout);
+
+    FocusPanel.addWidget(bathroomLabel, 0, 3, 4, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidget(bathroomInput, 4, 3, 1, 1, panelConstraints, panelLayout);
+
+    // furnished checkbox
+    FocusPanel.addWidget(furnishCheckbox, 0, 4, 5, 1, panelConstraints, panelLayout);
   }
 }
