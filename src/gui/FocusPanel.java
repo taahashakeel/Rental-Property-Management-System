@@ -70,6 +70,8 @@ public abstract class FocusPanel extends JPanel{
     panelConstraints.gridwidth = w;
     panelConstraints.gridheight = h;
 
+    panelConstraints.anchor = (x == 0)? GridBagConstraints.WEST : GridBagConstraints.EAST;
+
     panelLayout.setConstraints(widget, panelConstraints);
     panel.add(widget);
   }
