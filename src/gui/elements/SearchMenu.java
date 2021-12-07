@@ -54,5 +54,9 @@ public class SearchMenu extends JPanel{
     panelLayout = new GridBagLayout();
     panelConstraints = new panelConstraints();
     panelConstratins.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+
+    // Populate SearchMenu with necessary elements
+    JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
+    JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
   }
 }
