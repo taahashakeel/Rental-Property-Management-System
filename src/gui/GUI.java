@@ -1,5 +1,9 @@
 /**
  * @author Ethan Sengsavang <a href="mailto:ethan.sengsavang@ucalgary.ca">email</a>
+ * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
+ * 
+ *  @version 1.2
+ *  @since 1.0
  *
  * The base GUI frame to be populated with Java AWT Components that perform
  * functions specific to the user who is logged in.
@@ -21,14 +25,15 @@ import javax.tools.StandardJavaFileManager.PathFactory;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.io.File;
+import gui.UnregisteredRenterUI;
+import gui.Login;
 
 import javax.swing.JFrame;
 
-<<<<<<< HEAD
+
 public class GUI extends JFrame {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
-	private static final String title = "Rental Properties";
 
 	private int width;
 	private int height;
@@ -57,9 +62,6 @@ public class GUI extends JFrame {
 		super();
 		this.width = width;
 		this.height = height;
-		loginButton = new JButton(transformImage(loginIcon, buttonW, buttonH));
-		guestAccessButton = new JButton(transformImage(guestIcon, buttonW, buttonH));
-
 		initializeMenuGUI();
 		setVisible(true);
 	}
@@ -70,6 +72,9 @@ public class GUI extends JFrame {
 	 * This will simply create a window to the provided size.
 	 */
 	void initializeMenuGUI() {
+
+		loginButton = new JButton(transformImage(loginIcon, buttonW, buttonH));
+		guestAccessButton = new JButton(transformImage(guestIcon, buttonW, buttonH));
 
 		buttons = new JPanel();
 
@@ -131,8 +136,14 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (!buttonPressed) { // if button has not yet been pressed
 					buttonPressed = !buttonPressed; // toggle button pressed
-					header.setText(words);
-					con.add(header);
+					if (actionNum == 0) // login
+					{
+						Login();
+					}
+					else // guest access go straight to guest UI
+					{
+						UnregisteredRenterUI();
+					}
 				}
 			}
 		});
