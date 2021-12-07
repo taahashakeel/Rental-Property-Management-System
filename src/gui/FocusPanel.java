@@ -7,18 +7,22 @@
 package gui;
 
 import java.awt.Component;
-
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 import javax.swing.JPanel;
 
 public abstract class FocusPanel extends JPanel{
+  private static final int PADDING = 5;
   protected GridBagLayout panelLayout;
-  protected GridBagConstraints panelConstraints;
+  protected static GridBagConstraints panelConstraints;
 
   public FocusPanel(){
     super();
+
+    panelConstraints = new GridBagConstraints();
+    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
   }
 
   /**
@@ -64,7 +68,6 @@ public abstract class FocusPanel extends JPanel{
       int w,
       int h,
       GridBagLayout panelLayout){
-    GridBagConstraints panelConstraints = new GridBagConstraints();
 
     panelConstraints.gridx = x;
     panelConstraints.gridy = y;

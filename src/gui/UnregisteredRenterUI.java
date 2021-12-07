@@ -18,7 +18,6 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class UnregisteredRenterUI extends FocusPanel{
-  private static final int PADDING = 5;
   // private UnregisteredRenter userRepresntation;
 
   public UnregisteredRenterUI(){
@@ -31,8 +30,6 @@ public class UnregisteredRenterUI extends FocusPanel{
    */
   public void init(){
     panelLayout = new GridBagLayout();
-    panelConstraints = new GridBagConstraints();
-    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
     setLayout(panelLayout);
 
     // Create necessary elements
