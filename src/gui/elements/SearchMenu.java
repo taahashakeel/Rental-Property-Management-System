@@ -14,6 +14,8 @@
  */
 package gui.elements;
 
+import gui.FocusPanel;
+
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -55,12 +57,12 @@ public class SearchMenu extends JPanel{
   private void init(){
     panelLayout = new GridBagLayout();
     panelConstraints = new GridBagConstraints();
-    panelConstratins.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
 
     // Populate SearchMenu with necessary elements
     JLabel cityQuadLabel = new JLabel("City Quadrant: ");
     JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
-    Jabel houseTypeLabel = new JLabel("Housing type: ");
+    JLabel houseTypeLabel = new JLabel("Housing type: ");
     JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
 
     // Numeric menus
@@ -71,7 +73,7 @@ public class SearchMenu extends JPanel{
     JTextField bathroomInput = new JTextField(2);
 
     // Checkboxes
-    JCheckBox furnishCheckbox = new JCheckbox("Furnished");
+    JCheckBox furnishCheckbox = new JCheckBox("Furnished");
 
     // place items within a 5-column grid.
     // Quadrant menu
