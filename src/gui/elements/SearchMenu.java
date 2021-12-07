@@ -54,7 +54,7 @@ public class SearchMenu extends JPanel{
    */
   private void init(){
     panelLayout = new GridBagLayout();
-    panelConstraints = new panelConstraints();
+    panelConstraints = new GridBagConstraints();
     panelConstratins.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
 
     // Populate SearchMenu with necessary elements
