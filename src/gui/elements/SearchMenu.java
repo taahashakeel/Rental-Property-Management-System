@@ -46,6 +46,7 @@ public class SearchMenu extends JPanel{
 
   public SearchMenu(){
     super();
+    init();
   }
 
   /**
