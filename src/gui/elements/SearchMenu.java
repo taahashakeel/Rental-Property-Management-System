@@ -79,7 +79,7 @@ public class SearchMenu extends JPanel{
     // place items within a 5-column grid.
     // Quadrant menu
     FocusPanel.addWidgetTo(this, cityQuadLabel, 0, 0, 4, 1, panelConstraints, panelLayout);
-    FocusPanel.addWidgetTo(this, cityQuadMenu, 0, 4, 1, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, cityQuadMenu, 4, 0, 1, 1, panelConstraints, panelLayout);
 
     // House type menu
     FocusPanel.addWidgetTo(this, houseTypeLabel, 0, 1, 4, 1, panelConstraints, panelLayout);
