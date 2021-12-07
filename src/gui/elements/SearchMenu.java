@@ -100,6 +100,8 @@ public class SearchMenu extends JPanel{
     gbc = FocusPanel.generateConstraints(0, 2, 4, 1);
     add(bedroomLabel, gbc);
     gbc = FocusPanel.generateConstraints(4, 2, 4, 1);
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.EAST;
     add(bedroomInput, gbc);
 
     // FocusPanel.addWidgetTo(this, bathroomLabel, 0, 3, 4, 1, panelLayout);
@@ -107,6 +109,8 @@ public class SearchMenu extends JPanel{
     gbc = FocusPanel.generateConstraints(0, 3, 4, 1);
     add(bathroomLabel, gbc);
     gbc = FocusPanel.generateConstraints(4, 3, 4, 1);
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.EAST;
     add(bathroomInput, gbc);
 
     // furnished checkbox
