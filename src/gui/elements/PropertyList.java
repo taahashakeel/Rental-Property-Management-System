@@ -18,6 +18,11 @@ import javax.swing.JButton;
 public class PropertyList extends JPanel{
   private ArrayList<JButton> propertyList;
 
+  public PropertyList(){
+    super();
+    this.propertyList = new ArrayList<JButton>();
+  }
+
   public PropertyList(JButton[] propertyList){
     super();
     this.propertyList = new ArrayList<JButton>(propertyList);
