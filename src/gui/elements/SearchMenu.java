@@ -77,22 +77,41 @@ public class SearchMenu extends JPanel{
     JCheckBox furnishCheckbox = new JCheckBox("Furnished");
 
     // place items within a 5-column grid.
+    GridBagConstraints gbc;
     // Quadrant menu
-    FocusPanel.addWidgetTo(this, cityQuadLabel, 0, 0, 4, 1, panelLayout);
-    FocusPanel.addWidgetTo(this, cityQuadMenu, 4, 0, 1, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, cityQuadLabel, 0, 0, 4, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, cityQuadMenu, 4, 0, 1, 1, panelLayout);
+    gbc = FocusPanel.generateConstraints(0, 0, 4, 1);
+    add(cityQuadLabel, gbc);
+    gbc = FocusPanel.generateConstraints(4, 0, 4, 1);
+    add(cityQuadMenu, gbc);
 
     // House type menu
-    FocusPanel.addWidgetTo(this, houseTypeLabel, 0, 1, 4, 1, panelLayout);
-    FocusPanel.addWidgetTo(this, houseTypeMenu, 4, 1, 1, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, houseTypeLabel, 0, 1, 4, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, houseTypeMenu, 4, 1, 1, 1, panelLayout);
+    gbc = FocusPanel.generateConstraints(0, 1, 4, 1);
+    add(houseTypeLabel, gbc);
+    gbc = FocusPanel.generateConstraints(4, 1, 4, 1);
+    add(houseTypeMenu, gbc);
 
     // Bedroom + Bathroom count
-    FocusPanel.addWidgetTo(this, bedroomLabel, 0, 2, 4, 1, panelLayout);
-    FocusPanel.addWidgetTo(this, bedroomInput, 4, 2, 1, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, bedroomLabel, 0, 2, 4, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, bedroomInput, 4, 2, 1, 1, panelLayout);
+    gbc = FocusPanel.generateConstraints(0, 2, 4, 1);
+    add(bedroomLabel, gbc);
+    gbc = FocusPanel.generateConstraints(4, 2, 4, 1);
+    add(bedroomInput, gbc);
 
-    FocusPanel.addWidgetTo(this, bathroomLabel, 0, 3, 4, 1, panelLayout);
-    FocusPanel.addWidgetTo(this, bathroomInput, 4, 3, 1, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, bathroomLabel, 0, 3, 4, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, bathroomInput, 4, 3, 1, 1, panelLayout);
+    gbc = FocusPanel.generateConstraints(0, 3, 4, 1);
+    add(bathroomLabel, gbc);
+    gbc = FocusPanel.generateConstraints(4, 3, 4, 1);
+    add(bathroomInput, gbc);
 
     // furnished checkbox
-    FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelLayout);
+    // FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelLayout);
+    gbc = FocusPanel.generateConstraints(0, 4, 5, 1);
+    add(furnishCheckbox, gbc);
   }
 }
