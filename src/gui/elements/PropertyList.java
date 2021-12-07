@@ -45,6 +45,7 @@ public class PropertyList<T extends Component> extends JPanel{
    * @param propertyList A list of buttons representing different properties.
    */
   public void updateList(ArrayList<T> propertyList){
+    clear();
     this.propertyList = propertyList;
   }
 
@@ -54,6 +55,7 @@ public class PropertyList<T extends Component> extends JPanel{
    * @param propertyList A list of buttons representing different properties.
    */
   public void updateList(T[] propertyList){
+    clear();
     this.propertyList = new ArrayList<T>(propertyList.length);
 
     for(int index = 0; index < propertyList.length; index++){
@@ -73,8 +75,6 @@ public class PropertyList<T extends Component> extends JPanel{
    * Updates the current list to whatever propertyList is.
    */
   private void update(){
-    getContentPane().removeAll();
-
     // add every property to list
     for(int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++){
       T currProperty = propertyList.get(propertyPos);
@@ -82,6 +82,15 @@ public class PropertyList<T extends Component> extends JPanel{
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
       add(currProperty, gbc);
+    }
+  }
+
+  /**
+   * Clears current list.
+   */
+  private void clear(){
+    for(T property : propertyList){
+      remove(property);
     }
   }
 }
