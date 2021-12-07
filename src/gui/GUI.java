@@ -17,9 +17,12 @@ import javax.swing.JFrame;
 public class GUI extends JFrame{
   private static final int INIT_WIDTH = 600;
   private static final int INIT_HEIGHT = 400;
+  private static final String title = "Rental Properties";
 
   private int width;
   private int height;
+
+  private FocusPanel currentPanel;
 
   public GUI(int width, int height){
     super();
@@ -39,5 +42,18 @@ public class GUI extends JFrame{
    */
   private void init(){
     setSize(width, height);
+
+    UnregisteredRenterUI currUI = new UnregisteredRenterUI();
+
+    setCurrentPanel(currUI);
+  }
+
+  /**
+   * Sets the panel to view.
+   */
+  public void setCurrentPanel(FocusPanel panel){
+    if(currentPanel != null) remove(currentPanel);
+    currentPanel = panel;
+    add(currentPanel);
   }
 }
