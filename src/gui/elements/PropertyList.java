@@ -10,9 +10,12 @@
  */
 package gui.elements;
 
+import gui.FocusPanel;
+
 import java.util.ArrayList;
 
 import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -55,5 +58,21 @@ public class PropertyList extends JPanel{
   private void init(){
     panelLayout = new GridBagLayout();
     setLayout(panelLayout);
+  }
+
+  /**
+   * Updates the current list to whatever propertyList is.
+   */
+  private void update(){
+    getContentPane().removeAll();
+
+    // add every property to list
+    for(int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++){
+      JButton currProperty = propertyList[propertyPos];
+      GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
+
+      gbc.fill = GridBagConstraints.HORIZONTAL;
+      add(currProperty, gbc);
+    }
   }
 }
