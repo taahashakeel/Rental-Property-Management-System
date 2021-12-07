@@ -57,7 +57,9 @@ public class SearchMenu extends JPanel{
     panelConstratins.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
 
     // Populate SearchMenu with necessary elements
+    JLabel cityQuadLabel = new JLabel("City Quadrant: ");
     JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
+    Jabel houseTypeLabel = new JLabel("Housing type: ");
     JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
 
     // Numeric menus
