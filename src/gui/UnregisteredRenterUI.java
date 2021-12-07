@@ -40,10 +40,10 @@ public class UnregisteredRenterUI extends FocusPanel{
     SearchMenu search = new SearchMenu();
 
     // create dummy properties for now.
-    ArrayList<JButton> dummyList = new ArrayList<JButton>(4);
+    JButton[] dummyList = new JButton[4];
 
     for(int i = 0; i < 4; i++){
-      dummyList.set(i, new JButton("Property " + i));
+      dummyList[i] = new JButton("Property " + i);
     }
 
     PropertyList<JButton> results = new PropertyList<JButton>(dummyList);

@@ -32,10 +32,10 @@ public class PropertyList<T extends Component> extends JPanel{
 
   public PropertyList(T[] propertyList){
     super();
-    this.propertyList = new ArrayList<T>(propertyList.length);
+    this.propertyList = new ArrayList<T>();
 
     for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.set(index, propertyList[index]);
+      this.propertyList.add(propertyList[index]);
     }
   }
 
@@ -56,10 +56,10 @@ public class PropertyList<T extends Component> extends JPanel{
    */
   public void updateList(T[] propertyList){
     clear();
-    this.propertyList = new ArrayList<T>(propertyList.length);
+    this.propertyList = new ArrayList<T>();
 
     for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.set(index, propertyList[index]);
+      this.propertyList.add(propertyList[index]);
     }
   }
 
