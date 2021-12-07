@@ -14,24 +14,25 @@ import gui.FocusPanel;
 
 import java.util.ArrayList;
 
+import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-public class PropertyList extends JPanel{
-  private ArrayList<JButton> propertyList;
+public class PropertyList<T extends Component> extends JPanel{
+  private ArrayList<T> propertyList;
   private GridBagLayout panelLayout;
 
   public PropertyList(){
     super();
-    this.propertyList = new ArrayList<JButton>();
+    this.propertyList = new ArrayList<T>();
   }
 
-  public PropertyList(JButton[] propertyList){
+  public PropertyList(T[] propertyList){
     super();
-    this.propertyList = new ArrayList<JButton>(propertyList);
+    this.propertyList = new ArrayList<T>(propertyList);
   }
 
   /**
@@ -39,7 +40,7 @@ public class PropertyList extends JPanel{
    *
    * @param propertyList A list of buttons representing different properties.
    */
-  public void updateList(ArrayList<JButton> propertyList){
+  public void updateList(ArrayList<T> propertyList){
     this.propertyList = propertyList;
   }
 
@@ -48,8 +49,8 @@ public class PropertyList extends JPanel{
    *
    * @param propertyList A list of buttons representing different properties.
    */
-  public void updateList(JButton[] propertyList){
-    this.propertyList = new ArrayList<JButton>(propertyList);
+  public void updateList(T[] propertyList){
+    this.propertyList = new ArrayList<T>(propertyList);
   }
 
   /**
@@ -68,7 +69,7 @@ public class PropertyList extends JPanel{
 
     // add every property to list
     for(int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++){
-      JButton currProperty = propertyList[propertyPos];
+      T currProperty = propertyList[propertyPos];
       GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
