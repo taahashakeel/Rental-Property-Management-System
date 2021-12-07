@@ -20,7 +20,7 @@ import java.awt.Insets;
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
 
-  public UnregisteredRenterUI(){
+  public RegisteredRenterUI(){
     super();
     init();
   }
