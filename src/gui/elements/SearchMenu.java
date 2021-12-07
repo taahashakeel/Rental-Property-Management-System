@@ -19,6 +19,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -65,5 +66,8 @@ public class SearchMenu extends JPanel{
 
     JLabel bathroomLabel = new JLabel("No. Bathrooms");
     JTextField bathroomInput = new JTextField(2);
+
+    // Checkboxes
+    JCheckBox furnishCheckbox = new JCheckbox("Furnished");
   }
 }
