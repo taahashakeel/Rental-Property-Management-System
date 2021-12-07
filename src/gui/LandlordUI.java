@@ -11,6 +11,8 @@
 package gui;
 
 public class LandlordUI extends FocusPanel{
+  // private Landlord userRepresentation;
+
   public LandlordUI(){
     super();
   }
