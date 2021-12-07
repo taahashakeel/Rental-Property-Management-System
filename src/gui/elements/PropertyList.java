@@ -12,11 +12,14 @@ package gui.elements;
 
 import java.util.ArrayList;
 
+import java.awt.GridBagLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
 public class PropertyList extends JPanel{
   private ArrayList<JButton> propertyList;
+  private GridBagLayout panelLayout;
 
   public PropertyList(){
     super();
@@ -44,5 +47,13 @@ public class PropertyList extends JPanel{
    */
   public void updateList(JButton[] propertyList){
     this.propertyList = new ArrayList<JButton>(propertyList);
+  }
+
+  /**
+   * Initializes the current property list
+   */
+  private void init(){
+    panelLayout = new GridBagLayout();
+    setLayout(panelLayout);
   }
 }
