@@ -42,6 +42,10 @@ public class GUI extends JFrame{
    */
   private void init(){
     setSize(width, height);
+
+    UnregisteredRenterUI currUI = new UnregisteredRenterUI();
+
+    setCurrentPanel(currUI);
   }
 
   /**
