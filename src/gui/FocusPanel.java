@@ -27,6 +27,25 @@ public abstract class FocusPanel extends JPanel{
   }
 
   /**
+   * Generates grid bag constraints with provided values.
+   *
+   * @param x The horizontal index wihtin a grid to place a widget
+   * @param y The vertical index within a grid to place a widget
+   * @param w The number of grid cells the widget takes up horizontally
+   * @param h The number of grid cells the widget takes up vertically
+   *
+   * @return The grid bag constraints to add the widget with or modify
+   */
+  public static GridBagConstraints generateConstraints(int x, int y, int w, int h){
+    panelConstraints.gridx = x;
+    panelConstraints.gridy = y;
+    panelConstraints.gridwidth = w;
+    panelConstraints.gridheight = h;
+
+    return panelConstraints;
+  }
+
+  /**
    * Adds a specified widget into the panel at the specified position
    * and size.
    *
