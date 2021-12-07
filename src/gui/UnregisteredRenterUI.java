@@ -10,6 +10,8 @@
  */
 package gui;
 
+import gui.elements.SearchMenu;
+
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -36,6 +38,6 @@ public class UnregisteredRenterUI extends FocusPanel{
     SearchMenu search = new SearchMenu();
 
     // populate window assuming a 4-column, 5-row grid.
-    addWidget(searchMenu, 0, 0, 1, 5);
+    addWidget(search, 0, 0, 1, 5);
   }
 }
