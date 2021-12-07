@@ -22,4 +22,22 @@ public class PropertyList extends JPanel{
     super();
     this.propertyList = new ArrayList<JButton>(propertyList);
   }
+
+  /**
+   * Updates propertyList with a new array of properties to show.
+   *
+   * @param propertyList A list of buttons representing different properties.
+   */
+  public void updateList(ArrayList<JButton> propertyList){
+    this.propertyList = propertyList;
+  }
+
+  /**
+   * Updates propertyList with a new array of properties to show.
+   *
+   * @param propertyList A list of buttons representing different properties.
+   */
+  public void updateList(JButton[] propertyList){
+    this.propertyList = new ArrayList<JButton>(propertyList);
+  }
 }
