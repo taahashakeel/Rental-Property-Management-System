@@ -18,4 +18,10 @@ public class SearchMenu extends JPanel{
   public SearchMenu(){
     super();
   }
+
+  /**
+   * Initializes the search menu to be used within a user interface.
+   */
+  private void init(){
+  }
 }

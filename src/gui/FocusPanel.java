@@ -40,4 +40,36 @@ public abstract class FocusPanel extends JPanel{
     panelLayout.setConstraints(widget, panelConstraints);
     add(widget);
   }
+
+  /**
+   * Adds a specified widget into the panel at the specified position
+   * and size.
+   *
+   * This method is made static such that any element is able to use it.
+   *
+   * @param widget The widget to add within the window
+   * @param x The horizontal index within the grid to place the widget at.
+   * @param y The vertical index within the grid to place the widget at.
+   * @param w The width of the widget.
+   * @param h The height of the widget.
+   * @param panelConstraints The grid constraints of the panel to add the
+   * widget to.
+   * @param panelLayout The GridBagLayout panel to add the widget to.
+   */
+  public static void addWidget(
+      Component widget,
+      int x,
+      int y,
+      int w,
+      int h,
+      GridBagConstraints panelConstraints,
+      GridBagLayout panelLayout){
+    panelConstraints.gridx = x;
+    panelConstraints.gridy = y;
+    panelConstraints.gridwidth = w;
+    panelConstraints.gridheight = h;
+
+    panelLayout.setConstraints(widget, panelConstraints);
+    add(widget);
+  }
 }
