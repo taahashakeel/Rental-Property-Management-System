@@ -58,5 +58,12 @@ public class SearchMenu extends JPanel{
     // Populate SearchMenu with necessary elements
     JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
     JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
+
+    // Numeric menus
+    JLabel bedroomLabel = new JLabel("No. Bedrooms");
+    JTextField bedroomInput = new JTextField(2); // allow for a 2 digit value
+
+    JLabel bathroomLabel = new JLabel("No. Bathrooms");
+    JTextField bathroomInput = new JTextField(2);
   }
 }
