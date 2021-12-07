@@ -16,4 +16,16 @@ public class LandlordUI extends FocusPanel{
   public LandlordUI(){
     super();
   }
+
+  /**
+   * Initializes the Landlord graphical user interface for usage.
+   */
+  private void init(){
+    panelLayout = new GridBagLayout();
+    setLayout(panelLayout);
+
+    // Create elements
+
+    // populate window
+  }
 }
