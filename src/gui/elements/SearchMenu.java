@@ -28,6 +28,20 @@ public class SearchMenu extends JPanel{
   private GridBagLayout panelLayout;
   private GridBagConstraints panelConstraints;
 
+  private static final String[] QUADRANTS = {
+    "NE",
+    "NW",
+    "SW",
+    "SE"
+  };
+  private static String[] housingTypes = {
+    "Apartment",
+    "Attached House",
+    "Detached House",
+    "Townhouse",
+    "Condo"
+  };
+
   public SearchMenu(){
     super();
   }
