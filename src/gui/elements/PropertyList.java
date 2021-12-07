@@ -32,7 +32,11 @@ public class PropertyList<T extends Component> extends JPanel{
 
   public PropertyList(T[] propertyList){
     super();
-    this.propertyList = new ArrayList<T>(propertyList);
+    this.propertyList = new ArrayList<T>(propertyList.length);
+
+    for(int index = 0; index < propertyList.length; index++){
+      this.propertyList.set(index, propertyList[index]);
+    }
   }
 
   /**
@@ -50,7 +54,11 @@ public class PropertyList<T extends Component> extends JPanel{
    * @param propertyList A list of buttons representing different properties.
    */
   public void updateList(T[] propertyList){
-    this.propertyList = new ArrayList<T>(propertyList);
+    this.propertyList = new ArrayList<T>(propertyList.length);
+
+    for(int index = 0; index < propertyList.length; index++){
+      this.propertyList.set(index, propertyList[index]);
+    }
   }
 
   /**
@@ -69,7 +77,7 @@ public class PropertyList<T extends Component> extends JPanel{
 
     // add every property to list
     for(int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++){
-      T currProperty = propertyList[propertyPos];
+      T currProperty = propertyList.get(propertyPos);
       GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
