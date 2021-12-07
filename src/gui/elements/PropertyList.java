@@ -28,6 +28,7 @@ public class PropertyList<T extends Component> extends JPanel{
   public PropertyList(){
     super();
     this.propertyList = new ArrayList<T>();
+    init();
   }
 
   public PropertyList(T[] propertyList){
@@ -37,6 +38,8 @@ public class PropertyList<T extends Component> extends JPanel{
     for(int index = 0; index < propertyList.length; index++){
       this.propertyList.add(propertyList[index]);
     }
+
+    init();
   }
 
   /**
@@ -69,6 +72,8 @@ public class PropertyList<T extends Component> extends JPanel{
   private void init(){
     panelLayout = new GridBagLayout();
     setLayout(panelLayout);
+
+    update();
   }
 
   /**
