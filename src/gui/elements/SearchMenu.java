@@ -14,7 +14,20 @@
  */
 package gui.elements;
 
+import java.awt.Component;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 public class SearchMenu extends JPanel{
+  private static final int PADDING = 2;
+  private GridBagLayout panelLayout;
+  private GridBagConstraints panelConstraints;
+
   public SearchMenu(){
     super();
   }
@@ -23,5 +36,8 @@ public class SearchMenu extends JPanel{
    * Initializes the search menu to be used within a user interface.
    */
   private void init(){
+    panelLayout = new GridBagLayout();
+    panelConstraints = new panelConstraints();
+    panelConstratins.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
   }
 }
