@@ -10,6 +10,8 @@
  */
 package gui;
 
+import java.awt.GridBagLayout;
+
 public class LandlordUI extends FocusPanel{
   // private Landlord userRepresentation;
 
