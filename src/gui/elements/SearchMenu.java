@@ -58,6 +58,7 @@ public class SearchMenu extends JPanel{
     panelLayout = new GridBagLayout();
     panelConstraints = new GridBagConstraints();
     panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+    setLayout(panelLayout);
 
     // Populate SearchMenu with necessary elements
     JLabel cityQuadLabel = new JLabel("City Quadrant: ");

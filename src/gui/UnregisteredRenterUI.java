@@ -33,6 +33,7 @@ public class UnregisteredRenterUI extends FocusPanel{
     panelLayout = new GridBagLayout();
     panelConstraints = new GridBagConstraints();
     panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+    setLayout(panelLayout);
 
     // Create necessary elements
     SearchMenu search = new SearchMenu();
