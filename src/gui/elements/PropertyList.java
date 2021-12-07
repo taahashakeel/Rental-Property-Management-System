@@ -10,10 +10,16 @@
  */
 package gui.elements;
 
-import java.swing.JPanel;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
 public class PropertyList extends JPanel{
-  public PropertyList(){
+  private ArrayList<JButton> propertyList;
+
+  public PropertyList(JButton[] propertyList){
     super();
+    this.propertyList = new ArrayList<JButton>(propertyList);
   }
 }
