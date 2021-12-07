@@ -56,7 +56,8 @@ public abstract class FocusPanel extends JPanel{
    * widget to.
    * @param panelLayout The GridBagLayout panel to add the widget to.
    */
-  public static void addWidget(
+  public static void addWidgetTo(
+      JPanel panel,
       Component widget,
       int x,
       int y,
@@ -70,6 +71,6 @@ public abstract class FocusPanel extends JPanel{
     panelConstraints.gridheight = h;
 
     panelLayout.setConstraints(widget, panelConstraints);
-    add(widget);
+    panel.add(widget);
   }
 }
