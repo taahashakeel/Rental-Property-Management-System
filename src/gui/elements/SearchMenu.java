@@ -78,21 +78,21 @@ public class SearchMenu extends JPanel{
 
     // place items within a 5-column grid.
     // Quadrant menu
-    FocusPanel.addWidgetTo(this, cityQuadLabel, 0, 0, 4, 1, panelConstraints, panelLayout);
-    FocusPanel.addWidgetTo(this, cityQuadMenu, 4, 0, 1, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, cityQuadLabel, 0, 0, 4, 1, panelLayout);
+    FocusPanel.addWidgetTo(this, cityQuadMenu, 4, 0, 1, 1, panelLayout);
 
     // House type menu
-    FocusPanel.addWidgetTo(this, houseTypeLabel, 0, 1, 4, 1, panelConstraints, panelLayout);
-    FocusPanel.addWidgetTo(this, houseTypeMenu, 4, 1, 1, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, houseTypeLabel, 0, 1, 4, 1, panelLayout);
+    FocusPanel.addWidgetTo(this, houseTypeMenu, 4, 1, 1, 1, panelLayout);
 
     // Bedroom + Bathroom count
-    FocusPanel.addWidgetTo(this, bedroomLabel, 0, 2, 4, 1, panelConstraints, panelLayout);
-    FocusPanel.addWidgetTo(this, bedroomInput, 4, 2, 1, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, bedroomLabel, 0, 2, 4, 1, panelLayout);
+    FocusPanel.addWidgetTo(this, bedroomInput, 4, 2, 1, 1, panelLayout);
 
-    FocusPanel.addWidgetTo(this, bathroomLabel, 0, 3, 4, 1, panelConstraints, panelLayout);
-    FocusPanel.addWidgetTo(this, bathroomInput, 4, 3, 1, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, bathroomLabel, 0, 3, 4, 1, panelLayout);
+    FocusPanel.addWidgetTo(this, bathroomInput, 4, 3, 1, 1, panelLayout);
 
     // furnished checkbox
-    FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelConstraints, panelLayout);
+    FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelLayout);
   }
 }
