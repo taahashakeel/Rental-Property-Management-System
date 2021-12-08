@@ -3,6 +3,8 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
 
+package BackEnd;
+
 @SuppressWarnings("unused")
 public class EmailSystem {
 
