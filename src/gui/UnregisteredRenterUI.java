@@ -12,13 +12,12 @@ package gui;
 
 import gui.elements.SearchMenu;
 import gui.elements.PropertyList;
+import gui.elements.PropertyView;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-
-import javax.swing.JButton;
 
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
@@ -39,13 +38,17 @@ public class UnregisteredRenterUI extends FocusPanel{
     SearchMenu search = new SearchMenu();
 
     // create dummy properties for now.
-    JButton[] dummyList = new JButton[4];
+    PropertyView[] dummyList = new PropertyView[4];
 
     for(int i = 0; i < 4; i++){
-      dummyList[i] = new JButton("Property " + i);
+      dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
+          "NE",
+          "Condo",
+          false,
+          415);
     }
 
-    PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
+    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
