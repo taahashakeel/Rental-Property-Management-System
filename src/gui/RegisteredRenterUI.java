@@ -45,7 +45,7 @@ public class RegisteredRenterUI extends FocusPanel{
     PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
 
     // Create necessary elements
-    SearchMenu search = new SearchMenu();
+    SearchMenu search = new SearchMenu(true);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
