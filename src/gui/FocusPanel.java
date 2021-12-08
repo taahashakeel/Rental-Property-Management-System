@@ -101,4 +101,15 @@ public abstract class FocusPanel extends JPanel{
 
     panel.add(widget, panelConstraints);
   }
+
+  /**
+   * MOVED FROM GUI -- please update documentation when able
+   */
+  protected ImageIcon transformImage(ImageIcon image, int w, int h) {
+    Image imageNew = image.getImage(); // transform it
+    Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
+    ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
+
+    return newImageIcon;
+  }
 }
