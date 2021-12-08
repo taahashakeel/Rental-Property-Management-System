@@ -19,11 +19,13 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
-public class PropertyList<T extends Component> extends JPanel{
+public class PropertyList<T extends Component> extends JScrollPane{
   private ArrayList<T> propertyList;
   private GridBagLayout panelLayout;
+  private JPanel contentList;
 
   public PropertyList(){
     super();
@@ -70,8 +72,11 @@ public class PropertyList<T extends Component> extends JPanel{
    * Initializes the current property list
    */
   private void init(){
+    contentList = new JPanel();
     panelLayout = new GridBagLayout();
-    setLayout(panelLayout);
+    contentList.setLayout(panelLayout);
+
+    add(contentList);
 
     update();
   }
@@ -87,7 +92,7 @@ public class PropertyList<T extends Component> extends JPanel{
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
       gbc.weightx = 0.9;
-      add(currProperty, gbc);
+      contentList.add(currProperty, gbc);
     }
   }
 
