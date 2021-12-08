@@ -86,6 +86,7 @@ public class PropertyList<T extends Component> extends JPanel{
       GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
+      gbc.weightx = 0.9;
       add(currProperty, gbc);
     }
   }
