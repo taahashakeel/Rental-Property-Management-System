@@ -48,8 +48,17 @@ public class UnregisteredRenterUI extends FocusPanel{
 
     PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
 
+    results.setBackground(Color.red);
+
     // populate window assuming a 4-column, 5-row grid.
-    addWidget(search, 0, 0, 1, 5);
-    addWidget(results, 0, 1, 3, 5);
+    GridBagConstraints gbc;
+    gbc = generateConstraints(0, 0, 1, 5);
+    gbc.fill = GridBagConstraints.VERTICAL;
+    gbc.anchor = GridBagConstraints.WEST;
+    add(search, gbc);
+
+    gbc = generateConstraints(1, 0, 3, 5);
+    gbc.fill = GridBagConstraints.BOTH;
+    add(results, gbc);
   }
 }
