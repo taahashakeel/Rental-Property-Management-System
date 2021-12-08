@@ -14,7 +14,14 @@
 package gui.elements;
 
 public class PropertyView extends JPanel{
+  // private Property representedProperty;
   public PropertyView(){
     super();
   }
+
+  /*/
+  public PropertyView(Property representedProperty){
+    this.representedProperty = representedProperty;
+  }
+  // */
 }
