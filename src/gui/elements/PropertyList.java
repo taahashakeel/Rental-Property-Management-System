@@ -22,10 +22,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
-public class PropertyList<T extends Component> extends JScrollPane{
+public class PropertyList<T extends Component> extends JPanel{
   private ArrayList<T> propertyList;
   private GridBagLayout panelLayout;
   private JPanel contentList;
+  private JScrollPane scrollPane;
 
   public PropertyList(){
     super();
@@ -72,13 +73,26 @@ public class PropertyList<T extends Component> extends JScrollPane{
    * Initializes the current property list
    */
   private void init(){
-    contentList = new JPanel();
     panelLayout = new GridBagLayout();
+    setLayout(panelLayout);
+
+    // create necessary element
+    contentList = new JPanel();
+    GridBagLayout listLayout = new GridBagLayout();
     contentList.setLayout(panelLayout);
 
-    add(contentList);
-
     update();
+
+    scrollPane = new JScrollPane(contentList);
+
+    // populate elements in their respective containers
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.BOTH;
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    add(scrollPane, gbc);
+    gbc.weighty = 0;
   }
 
   /**
