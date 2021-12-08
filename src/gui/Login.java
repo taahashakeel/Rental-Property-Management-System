@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.File;
 import javax.swing.JFrame;
 
-public class Login extends GUI {
+public class Login extends FocusPanel {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
 
