@@ -54,7 +54,7 @@ public class SearchMenu extends JPanel{
 
   public SearchMenu(boolean registered){
     super();
-    registered = true;
+    this.registered = registered;
     init();
   }
 
