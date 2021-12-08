@@ -14,12 +14,14 @@
 package gui.elements;
 
 // import Employee.Property
+import gui.FocusPanel;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
-import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
   // private Property representedProperty;
@@ -57,5 +59,20 @@ public class PropertyView extends JPanel{
    * Initialies the current PropertyView element.
    */
   private void init(){
+    // Create main button to link to properties
+    GridBagLayout buttonLayout = new GridBagLayout();
+    JButton propertyLink = new JButton();
+    propertyLink.setLayout(buttonLayout);
+
+    // Create elements that will be added to the button
+    JLabel addressLabel = new JLabel(address);
+
+    // Add elements to the button
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    propertyLink.add(addressLabel, gbc);
+
+    // Add button to current element
+    add(propertyLink);
   }
 }
