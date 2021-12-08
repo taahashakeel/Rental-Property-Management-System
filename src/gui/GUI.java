@@ -31,7 +31,7 @@ import gui.Login;
 import javax.swing.JFrame;
 
 // <<<<<<< HEAD
-
+/*/
 public class GUI extends JFrame {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
@@ -75,7 +75,7 @@ public class GUI extends JFrame {
 	 * Initialize the current GUI window.
 	 *
 	 * This will simply create a window to the provided size.
-	 */
+	 */ /*
 	void initializeMenuGUI() {
 
 		loginButton = new JButton(transformImage(loginIcon, buttonW, buttonH));
@@ -156,7 +156,7 @@ public class GUI extends JFrame {
 		});
 	}
 // ======= // */
-/*
+//*
 public class GUI extends JFrame{
   private static final int INIT_WIDTH = 600;
   private static final int INIT_HEIGHT = 400;
@@ -182,7 +182,7 @@ public class GUI extends JFrame{
    * Initialize the current GUI window.
    *
    * This will simply create a window to the provided size.
-   */ /*
+   */ //*
   private void init(){
     setSize(width, height);
 
@@ -193,7 +193,7 @@ public class GUI extends JFrame{
 
   /**
    * Sets the panel to view.
-   */ /*
+   */ //*
   public void setCurrentPanel(FocusPanel panel){
     if(currentPanel != null) remove(currentPanel);
     currentPanel = panel;
