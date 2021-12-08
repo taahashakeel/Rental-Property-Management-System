@@ -12,7 +12,7 @@ public class RentalPropertyManagementSystem{
   }
 
   private void createWindow(){
-    gui = new GUI();
+    gui = new GUI(1000, 800);
     WindowListener guiListener = new WindowListener();
 
     gui.addWindowListener(guiListener);
