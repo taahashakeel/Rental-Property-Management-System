@@ -52,4 +52,10 @@ public class PropertyView extends JPanel{
     this.furnished = furnished;
     this.id = id;
   }
+
+  /**
+   * Initialies the current PropertyView element.
+   */
+  private void init(){
+  }
 }
