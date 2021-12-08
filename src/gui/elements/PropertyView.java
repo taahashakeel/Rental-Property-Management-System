@@ -33,11 +33,13 @@ public class PropertyView extends JPanel{
 
   public PropertyView(){
     super();
+    init();
   }
 
   /*/
   public PropertyView(Property representedProperty){
     this.representedProperty = representedProperty;
+    init();
   }
   // */
 
@@ -53,6 +55,8 @@ public class PropertyView extends JPanel{
     this.housingType = housingType;
     this.furnished = furnished;
     this.id = id;
+
+    init();
   }
 
   /**
