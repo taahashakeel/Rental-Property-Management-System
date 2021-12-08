@@ -44,7 +44,7 @@ public class UnregisteredRenterUI extends FocusPanel{
       dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
           "NE",
           "Condo",
-          false,
+          i % 2 == 0,
           415);
     }
 

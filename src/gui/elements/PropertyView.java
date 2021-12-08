@@ -90,8 +90,7 @@ public class PropertyView extends JPanel{
     propertyLink.add(cityQuadrantLabel, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 1, 2, 1);
-    gbc.weightx = 1;
-    gbc.anchor = GridBagConstraints.EAST;
+    gbc.anchor = GridBagConstraints.WEST;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     propertyLink.add(furnishedLabel, gbc);
 
