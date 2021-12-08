@@ -52,13 +52,16 @@ public class UnregisteredRenterUI extends FocusPanel{
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
-    gbc = generateConstraints(0, 0, 1, 5);
+    gbc = generateConstraints(0, 0, 1, 1);
     gbc.fill = GridBagConstraints.VERTICAL;
     gbc.anchor = GridBagConstraints.WEST;
+    gbc.weighty = 100;
     add(search, gbc);
 
-    gbc = generateConstraints(1, 0, 3, 5);
+    gbc = generateConstraints(1, 0, 1, 1);
     gbc.fill = GridBagConstraints.BOTH;
+    gbc.weightx = 100;
+    gbc.weighty = 100;
     add(results, gbc);
   }
 }
