@@ -29,9 +29,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class SearchMenu extends JPanel{
-  private static final int PADDING = 2;
   private GridBagLayout panelLayout;
-  private GridBagConstraints panelConstraints;
 
   private static final String[] QUADRANTS = {
     "NE",
@@ -57,8 +55,6 @@ public class SearchMenu extends JPanel{
    */
   private void init(){
     panelLayout = new GridBagLayout();
-    panelConstraints = new GridBagConstraints();
-    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
     setLayout(panelLayout);
 
     // Populate SearchMenu with necessary elements
