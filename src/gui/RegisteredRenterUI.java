@@ -12,6 +12,7 @@ package gui;
 
 import gui.elements.SearchMenu;
 import gui.elements.PropertyList;
+import gui.elements.PropertyView;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -36,13 +37,17 @@ public class RegisteredRenterUI extends FocusPanel{
     setLayout(panelLayout);
 
     // create dummy properties for now.
-    JButton[] dummyList = new JButton[4];
+    PropertyView[] dummyList = new PropertyView[4];
 
     for(int i = 0; i < 4; i++){
-      dummyList[i] = new JButton("Property " + i);
+      dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
+          "NE",
+          "Condo",
+          i % 2 == 0,
+          415);
     }
 
-    PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
+    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
 
     // Create necessary elements
     SearchMenu search = new SearchMenu(true);
