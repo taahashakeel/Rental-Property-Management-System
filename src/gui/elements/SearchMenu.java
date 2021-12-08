@@ -142,14 +142,15 @@ public class SearchMenu extends JPanel{
 
     // furnished checkbox
     // FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelLayout);
-    gbc = FocusPanel.generateConstraints(0, 6, 5, 1);
+    gbc = FocusPanel.generateConstraints(0, 6, 3, 1);
     add(furnishCheckbox, gbc);
 
     // Search and possibly subscribe buttons
-    gbc = FocusPanel.generateConstraints(0, 7, 2, 1);
+    gbc = FocusPanel.generateConstraints(0, 7, 1, 1);
     add(searchButton, gbc);
     if(registered){
-      gbc = FocusPanel.generateConstraints(3, 7, 2, 1);
+      gbc = FocusPanel.generateConstraints(2, 7, 1, 1);
+      gbc.anchor = GridBagConstraints.WEST;
       add(subscribeButton, gbc);
     }
   }
