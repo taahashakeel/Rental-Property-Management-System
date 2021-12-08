@@ -63,6 +63,9 @@ public class PropertyView extends JPanel{
    * Initialies the current PropertyView element.
    */
   private void init(){
+    GridBagLayout viewElementLayout = new GridBagLayout();
+    setLayout(viewElementLayout);
+
     // Create main button to link to properties
     GridBagLayout buttonLayout = new GridBagLayout();
     JButton propertyLink = new JButton();
@@ -70,13 +73,29 @@ public class PropertyView extends JPanel{
 
     // Create elements that will be added to the button
     JLabel addressLabel = new JLabel(address);
+    JLabel cityQuadrantLabel = new JLabel(quadrant);
+    JLabel furnishedLabel = new JLabel(furnished ? "Furnished" : "Unfurnished");
 
     // Add elements to the button
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.weightx = 0;
+    gbc.anchor = GridBagConstraints.WEST;
     propertyLink.add(addressLabel, gbc);
 
+    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+    gbc.weightx = 1;
+    gbc.anchor = GridBagConstraints.WEST;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    propertyLink.add(cityQuadrantLabel, gbc);
+
+    gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
+    propertyLink.add(furnishedLabel, gbc);
+
     // Add button to current element
-    add(propertyLink);
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.weightx = 0.8;
+    add(propertyLink, gbc);
   }
 }
