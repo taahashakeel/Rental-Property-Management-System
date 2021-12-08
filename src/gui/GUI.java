@@ -143,11 +143,11 @@ public class GUI extends JFrame {
 					buttonPressed = !buttonPressed; // toggle button pressed
 					if (actionNum == 0) // login
 					{
-						Login();
+						new Login();
 					}
 					else // guest access go straight to guest UI
 					{
-						UnregisteredRenterUI();
+						new UnregisteredRenterUI();
 					}
 				}
 			}
