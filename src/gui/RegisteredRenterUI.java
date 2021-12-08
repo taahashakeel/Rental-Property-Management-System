@@ -11,11 +11,14 @@
 package gui;
 
 import gui.elements.SearchMenu;
+import gui.elements.PropertyList;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
+import javax.swing.JButton;
 
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
@@ -32,10 +35,30 @@ public class RegisteredRenterUI extends FocusPanel{
     panelLayout = new GridBagLayout();
     setLayout(panelLayout);
 
+    // create dummy properties for now.
+    JButton[] dummyList = new JButton[4];
+
+    for(int i = 0; i < 4; i++){
+      dummyList[i] = new JButton("Property " + i);
+    }
+
+    PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
+
     // Create necessary elements
     SearchMenu search = new SearchMenu();
 
     // populate window assuming a 4-column, 5-row grid.
-    addWidget(search, 0, 0, 1, 5);
+    GridBagConstraints gbc;
+    gbc = generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.VERTICAL;
+    gbc.anchor = GridBagConstraints.WEST;
+    gbc.weighty = 100;
+    add(search, gbc);
+
+    gbc = generateConstraints(1, 0, 1, 1);
+    gbc.fill = GridBagConstraints.BOTH;
+    gbc.weightx = 100;
+    gbc.weighty = 100;
+    add(results, gbc);
   }
 }

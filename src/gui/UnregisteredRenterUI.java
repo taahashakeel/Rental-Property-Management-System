@@ -19,7 +19,6 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JButton;
-import java.util.ArrayList;
 
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
@@ -47,8 +46,6 @@ public class UnregisteredRenterUI extends FocusPanel{
     }
 
     PropertyList<JButton> results = new PropertyList<JButton>(dummyList);
-
-    results.setBackground(Color.red);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
