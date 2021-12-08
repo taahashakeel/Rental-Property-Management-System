@@ -1,10 +1,6 @@
 /**
- *  @author Rachel Renegado
- *  @version 1.0
- *  @since 1.0
- */
-/**
- *  @author Rachel Renegado
+ * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
+ * 
  *  @version 1.0
  *  @since 1.0
  */
