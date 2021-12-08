@@ -68,6 +68,7 @@ public class Login extends FocusPanel {
 
 		buttons.setOpaque(false);
 
+    /*/ actions related to window stuff
 		con = getContentPane();
 
 		getContentPane();
@@ -77,13 +78,14 @@ public class Login extends FocusPanel {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // If window is closed, stop the program
 		setLocationRelativeTo(null); // Makes window open in middle of screen
+    // */
 
 		setBackground();
 		setScreen();
 	}
 
 	
-	@Override
+	// @Override
 	void setBackground() {
 		background = new JLabel(transformImage(backgroundImg, 1000, 800));
 		background.setLayout(new GridBagLayout());
