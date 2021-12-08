@@ -13,6 +13,8 @@
  */
 package gui.elements;
 
+// import Employee.Property
+
 public class PropertyView extends JPanel{
   // private Property representedProperty;
   public PropertyView(){
