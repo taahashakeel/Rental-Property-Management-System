@@ -37,9 +37,9 @@ public class RegisteredRenterUI extends FocusPanel{
     setLayout(panelLayout);
 
     // create dummy properties for now.
-    PropertyView[] dummyList = new PropertyView[4];
+    PropertyView[] dummyList = new PropertyView[10];
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 10; i++){
       dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
           "NE",
           "Condo",
