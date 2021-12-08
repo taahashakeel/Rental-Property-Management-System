@@ -15,6 +15,12 @@ package gui.elements;
 
 // import Employee.Property
 
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+
+import javax.swing.JPanel;
+import javax.swing.JButton;
+
 public class PropertyView extends JPanel{
   // private Property representedProperty;
   String address;
