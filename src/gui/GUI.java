@@ -67,6 +67,10 @@ public class GUI extends JFrame {
 		setVisible(true);
 	}
 
+  public GUI(){
+    this(INIT_WIDTH, INIT_HEIGHT);
+  }
+
 	/**
 	 * Initialize the current GUI window.
 	 *
