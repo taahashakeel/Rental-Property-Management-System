@@ -21,6 +21,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -65,6 +66,7 @@ public class SearchMenu extends JPanel{
     JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
     JLabel houseTypeLabel = new JLabel("Housing type: ");
     JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
+    JButton searchButton = new JButton("Search");
 
     // Numeric menus
     JLabel bedroomLabel = new JLabel("Bedrooms");
@@ -137,5 +139,8 @@ public class SearchMenu extends JPanel{
     // FocusPanel.addWidgetTo(this, furnishCheckbox, 0, 4, 5, 1, panelLayout);
     gbc = FocusPanel.generateConstraints(0, 6, 5, 1);
     add(furnishCheckbox, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 7, 5, 1);
+    add(searchButton, gbc);
   }
 }
