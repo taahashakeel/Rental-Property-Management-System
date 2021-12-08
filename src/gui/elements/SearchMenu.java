@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 
 public class SearchMenu extends JPanel{
   private GridBagLayout panelLayout;
+  private boolean registered;
 
   private static final String[] QUADRANTS = {
     "NE",
@@ -47,6 +48,13 @@ public class SearchMenu extends JPanel{
 
   public SearchMenu(){
     super();
+    registered = false;
+    init();
+  }
+
+  public SearchMenu(boolean registered){
+    super();
+    registered = true;
     init();
   }
 
@@ -63,6 +71,7 @@ public class SearchMenu extends JPanel{
     JLabel houseTypeLabel = new JLabel("Housing type: ");
     JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
     JButton searchButton = new JButton("Search");
+    JButton subscribeButton = new JButton("Subscribe");
 
     // Numeric menus
     JLabel bedroomLabel = new JLabel("Bedrooms");
@@ -136,7 +145,12 @@ public class SearchMenu extends JPanel{
     gbc = FocusPanel.generateConstraints(0, 6, 5, 1);
     add(furnishCheckbox, gbc);
 
-    gbc = FocusPanel.generateConstraints(0, 7, 5, 1);
+    // Search and possibly subscribe buttons
+    gbc = FocusPanel.generateConstraints(0, 7, 2, 1);
     add(searchButton, gbc);
+    if(registered){
+      gbc = FocusPanel.generateConstraints(3, 7, 2, 1);
+      add(subscribeButton, gbc);
+    }
   }
 }
