@@ -13,9 +13,10 @@ import Employee.Property;
 import BackEnd.DatabaseController;
 
 public class ConcreteSubscriptionServiceSubject {
+	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
-	private ArrayList<SubscribedObserver> subscribers;
-	private ArrayList<Property> newProperty;
+	static private ArrayList<SubscribedObserver> subscribers;
+	static private ArrayList<Property> newProperty;
 
 	public ConcreteSubscriptionServiceSubject() {
 		dbControl = new DatabaseController();
@@ -23,16 +24,32 @@ public class ConcreteSubscriptionServiceSubject {
 		newProperty = new ArrayList<Property>();
 	}
 
-	public void registerSubscribedObserver(SearchObserver subscriber) {
+//	public void registerSubscribedObserver(SearchObserver subscriber) {
+//		subscribers.add(subscriber);
+//		subscribers.update(newProperty);
+//	}
+//
+//	public void removeSubscribedObserver(SearchObserver subscriber) {
+//		subscribers.remove(subscriber);
+//	}
+//	
+	static public void registerSubscribedObserver(SearchObserver subscriber) {
 		subscribers.add(subscriber);
 		subscribers.update(newProperty);
 	}
 
-	public void removeSubscribedObserver(SearchObserver subscriber) {
+	static public void removeSubscribedObserver(SearchObserver subscriber) {
 		subscribers.remove(subscriber);
 	}
 
-	public void notifyAllSubscribedObservers() {
+//	public void notifyAllSubscribedObservers() {
+//		for (int i = 0; i < subscribers.size(); i++) {
+//			SearchObserver subscribers = subscribers.get(i);
+//			subscribers.update(newProperty);
+//		}
+//	}
+	
+	static public void notifyAllSubscribedObservers() {
 		for (int i = 0; i < subscribers.size(); i++) {
 			SearchObserver subscribers = subscribers.get(i);
 			subscribers.update(newProperty);
@@ -42,5 +59,12 @@ public class ConcreteSubscriptionServiceSubject {
 	public void addProperty(Property p) {
 		newProperty.add(p);
 		notifyAllSubscribedObservers();
+	}
+	
+	public static ConcreteSubscriptionServiceSubject getOnlyInstance()
+	{
+		if (onlyInstance == null)
+			onlyInstance = new ConcreteSubscriptionServiceSubject();
+		return onlyInstance;
 	}
 }
