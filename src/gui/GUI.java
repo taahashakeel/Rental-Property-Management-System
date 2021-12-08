@@ -101,7 +101,7 @@ public class GUI extends JFrame {
 		setButtons();
 	}
 
-	private ImageIcon transformImage(ImageIcon image, int w, int h) {
+	protected ImageIcon transformImage(ImageIcon image, int w, int h) {
 		Image imageNew = image.getImage(); // transform it
 		Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
 		ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
