@@ -89,7 +89,10 @@ public class PropertyView extends JPanel{
     gbc.fill = GridBagConstraints.HORIZONTAL;
     propertyLink.add(cityQuadrantLabel, gbc);
 
-    gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
+    gbc = FocusPanel.generateConstraints(0, 1, 2, 1);
+    gbc.weightx = 1;
+    gbc.anchor = GridBagConstraints.EAST;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
     propertyLink.add(furnishedLabel, gbc);
 
     // Add button to current element
