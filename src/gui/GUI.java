@@ -30,8 +30,8 @@ import gui.Login;
 
 import javax.swing.JFrame;
 
-<<<<<<< HEAD
-
+// <<<<<<< HEAD
+/*/
 public class GUI extends JFrame {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
@@ -67,11 +67,15 @@ public class GUI extends JFrame {
 		setVisible(true);
 	}
 
+  public GUI(){
+    this(INIT_WIDTH, INIT_HEIGHT);
+  }
+
 	/**
 	 * Initialize the current GUI window.
 	 *
 	 * This will simply create a window to the provided size.
-	 */
+	 */ /*
 	void initializeMenuGUI() {
 
 		loginButton = new JButton(transformImage(loginIcon, buttonW, buttonH));
@@ -97,7 +101,7 @@ public class GUI extends JFrame {
 		setButtons();
 	}
 
-	private ImageIcon transformImage(ImageIcon image, int w, int h) {
+	protected ImageIcon transformImage(ImageIcon image, int w, int h) {
 		Image imageNew = image.getImage(); // transform it
 		Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
 		ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
@@ -139,17 +143,20 @@ public class GUI extends JFrame {
 					buttonPressed = !buttonPressed; // toggle button pressed
 					if (actionNum == 0) // login
 					{
-						Login();
+            System.out.println("Login clicked");
+						new Login();
 					}
 					else // guest access go straight to guest UI
 					{
-						UnregisteredRenterUI();
+            System.out.println("Guest clicked");
+						new UnregisteredRenterUI();
 					}
 				}
 			}
 		});
 	}
-=======
+// ======= // */
+//*
 public class GUI extends JFrame{
   private static final int INIT_WIDTH = 600;
   private static final int INIT_HEIGHT = 400;
@@ -175,22 +182,22 @@ public class GUI extends JFrame{
    * Initialize the current GUI window.
    *
    * This will simply create a window to the provided size.
-   */
+   */ //*
   private void init(){
     setSize(width, height);
 
-    UnregisteredRenterUI currUI = new UnregisteredRenterUI();
+    FocusPanel currUI = new RegisteredRenterUI();
 
     setCurrentPanel(currUI);
   }
 
   /**
    * Sets the panel to view.
-   */
+   */ //*
   public void setCurrentPanel(FocusPanel panel){
     if(currentPanel != null) remove(currentPanel);
     currentPanel = panel;
     add(currentPanel);
-  }
->>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
+  } //  */
+// >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
