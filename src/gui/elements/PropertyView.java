@@ -17,6 +17,12 @@ package gui.elements;
 
 public class PropertyView extends JPanel{
   // private Property representedProperty;
+  String address;
+  String quadrant;
+  String housingType;
+  boolean furnished;
+  int id;
+
   public PropertyView(){
     super();
   }
@@ -26,4 +32,18 @@ public class PropertyView extends JPanel{
     this.representedProperty = representedProperty;
   }
   // */
+
+  public PropertyView(
+      String address,
+      String quadrant,
+      String housingType,
+      boolean furnished,
+      int id){
+    super();
+    this.address = address;
+    this.quadrant = quadrant;
+    this.housingType = housingType;
+    this.furnished = furnished;
+    this.id = id;
+  }
 }
