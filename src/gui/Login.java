@@ -118,12 +118,12 @@ public class Login extends GUI {
 		loginButton.setBounds(100, 110, 90, 25);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(Color.BLACK);
-		loginButton.addActionListener((ActionListener) new Java_GUI());
+		// loginButton.addActionListener((ActionListener) new Java_GUI());
 		background.add(loginButton);
 	}
 	
 	// Imlementing an action event listener class with conditional statement
-	@Override
+	// @Override
 	public void actionPerformed(ActionEvent e) {
 		String Username = username.getText();
 		String Password1 = password.getText();
