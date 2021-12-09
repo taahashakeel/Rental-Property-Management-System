@@ -45,5 +45,13 @@ public class ButtonListener implements ActionListener{
    */
   public void actionPerformed(ActionEvent evt){
     String id = evt.getActionCommand();
+
+    System.out.println("Pressed: id = " + id);
+
+    switch(id){
+      case(GUI.BACK_BUTTON_ID):
+        mainGui.popHistoryStack();
+        break;
+    }
   }
 }

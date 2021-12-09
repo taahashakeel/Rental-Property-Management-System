@@ -168,6 +168,8 @@ public class GUI extends JFrame{
   private static final int INIT_HEIGHT = 400;
   private static final String title = "Rental Properties";
 
+  protected static final String BACK_BUTTON_ID = "backButton";
+
   private int width;
   private int height;
 
