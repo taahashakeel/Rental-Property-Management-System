@@ -28,6 +28,7 @@ import java.io.File;
 
 import gui.UnregisteredRenterUI;
 import gui.Login;
+import gui.StartUI;
 
 import javax.swing.JFrame;
 
@@ -187,8 +188,13 @@ public class GUI extends JFrame {
 	 */ // *
 	private void init() {
 		setSize(width, height);
+		setTitle("Rental Property Management System");
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // If window is closed, stop the program
+//		setLocationRelativeTo(null); // Makes window open in middle of screen
 
-		FocusPanel currUI = new RegisteredRenterUI();
+//		FocusPanel currUI = new RegisteredRenterUI();
+		FocusPanel currUI = new StartUI();
+
 
 		setCurrentPanel(currUI);
 	}
