@@ -170,6 +170,7 @@ public class GUI extends JFrame{
   private static final String title = "Rental Properties";
 
   protected static final String BACK_BUTTON_ID = "backButton";
+  protected static ButtonListener buttonListener;
 
   private int width;
   private int height;
@@ -184,6 +185,7 @@ public class GUI extends JFrame{
     this.width = width;
     this.height = height;
     panelHistory = new Stack<FocusPanel>();
+    buttonListener = new ButtonListener(this);
     init();
   }
 
@@ -206,10 +208,8 @@ public class GUI extends JFrame{
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
 
-    ButtonListener bl = new ButtonListener(this);
-
     backButton.setActionCommand(BACK_BUTTON_ID);
-    backButton.addActionListener(bl);
+    backButton.addActionListener(buttonListener);
     add(backButton, gbc);
 
     FocusPanel currUI = new RegisteredRenterUI();
