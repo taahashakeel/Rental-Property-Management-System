@@ -33,6 +33,7 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 
 import java.util.Stack;
 
@@ -229,6 +230,7 @@ public class GUI extends JFrame{
     gbc.weighty = 1;
     gbc.fill = GridBagConstraints.BOTH;
     add(panel, gbc);
+    SwingUtilities.updateComponentTreeUI(this);
   }
 
   /**
@@ -245,6 +247,7 @@ public class GUI extends JFrame{
     gbc.fill = GridBagConstraints.BOTH;
     remove(currPanel);
     add(panelHistory.peek(), gbc);
+    SwingUtilities.updateComponentTreeUI(this);
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
