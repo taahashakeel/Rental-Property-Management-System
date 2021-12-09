@@ -200,9 +200,9 @@ public class GUI extends JFrame{
    * Sets the panel to view.
    */ //*
   public void setCurrentPanel(FocusPanel panel){
-    if(currentPanel != null) remove(currentPanel);
-    currentPanel = panel;
-    add(currentPanel);
+    if(!panelHistory.empty()) remove(panelHistory.peek());
+    panelHistory.push(panel);
+    add(panel);
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
