@@ -175,7 +175,7 @@ public class GUI extends JFrame{
     super();
     this.width = width;
     this.height = height;
-    panelHistory = new Stack();
+    panelHistory = new Stack<FocusPanel>();
     init();
   }
 
