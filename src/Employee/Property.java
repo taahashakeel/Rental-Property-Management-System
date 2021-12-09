@@ -1,6 +1,7 @@
 package Employee;
 
 import java.util.ArrayList;
+import BackEnd.DatabaseController;
 
 public class Property {
 
@@ -15,6 +16,7 @@ public class Property {
 	private int propertyFee;
 	private boolean feePaid;
 	private int budget;
+	private String address; 
 	//private String landlordEmail;
 	private int landlordID;
 	 private ArrayList<Property> newProperty;
@@ -63,13 +65,17 @@ public class Property {
 	{
 		return feePaid;
 	}
-	public int getlandlordID()
+	public int getLandlordID()
 	{
 		return landlordID;
 	}
-	public int getbudget()
+	public int getBudget()
 	{
 		return budget;
+	}
+	public String getAddress()
+	{
+		return address;
 	}
 	public void setPropertyID(int propertyID) 
 	{
@@ -112,14 +118,18 @@ public class Property {
 	{
 		this.feePaid = feePaid;
 	}
-	public void setlandlordID(int landlordID) 
+	public void setLandlordID(int landlordID) 
 	{
 		this.landlordID = landlordID;
 	}
 	
-	public void setbudget(int budget)
+	public void setBudget(int budget)
 	{
 		this.budget = budget;
+	}
+	public void getAddress(String address)
+	{
+		this.address = address;
 	}
 	////
 	public void createProperty()
