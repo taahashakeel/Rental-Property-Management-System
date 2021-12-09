@@ -12,6 +12,10 @@ package Renter;
 
 import Services.ConcreteSubscriptionServiceSubject;
 import Services.SubscribedObserver;
+import Services.SearchCriteria;
+import BackEnd.EmailSystem;
+import BackEnd.DatabaseController;
+import Employee.Property;
 
 public class RegisteredRenter
 impliments SubscribedObserver{
@@ -48,10 +52,6 @@ impliments SubscribedObserver{
 		this.password = password;
 	}
 
-	public void createSearchCriteria() {
-		SearchCriteria search = new SearchCriteria();
-	}
-
 	/**
    * Subscribes a registered renter to a specific search criteria.
    *
@@ -76,7 +76,7 @@ impliments SubscribedObserver{
 	   * @return 	a boolean representing if an update email should be sent to the
 	   * 			registered renter.
 	   */
-	public boolean isMatch(Property newProperty)
+		public boolean isMatch(Property newProperty)
 		{
 			if(newProperty.getHouseType() != search.getHouseType())
 				return false;

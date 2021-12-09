@@ -10,7 +10,8 @@
 package Employee;
 
 import java.util.ArrayList;
-
+import BackEnd.EmailSystem;
+import Services.ConcreteSubscriptionServiceSubject;
 public class Landlord {
 
 	private String username;

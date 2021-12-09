@@ -30,6 +30,9 @@ public class SearchCriteria {
 	private int budget;
 
 // Constructors
+
+	public SearchCriteria() {}
+
 	public SearchCriteria(String houseType, int minNumBedrooms, int maxNumBedrooms, int minNumBathrooms,
 			int maxNumBathrooms, boolean ifFurnished, String quadrant, int budget) {
 		super();
@@ -44,7 +47,6 @@ public class SearchCriteria {
 		this.budget = budget;
 		this.isSaved = false;
 	}
-	
 
 	/**
 	 * Changes the search criteria fields
@@ -53,8 +55,8 @@ public class SearchCriteria {
 	 * @param numBedrooms  Min to max range of bedrooms to filter
 	 * @param numBathrooms Min to max range of bathrooms to filter
 	 * @param ifFurnished  Furnished state to filter
-	 * @param quadrant	The desired quadrant of the city to filter
-	 * @param budget the budget to remain under in filtering
+	 * @param quadrant     The desired quadrant of the city to filter
+	 * @param budget       the budget to remain under in filtering
 	 * 
 	 */
 	public void editSearchCriteria(String houseType, int[] numBedrooms, int[] numBathrooms, boolean ifFurnished,
@@ -67,7 +69,7 @@ public class SearchCriteria {
 		setQuadrant(quadrant);
 		setBudget(budget);
 	}
-	
+
 	/**
 	 * Changes the search criteria feilds
 	 *
@@ -75,10 +77,10 @@ public class SearchCriteria {
 	 * @param numBedrooms  Min to max range of bedrooms to filter
 	 * @param numBathrooms Min to max range of bathrooms to filter
 	 * @param ifFurnished  Furnished state to filter
-	 * @param quadrant	The desired quadrant of the city to filter
-	 * @param budget the budget to remain under in filtering
+	 * @param quadrant     The desired quadrant of the city to filter
+	 * @param budget       the budget to remain under in filtering
 	 * 
-	 * @return the  properties that match the search criteria
+	 * @return the properties that match the search criteria
 	 */
 	public ArrayList<Property> searchProperties() {
 		return dbControl.fetchActiveProperty(this.houseType, this.numBedrooms, this.numBathrooms, this.ifFurnished,
