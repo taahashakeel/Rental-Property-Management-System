@@ -39,92 +39,91 @@ import javax.swing.SwingUtilities;
 
 import java.util.Stack;
 
-public class GUI extends JFrame {
-	private static final int INIT_WIDTH = 600;
-	private static final int INIT_HEIGHT = 400;
-	private static final String title = "Rental Properties";
+public class GUI extends JFrame{
+  private static final int INIT_WIDTH = 600;
+  private static final int INIT_HEIGHT = 400;
+  private static final String title = "Rental Properties";
 
-	protected static final String BACK_BUTTON_ID = "backButton";
+  protected static final String BACK_BUTTON_ID = "backButton";
+  protected static ButtonListener buttonListener;
 
-	private int width;
-	private int height;
+  private int width;
+  private int height;
 
-	private GridBagLayout windowLayout;
+  private GridBagLayout windowLayout;
 
-	private Stack<FocusPanel> panelHistory;
-	// panelHistory.peek() would be the panel to display (the top most panel)
+  private Stack<FocusPanel> panelHistory;
+  // panelHistory.peek() would be the panel to display (the top most panel)
 
-	public GUI(int width, int height) {
-		super();
-		this.width = width;
-		this.height = height;
-		panelHistory = new Stack<FocusPanel>();
-		init();
-	}
+  public GUI(int width, int height){
+    super();
+    this.width = width;
+    this.height = height;
+    panelHistory = new Stack<FocusPanel>();
+    buttonListener = new ButtonListener(this);
+    init();
+  }
 
-	public GUI() {
-		this(INIT_WIDTH, INIT_HEIGHT);
-	}
+  public GUI(){
+    this(INIT_WIDTH, INIT_HEIGHT);
+  }
 
-	/**
-	 * Initialize the current GUI window.
-	 *
-	 * This will simply create a window to the provided size.
-	 */ 
-	private void init() {
-		setSize(width, height);
-		setTitle("Rental Property Management System");
-		windowLayout = new GridBagLayout();
-		setLayout(windowLayout);
+  /**
+   * Initialize the current GUI window.
+   *
+   * This will simply create a window to the provided size.
+   */ //*
+  private void init(){
+    setSize(width, height);
+    windowLayout = new GridBagLayout();
+    setLayout(windowLayout);
 
-		// set up back button within main GUI
-		JButton backButton = new JButton("< Back");
-		GridBagConstraints gbc;
-		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    // set up back button within main GUI
+    JButton backButton = new JButton("< Back");
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
 
-		ButtonListener bl = new ButtonListener(this);
+    backButton.setActionCommand(BACK_BUTTON_ID);
+    backButton.addActionListener(buttonListener);
+    add(backButton, gbc);
 
-		backButton.setActionCommand(BACK_BUTTON_ID);
-		backButton.addActionListener(bl);
-		add(backButton, gbc);
+    FocusPanel currUI = new RegisteredRenterUI();
 
-		FocusPanel currUI = new RegisteredRenterUI();
+    setCurrentPanel(currUI);
+    setCurrentPanel(new UnregisteredRenterUI());
+  }
 
-		setCurrentPanel(currUI);
-		setCurrentPanel(new UnregisteredRenterUI());
-	}
+  /**
+   * Sets the panel to view.
+   */ //*
+  protected void setCurrentPanel(FocusPanel panel){
+    if(!panelHistory.empty()) remove(panelHistory.peek());
+    panelHistory.push(panel);
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    gbc.fill = GridBagConstraints.BOTH;
+    add(panel, gbc);
+    SwingUtilities.updateComponentTreeUI(this);
+  }
 
-	/**
-	 * Sets the panel to view.
-	 */
-	protected void setCurrentPanel(FocusPanel panel) {
-		if (!panelHistory.empty())
-			remove(panelHistory.peek());
-		panelHistory.push(panel);
-		GridBagConstraints gbc;
-		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
-		gbc.weightx = 1;
-		gbc.weighty = 1;
-		gbc.fill = GridBagConstraints.BOTH;
-		add(panel, gbc);
-		SwingUtilities.updateComponentTreeUI(this);
-	}
-
-	/**
-	 * Pops panelHistory by one element, and update the display with the next
-	 * element on the stack.
-	 */
-	protected void popHistoryStack() {
-		if (panelHistory.size() < 2)
-			return; // do nothing if no history
-		FocusPanel currPanel = panelHistory.pop();
-		GridBagConstraints gbc;
-		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
-		gbc.weightx = 1;
-		gbc.weighty = 1;
-		gbc.fill = GridBagConstraints.BOTH;
-		remove(currPanel);
-		add(panelHistory.peek(), gbc);
-		SwingUtilities.updateComponentTreeUI(this);
-	}
+  /**
+   * Pops panelHistory by one element, and update the display with the next
+   * element on the stack.
+   */
+  protected void popHistoryStack(){
+    if(panelHistory.size() < 2) return; // do nothing if no history
+    FocusPanel currPanel = panelHistory.pop();
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    gbc.fill = GridBagConstraints.BOTH;
+    remove(currPanel);
+    add(panelHistory.peek(), gbc);
+    SwingUtilities.updateComponentTreeUI(this);
+  } //  */
+// >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
+>>>>>>> ecbc49527552590127e133fb176451c8b02ae41c
 }
