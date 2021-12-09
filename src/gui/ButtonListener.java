@@ -35,4 +35,15 @@ public class ButtonListener extends ActionListener{
   public ButtonListener(GUI mainGui){
     this.mainGui = mainGui;
   }
+
+  /**
+   * Listen for button actions that have been made.
+   *
+   * As all buttons contain an instance of this ButtonListener, this method
+   * will be invoked whenever a button is pressed. As such, this method will
+   * need to determine which button called it and act accordingly.
+   */
+  public void actionPerformed(ActionEvent evt){
+    String id = e.getActionCommand();
+  }
 }
