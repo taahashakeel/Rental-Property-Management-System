@@ -205,7 +205,10 @@ public class GUI extends JFrame{
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
 
+    ButtonListener bl = new ButtonListener(this);
+
     backButton.setActionCommand(BACK_BUTTON_ID);
+    backButton.addActionListener(bl);
     add(backButton, gbc);
 
     FocusPanel currUI = new RegisteredRenterUI();
