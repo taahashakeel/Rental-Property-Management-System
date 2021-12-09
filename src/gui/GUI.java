@@ -198,6 +198,12 @@ public class GUI extends JFrame{
     windowLayout = new GridBagLayout();
     setLayout(windowLayout);
 
+    // set up back button within main GUI
+    JButton backButton = new JButton("< Back");
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    add(backButton, gbc);
+
     FocusPanel currUI = new RegisteredRenterUI();
 
     setCurrentPanel(currUI);
@@ -210,7 +216,9 @@ public class GUI extends JFrame{
   public void setCurrentPanel(FocusPanel panel){
     if(!panelHistory.empty()) remove(panelHistory.peek());
     panelHistory.push(panel);
-    add(panel);
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    add(panel, gbc);
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
