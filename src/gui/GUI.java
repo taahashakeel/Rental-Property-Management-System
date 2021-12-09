@@ -167,7 +167,6 @@ public class GUI extends JFrame{
   private int width;
   private int height;
 
-  private FocusPanel currentPanel;
   private Stack<FocusPanel> panelHistory;
   // panelHistory.peek() would be the panel to display (the top most panel)
 
