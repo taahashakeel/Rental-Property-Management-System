@@ -25,8 +25,8 @@
  */
 package gui;
 
-import java.awt.ActionEvent;
-import java.awt.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Component;
 
 public class ButtonListener extends ActionListener{
@@ -44,6 +44,6 @@ public class ButtonListener extends ActionListener{
    * need to determine which button called it and act accordingly.
    */
   public void actionPerformed(ActionEvent evt){
-    String id = e.getActionCommand();
+    String id = evt.getActionCommand();
   }
 }
