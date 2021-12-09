@@ -1,8 +1,11 @@
 /**
  * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
  * 
- *  @version 1.0
+ *  @version 1.2 added documentation
  *  @since 1.0
+ *  
+ *  This class is used by renters (registred and unregistered) to filter their
+ *  search when searching for properties.
  */
 
 package Services;
@@ -20,30 +23,40 @@ public class SearchCriteria {
 
 	private DatabaseController dbControl;
 	private String houseType;
-	private int []numBedrooms = new int[2]; // saves min and max num bedrooms
-	private int []numBathrooms = new int[2]; // saves min and max num bedrooms
+	private int[] numBedrooms = new int[2]; // saves min and max num bedrooms
+	private int[] numBathrooms = new int[2]; // saves min and max num bedrooms
 	private boolean ifFurnished;
-	private String address;
 	private String quadrant;
 	private int budget;
 
 // Constructors
-	public SearchCriteria(String houseType, int minNumBedrooms,int maxNumBedrooms, int minNumBathrooms, int maxNumBathrooms, boolean ifFurnished, String address, String quadrant,
-			int budget) {
+	public SearchCriteria(String houseType, int minNumBedrooms, int maxNumBedrooms, int minNumBathrooms,
+			int maxNumBathrooms, boolean ifFurnished, String quadrant, int budget) {
 		super();
+		this.dbControl = new DataDatabaseController();
 		this.houseType = houseType;
 		this.numBedrooms[0] = minNumBedrooms;
 		this.numBedrooms[1] = maxNumBedrooms;
 		this.numBathrooms[0] = minNumBathrooms;
 		this.numBathrooms[1] = maxNumBathrooms;
 		this.ifFurnished = ifFurnished;
-		this.address = address;
 		this.quadrant = quadrant;
 		this.budget = budget;
 		this.isSaved = false;
 	}
 
-	public boolean editSearchCriteria(String houseType, int [] numBedrooms, int [] numBathrooms, boolean ifFurnished, String address, 
+	/**
+	 * Changes the search criteria fields
+	 *
+	 * @param houseType    The single type of house to filter
+	 * @param numBedrooms  Min to max range of bedrooms to filter
+	 * @param numBathrooms Min to max range of bathrooms to filter
+	 * @param ifFurnished  Furnished state to filter
+	 * @param quadrant	The desired quadrant of the city to filter
+	 * @param budget the budget to remain under in filtering
+	 * 
+	 */
+	public void editSearchCriteria(String houseType, int[] numBedrooms, int[] numBathrooms, boolean ifFurnished,
 			String quadrant, int budget) {
 		setHouseType(houseType);
 		setNumBedrooms(numBedrooms);
@@ -53,19 +66,22 @@ public class SearchCriteria {
 		setQuadrant(quadrant);
 		setBudget(budget);
 	}
-
+	
+	/**
+	 * Changes the search criteria feilds
+	 *
+	 * @param houseType    The single type of house to filter
+	 * @param numBedrooms  Min to max range of bedrooms to filter
+	 * @param numBathrooms Min to max range of bathrooms to filter
+	 * @param ifFurnished  Furnished state to filter
+	 * @param quadrant	The desired quadrant of the city to filter
+	 * @param budget the budget to remain under in filtering
+	 * 
+	 * @return the  properties that match the search criteria
+	 */
 	public ArrayList<Property> searchProperties() {
 		return dbControl.fetchActiveProperty(this.houseType, this.numBedrooms, this.numBathrooms, this.ifFurnished,
-				this.address, this.quadrant, this.budget);
-	}
-
-// Setters and Getters			 
-	public DatabaseController getDbControl() {
-		return dbControl;
-	}
-
-	public void setDbControl(DatabaseController dbControl) {
-		this.dbControl = dbControl;
+				this.quadrant, this.budget);
 	}
 
 	public String getHouseType() {
@@ -100,14 +116,6 @@ public class SearchCriteria {
 
 	public void setIfFurnished(boolean ifFurnished) {
 		this.ifFurnished = ifFurnished;
-	}
-	
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getQuadrant() {

@@ -20,10 +20,10 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 public class StartUI extends FocusPanel {
-	public StartUI(){
-		    super();
-		    init();
-		  }
+	public StartUI() {
+		super();
+		init();
+	}
 
 	/**
 	 * Initialize the UI for user.
@@ -40,6 +40,7 @@ public class StartUI extends FocusPanel {
 		gbc = generateConstraints(0, 0, 1, 1);
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.weightx = 100;
 		gbc.weighty = 100;
 		add(start, gbc);
 	}

@@ -22,100 +22,100 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
-public class PropertyList<T extends Component> extends JPanel{
-  private ArrayList<T> propertyList;
-  private GridBagLayout panelLayout;
-  private JPanel contentList;
-  private JScrollPane scrollPane;
+public class PropertyList<T extends Component> extends JPanel {
+	private ArrayList<T> propertyList;
+	private GridBagLayout panelLayout;
+	private JPanel contentList;
+	private JScrollPane scrollPane;
 
-  public PropertyList(){
-    super();
-    this.propertyList = new ArrayList<T>();
-    init();
-  }
+	public PropertyList() {
+		super();
+		this.propertyList = new ArrayList<T>();
+		init();
+	}
 
-  public PropertyList(T[] propertyList){
-    super();
-    this.propertyList = new ArrayList<T>();
+	public PropertyList(T[] propertyList) {
+		super();
+		this.propertyList = new ArrayList<T>();
 
-    for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.add(propertyList[index]);
-    }
+		for (int index = 0; index < propertyList.length; index++) {
+			this.propertyList.add(propertyList[index]);
+		}
 
-    init();
-  }
+		init();
+	}
 
-  /**
-   * Updates propertyList with a new array of properties to show.
-   *
-   * @param propertyList A list of buttons representing different properties.
-   */
-  public void updateList(ArrayList<T> propertyList){
-    clear();
-    this.propertyList = propertyList;
-  }
+	/**
+	 * Updates propertyList with a new array of properties to show.
+	 *
+	 * @param propertyList A list of buttons representing different properties.
+	 */
+	public void updateList(ArrayList<T> propertyList) {
+		clear();
+		this.propertyList = propertyList;
+	}
 
-  /**
-   * Updates propertyList with a new array of properties to show.
-   *
-   * @param propertyList A list of buttons representing different properties.
-   */
-  public void updateList(T[] propertyList){
-    clear();
-    this.propertyList = new ArrayList<T>();
+	/**
+	 * Updates propertyList with a new array of properties to show.
+	 *
+	 * @param propertyList A list of buttons representing different properties.
+	 */
+	public void updateList(T[] propertyList) {
+		clear();
+		this.propertyList = new ArrayList<T>();
 
-    for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.add(propertyList[index]);
-    }
-  }
+		for (int index = 0; index < propertyList.length; index++) {
+			this.propertyList.add(propertyList[index]);
+		}
+	}
 
-  /**
-   * Initializes the current property list
-   */
-  private void init(){
-    panelLayout = new GridBagLayout();
-    setLayout(panelLayout);
+	/**
+	 * Initializes the current property list
+	 */
+	private void init() {
+		panelLayout = new GridBagLayout();
+		setLayout(panelLayout);
 
-    // create necessary element
-    contentList = new JPanel();
-    GridBagLayout listLayout = new GridBagLayout();
-    contentList.setLayout(panelLayout);
+		// create necessary element
+		contentList = new JPanel();
+		GridBagLayout listLayout = new GridBagLayout();
+		contentList.setLayout(panelLayout);
 
-    update();
+		update();
 
-    scrollPane = new JScrollPane(contentList);
+		scrollPane = new JScrollPane(contentList);
 
-    // populate elements in their respective containers
-    GridBagConstraints gbc;
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.fill = GridBagConstraints.BOTH;
-    gbc.weightx = 1;
-    gbc.weighty = 1;
-    add(scrollPane, gbc);
-    gbc.weighty = 0;
-  }
+		// populate elements in their respective containers
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 1;
+		gbc.weighty = 1;
+		add(scrollPane, gbc);
+		gbc.weighty = 0;
+	}
 
-  /**
-   * Updates the current list to whatever propertyList is.
-   */
-  private void update(){
-    // add every property to list
-    for(int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++){
-      T currProperty = propertyList.get(propertyPos);
-      GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
+	/**
+	 * Updates the current list to whatever propertyList is.
+	 */
+	private void update() {
+		// add every property to list
+		for (int propertyPos = 0; propertyPos < propertyList.size(); propertyPos++) {
+			T currProperty = propertyList.get(propertyPos);
+			GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
 
-      gbc.fill = GridBagConstraints.HORIZONTAL;
-      gbc.weightx = 0.9;
-      contentList.add(currProperty, gbc);
-    }
-  }
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbc.weightx = 0.9;
+			contentList.add(currProperty, gbc);
+		}
+	}
 
-  /**
-   * Clears current list.
-   */
-  private void clear(){
-    for(T property : propertyList){
-      remove(property);
-    }
-  }
+	/**
+	 * Clears current list.
+	 */
+	private void clear() {
+		for (T property : propertyList) {
+			remove(property);
+		}
+	}
 }

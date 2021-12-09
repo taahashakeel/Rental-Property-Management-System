@@ -15,123 +15,109 @@ public class Property {
 	private int propertyFee;
 	private boolean feePaid;
 	private int budget;
-	//private String landlordEmail;
+	private String landlordEmail;
 	private int landlordID;
-	 private ArrayList<Property> newProperty;
-	
+//	private ArrayList<Property> newProperty;
+
 	private DatabaseController dbControl;
-	
-	public Property(){} 
-	public int getPropertyID()
-	{
+
+	public Property() {
+	}
+
+	public int getPropertyID() {
 		return propertyID;
 	}
-	public String getStatus()
-	{
+
+	public String getStatus() {
 		return status;
 	}
-	public String getHouseType()
-	{
+
+	public String getHouseType() {
 		return houseType;
 	}
-	public int getNumBedrooms()
-	{
+
+	public int getNumBedrooms() {
 		return numBedrooms;
 	}
-	public int getNumBathrooms() 
-	{
+
+	public int getNumBathrooms() {
 		return numBathrooms;
 	}
-	
-	public boolean getIfFurnished()
-	{
+
+	public boolean getIfFurnished() {
 		return ifFurnished;
 	}
-	public String getQuadrant() 
-	{
+
+	public String getQuadrant() {
 		return quadrant;
 	}
-	public int getRentCost() 
-	{
+
+	public int getRentCost() {
 		return rentCost;
 	}
-	public int getPropertyFee()
-	{
+
+	public int getPropertyFee() {
 		return propertyFee;
 	}
-	public boolean getFeePaid()
-	{
+
+	public boolean getFeePaid() {
 		return feePaid;
 	}
-	public int getlandlordID()
-	{
+
+	public int getlandlordID() {
 		return landlordID;
 	}
-	public int getbudget()
-	{
+
+	public int getbudget() {
 		return budget;
 	}
-	public void setPropertyID(int propertyID) 
-	{
+
+	public void setPropertyID(int propertyID) {
 		this.propertyID = propertyID;
 	}
-	public void setStatus(String status)
-	{
+
+	public void setStatus(String status) {
 		this.status = status;
 	}
-	public void setHouseType(String houseType) 
-	{
+
+	public void setHouseType(String houseType) {
 		this.houseType = houseType;
 	}
-	public void setNumBedrooms(int numBedrooms)
-	{
+
+	public void setNumBedrooms(int numBedrooms) {
 		this.numBedrooms = numBedrooms;
 	}
-	public void setNumBathrooms(int numBathrooms)
-	{
+
+	public void setNumBathrooms(int numBathrooms) {
 		this.numBathrooms = numBathrooms;
 	}
-	public void setIfFurnished (boolean ifFurnished)
-	{		
+
+	public void setIfFurnished(boolean ifFurnished) {
 		this.ifFurnished = ifFurnished;
-		
+
 	}
-	public void setQuadrant(String quadrant) 
-	{
+
+	public void setQuadrant(String quadrant) {
 		this.quadrant = quadrant;
 	}
-	public void  setRentCost(int rentCost ) 
-	{
+
+	public void setRentCost(int rentCost) {
 		this.rentCost = rentCost;
 	}
-	public void setPropertyFee(int propertyFee) 
-	{
+
+	public void setPropertyFee(int propertyFee) {
 		this.propertyFee = propertyFee;
 	}
-	public void setFeePaid(boolean feePaid)
-	{
+
+	public void setFeePaid(boolean feePaid) {
 		this.feePaid = feePaid;
 	}
-	public void setlandlordID(int landlordID) 
-	{
+
+	public void setlandlordID(int landlordID) {
 		this.landlordID = landlordID;
 	}
-	
-	public void setbudget(int budget)
-	{
+
+	public void setbudget(int budget) {
 		this.budget = budget;
 	}
-	////
-	public void createProperty()
-	{
-		newProperty = new ArrayList<Property>();
-	}
-	//<---->//
-	public boolean registerProperty(int propertyID, String date)
-	{
-		
-	}
-	
-	
-	
 }

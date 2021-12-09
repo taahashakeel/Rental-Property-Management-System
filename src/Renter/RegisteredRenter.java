@@ -4,6 +4,8 @@
  * 
  *  @version 1.2 added some documentation and finished subscribeToSearch
  *  @since 1.0
+ *  
+ *  
  */
 
 package Renter;
@@ -13,6 +15,7 @@ import Services.SubscribedObserver;
 
 public class RegisteredRenter
 impliments SubscribedObserver{
+	// Observer pattern implimentation
 	private ConcreteSubscriptionServiceSubject renterSubject;
 	private String username;
 	private String password;
@@ -23,9 +26,10 @@ impliments SubscribedObserver{
 	private DatabaseController dbControl;
 	private String RRID;
 
-	public RegisteredRenter(String username, String password) {
+	public RegisteredRenter(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
+		this.dbControl = new DataDatabaseController();
 	}
 
 	public String getUsername() {
@@ -61,7 +65,7 @@ impliments SubscribedObserver{
 		renterSubject.registerSubscribedObserver(this);
 	}
 
-	 /**
+	/**
 	   * Checks if the newProperty added to the database matches the registered
 	   * renters search criteria. If there is a match, the update will continute
 	   * and send an email to the registered renter. 
@@ -99,4 +103,5 @@ impliments SubscribedObserver{
 		if (this.isSubscribed == true && isMatch(newProperty) == true)
 			email.sendEmail(email, newProperty.getLandlordEmail(), newProperty);
 	}
+
 }

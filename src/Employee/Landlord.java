@@ -18,12 +18,14 @@ public class Landlord {
 	private ArrayList<Property> newProperty;
 	private DatabaseController dbControl;
 	private EmailSystem email;
+	private String landlordEmail;
 	private String LLID;
 	private ConcreteSubscriptionServiceSubject subscribed;
 
-	public Landlord(String username, String password) {
+	public Landlord(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
+		this.landlordEmail = email;
 		this.subscribed = ConcreteSubscriptionServiceSubject.getOnlyInstance();
 	}
 
@@ -44,7 +46,16 @@ public class Landlord {
 	}
 
 //<---->//
-	public void changeState(int propertyID) {
+	/**
+	 * Generates grid bag constraints with provided values.
+	 *
+	 * @param propertyID Property id representing the property being changed
+	 * @param state The new state of the property
+	 * 
+	 * @return If state change was successful
+	 */
+	public boolean changeState(int propertyID, String state) {
+		return dbControl.changePropertyState(propertyID, state);
 
 	}
 
@@ -54,17 +65,15 @@ public class Landlord {
 
 	}
 
-	////
+
 	/**
 	 * Landlord creates a a new property. The landlord is prompted to pay 
 	 * a free, if the fee is payed, the property is listed for renters to view.
 	 * For those that are subscribed, they will be notified if the property 
 	 * matches their search criteria
 	 */
-	public void createProperty()
+	public void createProperty(Property newProperty)
 	{
-		Property newProperty = new Property()
-		newProperty = new ArrayList<Property>();
 		dbControl.saveNewProperty(newProperty);
 		subscribed.add(newProperty); // notifies subscribed renters
 	}

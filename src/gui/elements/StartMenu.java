@@ -42,6 +42,7 @@ public class StartMenu extends JPanel {
 
 		panelLayout = new GridBagLayout();
 		setLayout(panelLayout);
+		
 		JButton loginButton = new JButton("Login");
 		JButton guestAccessButton = new JButton("Enter as Guest");
 		
