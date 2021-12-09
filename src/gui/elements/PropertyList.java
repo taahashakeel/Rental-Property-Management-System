@@ -19,24 +19,30 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
 public class PropertyList<T extends Component> extends JPanel{
   private ArrayList<T> propertyList;
   private GridBagLayout panelLayout;
+  private JPanel contentList;
+  private JScrollPane scrollPane;
 
   public PropertyList(){
     super();
     this.propertyList = new ArrayList<T>();
+    init();
   }
 
   public PropertyList(T[] propertyList){
     super();
-    this.propertyList = new ArrayList<T>(propertyList.length);
+    this.propertyList = new ArrayList<T>();
 
     for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.set(index, propertyList[index]);
+      this.propertyList.add(propertyList[index]);
     }
+
+    init();
   }
 
   /**
@@ -56,10 +62,10 @@ public class PropertyList<T extends Component> extends JPanel{
    */
   public void updateList(T[] propertyList){
     clear();
-    this.propertyList = new ArrayList<T>(propertyList.length);
+    this.propertyList = new ArrayList<T>();
 
     for(int index = 0; index < propertyList.length; index++){
-      this.propertyList.set(index, propertyList[index]);
+      this.propertyList.add(propertyList[index]);
     }
   }
 
@@ -69,6 +75,24 @@ public class PropertyList<T extends Component> extends JPanel{
   private void init(){
     panelLayout = new GridBagLayout();
     setLayout(panelLayout);
+
+    // create necessary element
+    contentList = new JPanel();
+    GridBagLayout listLayout = new GridBagLayout();
+    contentList.setLayout(panelLayout);
+
+    update();
+
+    scrollPane = new JScrollPane(contentList);
+
+    // populate elements in their respective containers
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.BOTH;
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    add(scrollPane, gbc);
+    gbc.weighty = 0;
   }
 
   /**
@@ -81,7 +105,8 @@ public class PropertyList<T extends Component> extends JPanel{
       GridBagConstraints gbc = FocusPanel.generateConstraints(0, propertyPos, 1, 1);
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
-      add(currProperty, gbc);
+      gbc.weightx = 0.9;
+      contentList.add(currProperty, gbc);
     }
   }
 

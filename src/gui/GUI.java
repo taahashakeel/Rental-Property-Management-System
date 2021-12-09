@@ -31,46 +31,176 @@ import gui.Login;
 
 import javax.swing.JFrame;
 
-public class GUI extends JFrame{
-  private static final int INIT_WIDTH = 600;
-  private static final int INIT_HEIGHT = 400;
-  private static final String title = "Rental Properties";
+// <<<<<<< HEAD
+/*/
+public class GUI extends JFrame {
+	private static final int INIT_WIDTH = 1000;
+	private static final int INIT_HEIGHT = 800;
 
-  private int width;
-  private int height;
+	private int width;
+	private int height;
 
-  private FocusPanel currentPanel;
+	private Container con;
+	private JLabel background;
+	private JLabel header;
+	private JPanel buttons;
 
-  public GUI(int width, int height){
-    super();
-    this.width = width;
-    this.height = height;
-    init();
-  }
+	private JButton loginButton;
+	private JButton guestAccessButton;
+
+	// background image
+	private ImageIcon backgroundImg = new ImageIcon("./images/backgroundMenu.png");
+
+	// button images
+	private ImageIcon loginIcon = new ImageIcon("./images/loginButton.png");
+	private ImageIcon guestIcon = new ImageIcon("./images/guestButton.png");
+	private int buttonW = 280;
+	private int buttonH = 175;
+
+	// button action flag
+	private boolean buttonPressed = false;
+
+	public GUI(int width, int height) {
+		super();
+		this.width = width;
+		this.height = height;
+		initializeMenuGUI();
+		setVisible(true);
+	}
 
   public GUI(){
     this(INIT_WIDTH, INIT_HEIGHT);
   }
 
-  /**
-   * Initialize the current GUI window.
-   *
-   * This will simply create a window to the provided size.
-   */
-  private void init(){
-    setSize(width, height);
+	/**
+	 * Initialize the current GUI window.
+	 *
+	 * This will simply create a window to the provided size.
+	 */ /*
+				void initializeMenuGUI() {
+				
+				loginButton = new JButton(transformImage(loginIcon, buttonW, buttonH));
+				guestAccessButton = new JButton(transformImage(guestIcon, buttonW, buttonH));
+				
+				buttons = new JPanel();
+				
+				buttons.setOpaque(false);
+				// buttons.setLayout(null);
+				
+				con = getContentPane();
+				
+				getContentPane();
+				// con.add(buttons);
+				
+				setTitle("Rental Property Management System");
+				setSize(width, height);
+				setResizable(false);
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // If window is closed, stop the program
+				setLocationRelativeTo(null); // Makes window open in middle of screen
+				
+				setBackground();
+				setButtons();
+				}
+				
+				protected ImageIcon transformImage(ImageIcon image, int w, int h) {
+				Image imageNew = image.getImage(); // transform it
+				Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
+				ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
+				
+				return newImageIcon;
+				}
+				
+				void setBackground() {
+				background = new JLabel(transformImage(backgroundImg, 1000, 800));
+				background.setLayout(new GridBagLayout());
+				
+				con.add(background);
+				// background.add(buttons);
+				}
+				
+				void setButtons() {
+				setButton(loginButton, 100, 100, buttonW, buttonH);
+				setButton(guestAccessButton, 0, 200, buttonW, buttonH);
+				
+				addButtonListener(loginButton, 0, "login button was pressed!");
+				addButtonListener(guestAccessButton, 1, "guest button was pressed");
+				}
+				
+				void setButton(JButton but, int x, int y, int w, int h) {
+				but.setBounds(x, y, w, h);
+				but.setBorderPainted(false);
+				but.setContentAreaFilled(false);
+				but.setOpaque(false);
+				
+				buttons.add(but);
+				background.add(buttons, new GridBagConstraints());
+				}
+				
+				void addButtonListener(JButton but, int actionNum, String words) { // not working yet
+				but.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						if (!buttonPressed) { // if button has not yet been pressed
+							buttonPressed = !buttonPressed; // toggle button pressed
+							if (actionNum == 0) // login
+							{
+				    System.out.println("Login clicked");
+								new Login();
+							}
+							else // guest access go straight to guest UI
+							{
+				    System.out.println("Guest clicked");
+								new UnregisteredRenterUI();
+							}
+						}
+					}
+				});
+				}
+				// ======= // */
+//*
 
-    UnregisteredRenterUI currUI = new UnregisteredRenterUI();
+public class GUI extends JFrame {
+	private static final int INIT_WIDTH = 600;
+	private static final int INIT_HEIGHT = 400;
+	private static final String title = "Rental Properties";
 
-    setCurrentPanel(currUI);
-  }
+	private int width;
+	private int height;
 
-  /**
-   * Sets the panel to view.
-   */
-  public void setCurrentPanel(FocusPanel panel){
-    if(currentPanel != null) remove(currentPanel);
-    currentPanel = panel;
-    add(currentPanel);
-  }
+	private FocusPanel currentPanel;
+
+	public GUI(int width, int height) {
+		super();
+		this.width = width;
+		this.height = height;
+		init();
+	}
+
+	public GUI() {
+		this(INIT_WIDTH, INIT_HEIGHT);
+	}
+
+	/**
+	 * Initialize the current GUI window.
+	 *
+	 * This will simply create a window to the provided size.
+	 */ // *
+	private void init() {
+		setSize(width, height);
+
+		FocusPanel currUI = new RegisteredRenterUI();
+
+		setCurrentPanel(currUI);
+	}
+
+	/**
+	 * Sets the panel to view.
+	 */ // *
+	public void setCurrentPanel(FocusPanel panel) {
+		if (currentPanel != null)
+			remove(currentPanel);
+		currentPanel = panel;
+		add(currentPanel);
+
+	}
 }

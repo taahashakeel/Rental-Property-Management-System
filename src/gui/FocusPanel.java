@@ -10,7 +10,9 @@ import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public abstract class FocusPanel extends JPanel{
@@ -100,5 +102,16 @@ public abstract class FocusPanel extends JPanel{
     panelConstraints.anchor = (x == 0)? GridBagConstraints.WEST : GridBagConstraints.EAST;
 
     panel.add(widget, panelConstraints);
+  }
+
+  /**
+   * MOVED FROM GUI -- please update documentation when able
+   */
+  protected ImageIcon transformImage(ImageIcon image, int w, int h) {
+    Image imageNew = image.getImage(); // transform it
+    Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
+    ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
+
+    return newImageIcon;
   }
 }

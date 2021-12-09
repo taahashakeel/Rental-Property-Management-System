@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.File;
 import javax.swing.JFrame;
 
-public class Login extends GUI {
+public class Login extends FocusPanel {
 	private static final int INIT_WIDTH = 1000;
 	private static final int INIT_HEIGHT = 800;
 
@@ -68,6 +68,7 @@ public class Login extends GUI {
 
 		buttons.setOpaque(false);
 
+    /*/ actions related to window stuff
 		con = getContentPane();
 
 		getContentPane();
@@ -77,13 +78,14 @@ public class Login extends GUI {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // If window is closed, stop the program
 		setLocationRelativeTo(null); // Makes window open in middle of screen
+    // */
 
 		setBackground();
 		setScreen();
 	}
 
 	
-	@Override
+	// @Override
 	void setBackground() {
 		background = new JLabel(transformImage(backgroundImg, 1000, 800));
 		background.setLayout(new GridBagLayout());
@@ -118,12 +120,12 @@ public class Login extends GUI {
 		loginButton.setBounds(100, 110, 90, 25);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(Color.BLACK);
-		loginButton.addActionListener((ActionListener) new Java_GUI());
+		// loginButton.addActionListener((ActionListener) new Java_GUI());
 		background.add(loginButton);
 	}
 	
 	// Imlementing an action event listener class with conditional statement
-	@Override
+	// @Override
 	public void actionPerformed(ActionEvent e) {
 		String Username = username.getText();
 		String Password1 = password.getText();
