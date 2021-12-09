@@ -1,6 +1,7 @@
 package Renter;
 
-import Employee.ConcreteSubscriptionServiceSubject;
+import Services.ConcreteSubscriptionServiceSubject;
+import Services.SearchCriteria;
 
 public class RegisteredRenter {
 	
