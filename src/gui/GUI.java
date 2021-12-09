@@ -239,7 +239,7 @@ public class GUI extends JFrame{
     gbc.weighty = 1;
     gbc.fill = GridBagConstraints.BOTH;
     remove(currPanel);
-    add(panelHistory.peek());
+    add(panelHistory.peek(), gbc);
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
