@@ -1,4 +1,7 @@
 package Renter;
+import Services.SearchCriteria;
+import BackEnd.DatabaseController;
+import BackEnd.EmailSystem;
 
 public class UnregisteredRenter {
 

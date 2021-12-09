@@ -27,6 +27,10 @@ public class SearchCriteria {
 	private int budget;
 
 // Constructors
+	public SearchCriteria()
+	{
+		
+	}
 	public SearchCriteria(String houseType, int numBedrooms, int numBathrooms, boolean ifFurnished, String quadrant,
 			int budget) {
 		super();

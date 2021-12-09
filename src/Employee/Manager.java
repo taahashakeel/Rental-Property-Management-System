@@ -1,6 +1,8 @@
 package Employee;
 
 import java.util.ArrayList;
+//FeeController?
+import BackEnd.DatabaseController;
 public class Manager {
 
 	private String username;
