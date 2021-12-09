@@ -215,7 +215,7 @@ public class GUI extends JFrame{
   /**
    * Sets the panel to view.
    */ //*
-  public void setCurrentPanel(FocusPanel panel){
+  protected void setCurrentPanel(FocusPanel panel){
     if(!panelHistory.empty()) remove(panelHistory.peek());
     panelHistory.push(panel);
     GridBagConstraints gbc;
@@ -230,7 +230,7 @@ public class GUI extends JFrame{
    * Pops panelHistory by one element, and update the display with the next
    * element on the stack.
    */
-  public void popHistoryStack(){
+  protected void popHistoryStack(){
     if(panelHistory.size() < 2) return; // do nothing if no history
     FocusPanel currPanel = panelHistory.pop();
     GridBagConstraints gbc;
