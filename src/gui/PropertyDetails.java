@@ -31,4 +31,12 @@ public class PropertyDetails extends FocusPanel{
     this.propertyRep = propertyRep;
     init();
   } // */
+
+  /**
+   * Initializes the current property details panel.
+   *
+   * This panel displays all information about a selected property
+   */
+  private void init(){
+  }
 }
