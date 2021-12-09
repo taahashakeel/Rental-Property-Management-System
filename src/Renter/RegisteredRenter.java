@@ -2,6 +2,10 @@ package Renter;
 
 import Services.ConcreteSubscriptionServiceSubject;
 import Services.SearchCriteria;
+import BackEnd.EmailSystem;
+import BackEnd.DatabaseController;
+import Employee.Property;
+
 
 public class RegisteredRenter {
 	
@@ -21,7 +25,8 @@ public class RegisteredRenter {
 
 		public RegisteredRenter(String username, String password)
 		{
-			
+			this.username = username;
+			this.password = password;
 		}
 
 		 public String getUsername() 
@@ -57,7 +62,7 @@ public class RegisteredRenter {
 			ConcreteSubscriptionServiceSubject
 
 		}
-		//<---->//
+	
 		public boolean isMatch(Property newProperty)
 		{
 			if(newProperty.getHouseType() != search.getHouseType())
@@ -97,6 +102,6 @@ public class RegisteredRenter {
 		public void update(Property newProperty)
 		{
 			if (this.isSubscribed == true && isMatch(newProperty) == true)
-				sendEmail(email, newProperty.getLandlordEmail(), newProperty);
+				sendEmail(email, newProperty.getLandlordID(), newProperty);
 		}
 }
