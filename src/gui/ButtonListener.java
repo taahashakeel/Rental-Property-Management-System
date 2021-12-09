@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
 
-public class ButtonListener extends ActionListener{
+public class ButtonListener implements ActionListener{
   private GUI mainGui;
 
   public ButtonListener(GUI mainGui){
