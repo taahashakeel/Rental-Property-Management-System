@@ -194,6 +194,7 @@ public class GUI extends JFrame{
     FocusPanel currUI = new RegisteredRenterUI();
 
     setCurrentPanel(currUI);
+    setCurrentPanel(new UnregisteredRenterUI());
   }
 
   /**
