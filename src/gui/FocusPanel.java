@@ -23,10 +23,6 @@ public abstract class FocusPanel extends JPanel{
 
   public FocusPanel(){
     super();
-
-    panelConstraints = new GridBagConstraints();
-    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
-    panelConstraints.fill = GridBagConstraints.BOTH;
   }
 
   /**
@@ -40,6 +36,15 @@ public abstract class FocusPanel extends JPanel{
    * @return The grid bag constraints to add the widget with or modify
    */
   public static GridBagConstraints generateConstraints(int x, int y, int w, int h){
+    panelConstraints = new GridBagConstraints();
+    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+    panelConstraints.fill = GridBagConstraints.BOTH;
+
+    panelConstraints.gridx = x;
+    panelConstraints.gridy = y;
+    panelConstraints.gridwidth = w;
+    panelConstraints.gridheight = h;
+
     panelConstraints.gridx = x;
     panelConstraints.gridy = y;
     panelConstraints.gridwidth = w;
@@ -59,6 +64,9 @@ public abstract class FocusPanel extends JPanel{
    * @param h The height of the widget.
    */
   public void addWidget(Component widget, int x, int y, int w, int h){
+    panelConstraints = new GridBagConstraints();
+    panelConstraints.insets = new Insets(PADDING, PADDING, PADDING, PADDING);
+    panelConstraints.fill = GridBagConstraints.BOTH;
     panelConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
 
     panelConstraints.gridx = x;
@@ -95,11 +103,6 @@ public abstract class FocusPanel extends JPanel{
       int w,
       int h,
       GridBagLayout panelLayout){
-    panelConstraints.gridx = x;
-    panelConstraints.gridy = y;
-    panelConstraints.gridwidth = w;
-    panelConstraints.gridheight = h;
-
     panelConstraints.anchor = (x == 0)? GridBagConstraints.WEST : GridBagConstraints.EAST;
 
     panel.add(widget, panelConstraints);

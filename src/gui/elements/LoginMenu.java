@@ -81,7 +81,6 @@ public class LoginMenu extends JPanel {
 		add(loginButton, gbc);
 
 	}
-//
 //	/**
 //	 * Creates action listeners for the actions on the login menu
 //	 *

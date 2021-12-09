@@ -24,7 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
-  // private Property representedProperty;
+  // private Property propertyRep;
   String address;
   String quadrant;
   String housingType;
@@ -37,11 +37,10 @@ public class PropertyView extends JPanel{
   }
 
   /*/
-  public PropertyView(Property representedProperty){
-    this.representedProperty = representedProperty;
+  public PropertyView(Property propertyRep){
+    this.propertyRep = propertyRep;
     init();
-  }
-  // */
+  } // */
 
   public PropertyView(
       String address,
