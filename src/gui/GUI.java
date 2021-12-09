@@ -204,14 +204,14 @@ public class GUI extends JFrame{
     JButton backButton = new JButton("< Back");
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+
+    backButton.setActionCommand(BACK_BUTTON_ID);
     add(backButton, gbc);
 
     FocusPanel currUI = new RegisteredRenterUI();
 
     setCurrentPanel(currUI);
     setCurrentPanel(new UnregisteredRenterUI());
-
-    popHistoryStack();
   }
 
   /**
