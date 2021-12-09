@@ -30,6 +30,8 @@ import gui.Login;
 
 import javax.swing.JFrame;
 
+import java.util.Stack;
+
 // <<<<<<< HEAD
 /*/
 public class GUI extends JFrame {
@@ -166,11 +168,14 @@ public class GUI extends JFrame{
   private int height;
 
   private FocusPanel currentPanel;
+  private Stack<FocusPanel> panelHistory;
+  // panelHistory.peek() would be the panel to display (the top most panel)
 
   public GUI(int width, int height){
     super();
     this.width = width;
     this.height = height;
+    panelHistory = new Stack();
     init();
   }
 
