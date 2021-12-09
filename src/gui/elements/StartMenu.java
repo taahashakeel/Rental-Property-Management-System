@@ -10,6 +10,7 @@
  */
 
 package gui.elements;
+
 import gui.FocusPanel;
 import gui.ButtonListener;
 import gui.GUI;
@@ -28,7 +29,9 @@ import javax.swing.JTextField;
 
 public class StartMenu extends JPanel {
 	private GridBagLayout panelLayout;
-	public static final String LOGIN_BUTTON_ID = "loginButton0";
+	public static final String RENTER_BUTTON_ID = "loginRenterButton";
+	public static final String LANDLORD_BUTTON_ID = "loginLandlordButton";
+	public static final String MANAGER_BUTTON_ID = "loginManagerButton";
 	public static final String GUEST_BUTTON_ID = "guestButton";
 
 	public StartMenu() {
@@ -44,7 +47,9 @@ public class StartMenu extends JPanel {
 		panelLayout = new GridBagLayout();
 		setLayout(panelLayout);
 
-		JButton loginButton = new JButton("Login");
+		JButton loginRenterButton = new JButton("Renter Login");
+		JButton loginLandlordButton = new JButton("Landlord Login");
+		JButton loginManagerButton = new JButton("Manager Login");
 		JButton guestAccessButton = new JButton("Enter as Guest");
 
 		JLabel title = new JLabel("Rental Property Management System");
@@ -56,23 +61,32 @@ public class StartMenu extends JPanel {
 		gbc = FocusPanel.generateConstraints(0, 0, 10, 5);
 		add(title, gbc);
 
-		// Adding button
+		// Adding buttons
 		gbc = FocusPanel.generateConstraints(0, 6, 1, 1);
-		add(loginButton, gbc);
-
+		add(loginRenterButton, gbc);
 		gbc = FocusPanel.generateConstraints(1, 6, 1, 1);
+		add(loginLandlordButton, gbc);
+		gbc = FocusPanel.generateConstraints(2, 6, 1, 1);
+		add(loginManagerButton, gbc);
+		gbc = FocusPanel.generateConstraints(3, 6, 1, 1);
 		add(guestAccessButton, gbc);
 	}
 
 	/**
-	 * Creates action listeners for the buttons on the start menu
+	 * Creates action listeners for the 4 buttons on the start menu
 	 *
 	 * @param startMenuListener
 	 * 
 	 */
 	public void setStartMenuListener() {
-		loginButton.setActionCommand(LOGIN_BUTTON_ID);
-		loginButton.setActionListener(GUI.buttonListener);
+		loginRenterButton.setActionCommand(RENTER_BUTTON_ID);
+		loginRenterButton.setActionListener(GUI.buttonListener);
+		
+		loginLandlordButton.setActionCommand(LANDLORD_BUTTON_ID);
+		loginLandlordButton.setActionListener(GUI.buttonListener);
+		
+		loginManagerButton.setActionCommand(MANAGER_BUTTON_ID);
+		loginManagerButton.setActionListener(GUI.buttonListener);
 
 		guestAccessButton.setActionCommand(GUEST_BUTTON_ID);
 		guestAccessButton.setActionListener(GUI.buttonListener);

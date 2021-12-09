@@ -45,7 +45,7 @@ public class GUI extends JFrame{
   private static final String title = "Rental Properties";
 
   protected static final String BACK_BUTTON_ID = "backButton";
-  protected static ButtonListener buttonListener;
+  public static ButtonListener buttonListener;
 
   private int width;
   private int height;
@@ -87,10 +87,10 @@ public class GUI extends JFrame{
     backButton.addActionListener(buttonListener);
     add(backButton, gbc);
 
-    FocusPanel currUI = new RegisteredRenterUI();
+    FocusPanel currUI = new StartUI();
 
-    setCurrentPanel(currUI);
-    setCurrentPanel(new UnregisteredRenterUI());
+//    setCurrentPanel(currUI);
+//    setCurrentPanel(new UnregisteredRenterUI());
   }
 
   /**
@@ -123,7 +123,5 @@ public class GUI extends JFrame{
     remove(currPanel);
     add(panelHistory.peek(), gbc);
     SwingUtilities.updateComponentTreeUI(this);
-  } //  */
-// >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
->>>>>>> ecbc49527552590127e133fb176451c8b02ae41c
+  } // 
 }
