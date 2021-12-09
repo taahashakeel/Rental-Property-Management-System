@@ -27,12 +27,12 @@ import javax.swing.JTextField;
 
 public class StartMenu extends JPanel {
 	private GridBagLayout panelLayout;
-
+	public static final String LOGIN_BUTTON_ID = "loginButton0";
+	public static final String GUEST_BUTTON_ID = "guestButton";
 
 	public StartMenu() {
 		super();
 		init();
-		setVisible(true);
 	}
 
 	/**
@@ -42,27 +42,38 @@ public class StartMenu extends JPanel {
 
 		panelLayout = new GridBagLayout();
 		setLayout(panelLayout);
-		
+
 		JButton loginButton = new JButton("Login");
 		JButton guestAccessButton = new JButton("Enter as Guest");
-		
-		JLabel title = new JLabel("Rental Property Management System", JLabel.CENTER);
-//		title.setForeground(Color.black);
-//		title.setBounds(125, 120, 350, 40);
-//		title.setFont(new Font("Avenir", Font.PLAIN, 12)); 
 
-		// place items within a 5-column grid.
+		JLabel title = new JLabel("Rental Property Management System");
+
+		// place items on grid.
 		GridBagConstraints gbc;
-		
+
 		// Title
-	    gbc = FocusPanel.generateConstraints(0, 0, 10, 20);
-	    add(title, gbc);
-	    
-		// Search and possibly subscribe buttons
-		gbc = FocusPanel.generateConstraints(0, 1, 5, 3);
+		gbc = FocusPanel.generateConstraints(0, 0, 10, 5);
+		add(title, gbc);
+
+		// Adding button
+		gbc = FocusPanel.generateConstraints(0, 6, 1, 1);
 		add(loginButton, gbc);
 
-		gbc = FocusPanel.generateConstraints(1, 1, 5, 3);
+		gbc = FocusPanel.generateConstraints(1, 6, 1, 1);
 		add(guestAccessButton, gbc);
 	}
+
+//	/**
+//	 * Creates action listeners for the buttons on the start menu
+//	 *
+//	 * @param startMenuListener
+//	 * 
+//	 */
+//	public void setStartMenuListener(ButtonListener startMenuListener) {
+//		loginButton.setActionCommand(LOGIN_BUTTON_ID);
+//		loginButton.setActionListener(startMenuListener);
+//
+//		guestAccessButton.setActionCommand(GUEST_BUTTON_ID);
+//		guestAccessButton.setActionListener(startMenuListener);
+//	}
 }

@@ -185,7 +185,7 @@ public class GUI extends JFrame {
 	 * Initialize the current GUI window.
 	 *
 	 * This will simply create a window to the provided size.
-	 */ // *
+	 */ 
 	private void init() {
 		setSize(width, height);
 		setTitle("Rental Property Management System");
@@ -193,7 +193,8 @@ public class GUI extends JFrame {
 //		setLocationRelativeTo(null); // Makes window open in middle of screen
 
 //		FocusPanel currUI = new RegisteredRenterUI();
-		FocusPanel currUI = new StartUI();
+//		FocusPanel currUI = new StartUI();
+		FocusPanel currUI = new Login();
 
 
 		setCurrentPanel(currUI);

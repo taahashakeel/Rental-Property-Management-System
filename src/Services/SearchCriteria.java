@@ -44,6 +44,7 @@ public class SearchCriteria {
 		this.budget = budget;
 		this.isSaved = false;
 	}
+	
 
 	/**
 	 * Changes the search criteria fields

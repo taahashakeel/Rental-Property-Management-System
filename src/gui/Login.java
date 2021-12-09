@@ -4,21 +4,16 @@
  *  @version 1.0
  *  @since 1.0
  */
-
 package gui;
 
+import gui.elements.LoginMenu;
+
 import java.awt.Component;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.concurrent.Flow;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
-import javax.swing.JComponent;
-import javax.tools.StandardJavaFileManager.PathFactory;
-import javax.imageio.ImageIO;
-import java.io.IOException;
-import java.io.File;
-import javax.swing.JFrame;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+import javax.swing.JButton;
 
 public class Login extends FocusPanel {
 //	private static final int INIT_WIDTH = 1000;
@@ -135,5 +130,30 @@ public class Login extends FocusPanel {
 //		else
 //			JOptionPane.showMessageDialog(null, "Username or Password mismatch ");
 //	}
+	
+	public Login() {
+		super();
+		init();
+	}
+
+	/**
+	 * Initialize the UI for user.
+	 */
+	public void init() {
+		panelLayout = new GridBagLayout();
+		setLayout(panelLayout);
+
+		// Create necessary elements
+		LoginMenu loginPanel = new LoginMenu();
+
+		// populate window assuming a 4-column, 5-row grid.
+		GridBagConstraints gbc;
+		gbc = generateConstraints(0, 0, 1, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.weightx = 100;
+		gbc.weighty = 100;
+		add(loginPanel, gbc);
+	}
 
 }
