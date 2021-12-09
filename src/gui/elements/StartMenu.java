@@ -46,7 +46,7 @@ public class StartMenu extends JPanel {
 		JButton loginButton = new JButton("Login");
 		JButton guestAccessButton = new JButton("Enter as Guest");
 		
-		Jlabel title = new JLabel("Rental Property Management System" + date, JLabel.CENTER);
+		JLabel title = new JLabel("Rental Property Management System", JLabel.CENTER);
 //		title.setForeground(Color.black);
 //		title.setBounds(125, 120, 350, 40);
 //		title.setFont(new Font("Avenir", Font.PLAIN, 12)); 
