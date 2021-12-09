@@ -208,6 +208,8 @@ public class GUI extends JFrame{
 
     setCurrentPanel(currUI);
     setCurrentPanel(new UnregisteredRenterUI());
+
+    popHistoryStack();
   }
 
   /**
