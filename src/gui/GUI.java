@@ -218,6 +218,9 @@ public class GUI extends JFrame{
     panelHistory.push(panel);
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    gbc.fill = GridBagConstraints.BOTH;
     add(panel, gbc);
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
