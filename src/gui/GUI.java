@@ -28,7 +28,11 @@ import java.io.File;
 import gui.UnregisteredRenterUI;
 import gui.Login;
 
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+
 import javax.swing.JFrame;
+import javax.swing.JButton;
 
 import java.util.Stack;
 
@@ -167,6 +171,8 @@ public class GUI extends JFrame{
   private int width;
   private int height;
 
+  private GridBagLayout windowLayout;
+
   private Stack<FocusPanel> panelHistory;
   // panelHistory.peek() would be the panel to display (the top most panel)
 
@@ -189,6 +195,8 @@ public class GUI extends JFrame{
    */ //*
   private void init(){
     setSize(width, height);
+    windowLayout = new GridBagLayout();
+    setLayout(windowLayout);
 
     FocusPanel currUI = new RegisteredRenterUI();
 
