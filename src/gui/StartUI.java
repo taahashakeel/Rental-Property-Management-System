@@ -38,8 +38,8 @@ public class StartUI extends FocusPanel {
 		// populate window assuming a 4-column, 5-row grid.
 		GridBagConstraints gbc;
 		gbc = generateConstraints(0, 0, 1, 1);
-		gbc.fill = GridBagConstraints.VERTICAL;
-		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.weighty = 100;
 		add(start, gbc);
 	}
