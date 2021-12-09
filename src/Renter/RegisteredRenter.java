@@ -17,7 +17,7 @@ import BackEnd.EmailSystem;
 import BackEnd.DatabaseController;
 import Employee.Property;
 
-public class RegisteredRenter impliments SubscribedObserver{
+public class RegisteredRenter implements SubscribedObserver{
 
 	// Observer pattern implimentation
 	private ConcreteSubscriptionServiceSubject renterSubject;
