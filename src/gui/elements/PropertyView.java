@@ -25,11 +25,11 @@ import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
   // private Property propertyRep;
-  String address;
-  String quadrant;
-  String housingType;
-  boolean furnished;
-  int id;
+  private String address;
+  private String quadrant;
+  private String housingType;
+  private boolean furnished;
+  private int id;
 
   public PropertyView(){
     super();
