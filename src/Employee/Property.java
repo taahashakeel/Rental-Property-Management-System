@@ -5,7 +5,7 @@ import BackEnd.DatabaseController;
 
 public class Property {
 
-	private int propertyID;
+	private String propertyID;
 	private String status;
 	private String houseType;
 	private int numBedrooms;
@@ -26,7 +26,7 @@ public class Property {
 	public Property() {
 	}
 
-	public int getPropertyID() {
+	public String getPropertyID() {
 		return propertyID;
 	}
 
@@ -78,7 +78,7 @@ public class Property {
 	{
 		return address;
 	}
-	public void setPropertyID(int propertyID) 
+	public void setPropertyID(String propertyID) 
 	{
 		this.propertyID = propertyID;
 	}
@@ -139,9 +139,8 @@ public class Property {
 		newProperty = new ArrayList<Property>();
 	}
 	//<---->//
-	public boolean registerProperty(int propertyID, String date)
+	public boolean registerProperty(String propertyID, String state)
 	{
-		
 	}
 	
 }

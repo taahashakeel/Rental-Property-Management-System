@@ -55,7 +55,7 @@ public class Landlord {
 	 * 
 	 * @return If state change was successful
 	 */
-	public boolean changeState(int propertyID, String state) {
+	public boolean changeState(String propertyID, String state) {
 		return dbControl.changePropertyState(propertyID, state);
 
 	}

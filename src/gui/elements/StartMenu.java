@@ -10,8 +10,9 @@
  */
 
 package gui.elements;
-
 import gui.FocusPanel;
+import gui.ButtonListener;
+import gui.GUI;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -63,17 +64,17 @@ public class StartMenu extends JPanel {
 		add(guestAccessButton, gbc);
 	}
 
-//	/**
-//	 * Creates action listeners for the buttons on the start menu
-//	 *
-//	 * @param startMenuListener
-//	 * 
-//	 */
-//	public void setStartMenuListener(ButtonListener startMenuListener) {
-//		loginButton.setActionCommand(LOGIN_BUTTON_ID);
-//		loginButton.setActionListener(startMenuListener);
-//
-//		guestAccessButton.setActionCommand(GUEST_BUTTON_ID);
-//		guestAccessButton.setActionListener(startMenuListener);
-//	}
+	/**
+	 * Creates action listeners for the buttons on the start menu
+	 *
+	 * @param startMenuListener
+	 * 
+	 */
+	public void setStartMenuListener() {
+		loginButton.setActionCommand(LOGIN_BUTTON_ID);
+		loginButton.setActionListener(GUI.buttonListener);
+
+		guestAccessButton.setActionCommand(GUEST_BUTTON_ID);
+		guestAccessButton.setActionListener(GUI.buttonListener);
+	}
 }

@@ -11,8 +11,9 @@
  */
 
 package gui.elements;
-
 import gui.FocusPanel;
+import gui.ButtonListener;
+import gui.GUI;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -81,20 +82,21 @@ public class LoginMenu extends JPanel {
 		add(loginButton, gbc);
 
 	}
-//	/**
-//	 * Creates action listeners for the actions on the login menu
-//	 *
-//	 * @param startMenuListener
-//	 * 
-//	 */
-//	public void setLoginListener(ButtonListener loginListener) {
-//		usernameFeild.setActionCommand(USERNAME_INPUT_ID);
-//		usernameFeild.setActionListener(startMenuListener);
-//		
-//		passwordFeild.setActionCommand(PASSWORD_INPUT_ID);
-//		passwordFeild.setActionListener(startMenuListener);
-//	
-//		loginButton.setActionCommand(LOGIN_BUTTON_ID);
-//		loginButton.setActionListener(startMenuListener);
-//	}
+	
+	/**
+	 * Creates action listeners for the actions on the login menu
+	 *
+	 * @param startMenuListener
+	 * 
+	 */
+	public void setLoginListener() {
+		usernameFeild.setActionCommand(USERNAME_INPUT_ID);
+		usernameFeild.setActionListener(GUI.buttonListener);
+		
+		passwordFeild.setActionCommand(PASSWORD_INPUT_ID);
+		passwordFeild.setActionListener(GUI.buttonListener);
+	
+		loginButton.setActionCommand(LOGIN_BUTTON_ID);
+		loginButton.setActionListener(GUI.buttonListener);
+	}
 }
