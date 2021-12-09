@@ -222,6 +222,22 @@ public class GUI extends JFrame{
     gbc.weighty = 1;
     gbc.fill = GridBagConstraints.BOTH;
     add(panel, gbc);
+  }
+
+  /**
+   * Pops panelHistory by one element, and update the display with the next
+   * element on the stack.
+   */
+  public void popHistoryStack(){
+    if(panelHistory.size() < 2) return; // do nothing if no history
+    FocusPanel currPanel = panelHistory.pop();
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    gbc.fill = GridBagConstraints.BOTH;
+    remove(currPanel);
+    add(panelHistory.peek());
   } //  */
 // >>>>>>> 488ba39a7b6585ae98ed43c0340835d385e600da
 }
