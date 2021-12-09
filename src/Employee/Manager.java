@@ -47,9 +47,11 @@ public class Manager {
 		
 	}
 	//<---->//
-	public void changeState(int propertyID) 
+	public boolean changeState(int StringID, String state)
+ 
 	{
-		
+		return dbControl.changePropertyState(propertyID, state);
+	
 	}
 	
 }
