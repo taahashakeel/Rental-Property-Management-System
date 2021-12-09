@@ -18,9 +18,17 @@
 package gui;
 
 public class PropertyDetails extends FocusPanel{
-  // private Property focusProperty;
+  // private Property propertyRep;
 
+  // this empty constructor should not need to exist.
   public PropertyDetails(){
     super();
-  }
+  } // */
+
+  /*/ this is the constructor that is needed
+  public PropertyDetails(Property propertyRep){
+    super();
+    this.propertyRep = propertyRep;
+    init();
+  } // */
 }
