@@ -9,7 +9,8 @@ public class Manager {
 	private String password;
 	private FeeController feeControl;
 	private DatabaseController dbControl;
-	private ArrayList <Property> arrayProperty = new ArrayList<Property>();
+	private ArrayList <Property> properties = new ArrayList<Property>();
+	
 	public Manager() 
 	{
 		
@@ -46,12 +47,17 @@ public class Manager {
 		return arrayProperty;
 		
 	}
-	//<---->//
-	public boolean changeState(int StringID, String state)
- 
-	{
-		return dbControl.changePropertyState(propertyID, state);
 	
+	/**
+	 * Generates grid bag constraints with provided values.
+	 *
+	 * @param propertyID Property id representing the property being changed
+	 * @param state The new state of the property
+	 * 
+	 * @return If state change was successful
+	 */
+	public boolean changeState(String propertyID, String state) {
+		return dbControl.changePropertyState(propertyID, state);
 	}
 	
 }
