@@ -217,6 +217,7 @@ public class GUI extends JFrame{
     setCurrentPanel(currUI);
     setCurrentPanel(new UnregisteredRenterUI());
     setCurrentPanel(new LandlordUI());
+    setCurrentPanel(new ManagerUI());
   }
 
   /**
