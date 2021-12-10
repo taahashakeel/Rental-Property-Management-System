@@ -29,29 +29,66 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
 
-public class ButtonListener implements ActionListener{
-  private GUI mainGui;
+// button listener imports
+import gui.elements.StartMenu;
+import gui.elements.LoginMenu;
 
-  public ButtonListener(GUI mainGui){
-    this.mainGui = mainGui;
-  }
+//import BackEnd.DatabaseController;
 
-  /**
-   * Listen for button actions that have been made.
-   *
-   * As all buttons contain an instance of this ButtonListener, this method
-   * will be invoked whenever a button is pressed. As such, this method will
-   * need to determine which button called it and act accordingly.
-   */
-  public void actionPerformed(ActionEvent evt){
-    String id = evt.getActionCommand();
+public class ButtonListener implements ActionListener {
+	private GUI mainGui;
+	private String userType;
+//	private DatabaseController dbConnect;
 
-    System.out.println("Pressed: id = " + id);
+	public ButtonListener(GUI mainGui) {
+		this.mainGui = mainGui;
+	}
 
-    switch(id){
-      case(GUI.BACK_BUTTON_ID):
-        mainGui.popHistoryStack();
-        break;
-    }
-  }
+	/**
+	 * Listen for button actions that have been made.
+	 *
+	 * As all buttons contain an instance of this ButtonListener, this method will
+	 * be invoked whenever a button is pressed. As such, this method will need to
+	 * determine which button called it and act accordingly.
+	 */
+	public void actionPerformed(ActionEvent evt) {
+		String id = evt.getActionCommand();
+
+		System.out.println("Pressed: id = " + id);
+
+		switch (id) {
+		case (GUI.BACK_BUTTON_ID):
+			mainGui.popHistoryStack();
+			break;
+		case (StartMenu.RENTER_BUTTON_ID):
+			userType = "renter";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.LANDLORD_BUTTON_ID):
+			userType = "landlord";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.MANAGER_BUTTON_ID):
+			userType = "manager";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.GUEST_BUTTON_ID):
+			userType = "guest";
+			mainGui.setCurrentPanel(new UnregisteredRenterUI());
+			break;
+		case (LoginMenu.LOGIN_BUTTON_ID):
+			String username = LoginMenu.getUsernameField();
+			System.out.println("Username: " + username);
+			String password = LoginMenu.getPasswordField();
+			System.out.println("Password: " + password);
+			if (userType == "renter" && ) {
+				mainGui.setCurrentPanel(new RegisteredRenterUI());
+//			} else if (userType == "landlord") {
+				mainGui.setCurrentPanel(new LandlordUI());
+			} else if (userType == "manager") {
+//				mainGui.setCurrentPanel(new ManagerUI());
+			}
+			break;
+		}
+	}
 }

@@ -130,9 +130,11 @@ public class Login extends FocusPanel {
 //		else
 //			JOptionPane.showMessageDialog(null, "Username or Password mismatch ");
 //	}
+	private String loginType;
 	
-	public Login() {
+	public Login(String loginType) {
 		super();
+		this.loginType = loginType;
 		init();
 	}
 
