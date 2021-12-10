@@ -2,10 +2,10 @@
  * @author Ethan Sengsavang
  * <a href="mailto:ethan.sengsavang@ucalgary.ca">email</a>
  *
- * The user interface landlords will use to use the Rental Property Management
+ * The user interface managers will use to use the Rental Property Management
  * System.
  *
- * This UI should allow Landlords to create properties and view existing
+ * This UI should allow Managers to create properties and view existing
  * property details.
  */
 package gui;
@@ -16,10 +16,10 @@ import gui.elements.PropertyEdit;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
-public class LandlordUI extends FocusPanel{
-  // private Landlord userRepresentation;
+public class ManagerUI extends FocusPanel{
+  // private Manager userRepresentation;
 
-  public LandlordUI(){
+  public ManagerUI(){
     super();
     init();
   }
