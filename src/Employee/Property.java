@@ -137,10 +137,5 @@ public class Property {
 	{
 //		newProperty = new ArrayList<Property>();
 	}
-	//<---->//
-//	public boolean registerProperty(String propertyID, String state)
-//	{
-//		
-//	}
 	
 }

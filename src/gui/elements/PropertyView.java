@@ -25,12 +25,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
-  // private Property propertyRep;
-  private String address;
-  private String quadrant;
-  private String housingType;
-  private boolean furnished;
-  private int id;
+   private Property propertyRep;
+//  private String address;
+//  private String quadrant;
+//  private String housingType;
+//  private boolean furnished;
+//  private int id;
   int index;
 
   public static final String PROPERTY_LINK_ID = "propertyLinkID=";
@@ -40,29 +40,30 @@ public class PropertyView extends JPanel{
     init();
   }
 
-  /*/
-  public PropertyView(Property propertyRep){
+ 
+  public PropertyView(Property propertyRep, int index){
+	this.index = index;
     this.propertyRep = propertyRep;
     init();
-  } // */
-
-  public PropertyView(
-      String address,
-      String quadrant,
-      String housingType,
-      boolean furnished,
-      int id,
-      int index){
-    super();
-    this.address = address;
-    this.quadrant = quadrant;
-    this.housingType = housingType;
-    this.furnished = furnished;
-    this.id = id;
-    this.index = index;
-
-    init();
-  }
+  } 
+//
+//  public PropertyView(
+//      String address,
+//      String quadrant,
+//      String housingType,
+//      boolean furnished,
+//      int id,
+//      int index){
+//    super();
+//    this.address = address;
+//    this.quadrant = quadrant;
+//    this.housingType = housingType;
+//    this.furnished = furnished;
+//    this.id = id;
+//    this.index = index;
+//
+//    init();
+//  }
 
   /**
    * Initialies the current PropertyView element.
