@@ -25,11 +25,11 @@ import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
   // private Property propertyRep;
-  String address;
-  String quadrant;
-  String housingType;
-  boolean furnished;
-  int id;
+  private String address;
+  private String quadrant;
+  private String housingType;
+  private boolean furnished;
+  private int id;
 
   public PropertyView(){
     super();
@@ -65,6 +65,23 @@ public class PropertyView extends JPanel{
     GridBagLayout viewElementLayout = new GridBagLayout();
     setLayout(viewElementLayout);
 
+    JButton propertyLink = generatePropertyLink();
+
+    // Add button to current element
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.weightx = 0.8;
+    add(propertyLink, gbc);
+  }
+
+  /**
+   * Generates the base property link instance.
+   *
+   * this instance contains general information about a given property, and
+   * will link to a Property page when clicked.
+   */
+  protected JButton generatePropertyLink(){
     // Create main button to link to properties
     GridBagLayout buttonLayout = new GridBagLayout();
     JButton propertyLink = new JButton();
@@ -93,10 +110,6 @@ public class PropertyView extends JPanel{
     gbc.fill = GridBagConstraints.HORIZONTAL;
     propertyLink.add(furnishedLabel, gbc);
 
-    // Add button to current element
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    gbc.weightx = 0.8;
-    add(propertyLink, gbc);
+    return propertyLink;
   }
 }

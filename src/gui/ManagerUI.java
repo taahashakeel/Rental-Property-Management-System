@@ -2,10 +2,10 @@
  * @author Ethan Sengsavang
  * <a href="mailto:ethan.sengsavang@ucalgary.ca">email</a>
  *
- * The user interface landlords will use to use the Rental Property Management
+ * The user interface managers will use to use the Rental Property Management
  * System.
  *
- * This UI should allow Landlords to create properties and view existing
+ * This UI should allow Managers to create properties and view existing
  * property details.
  */
 package gui;
@@ -18,10 +18,10 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JButton;
 
-public class LandlordUI extends FocusPanel{
-  // private Landlord userRepresentation;
+public class ManagerUI extends FocusPanel{
+  // private Manager userRepresentation;
 
-  public LandlordUI(){
+  public ManagerUI(){
     super();
     init();
   }
@@ -34,7 +34,8 @@ public class LandlordUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create elements
-    JButton createPropertyButton = new JButton("List a new property for rent");
+    JButton summaryButton = new JButton("Generate Summary");
+
     // create dummy properties for now.
     PropertyEdit[] dummyList = new PropertyEdit[10];
 
@@ -59,12 +60,13 @@ public class LandlordUI extends FocusPanel{
     // populate window
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.weighty = 0;
+    gbc.fill = GridBagConstraints.NONE;
+    add(summaryButton, gbc);
+    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
     gbc.fill = GridBagConstraints.BOTH;
     gbc.weightx = 100;
     gbc.weighty = 100;
     add(results, gbc);
-
-    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
-    add(createPropertyButton, gbc);
   }
 }
