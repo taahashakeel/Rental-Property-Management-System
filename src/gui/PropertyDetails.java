@@ -17,6 +17,8 @@
  */
 package gui;
 
+import Employee.Property;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
