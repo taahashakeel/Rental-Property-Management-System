@@ -28,6 +28,13 @@ import javax.swing.JComboBox;
 public class PropertyEdit extends PropertyView{
   private String propertyStatus;
 
+  private String[] statuses = {
+    "Active",
+    "Rented",
+    "Cancelled",
+    "Suspended"
+  }
+
   /*/ constructor to use
   public PropertyEdit(Property propertyRep){
     super(propertyRep);
