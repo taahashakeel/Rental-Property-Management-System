@@ -14,7 +14,7 @@ import gui.elements.SearchMenu;
 import gui.elements.ElementList;
 import gui.elements.PropertyView;
 
-import gui.Employee.Property;
+import Employee.Property;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
