@@ -16,6 +16,8 @@ import gui.elements.PropertyEdit;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
+import javax.swing.JButton;
+
 public class LandlordUI extends FocusPanel{
   // private Landlord userRepresentation;
 
@@ -32,6 +34,7 @@ public class LandlordUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create elements
+    JButton createPropertyButton = new JButton("List a new property to rent");
     // create dummy properties for now.
     PropertyEdit[] dummyList = new PropertyEdit[10];
 
