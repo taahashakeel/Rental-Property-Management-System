@@ -44,7 +44,7 @@ public class Manager {
 	public ArrayList<Property> getSummary()
 	{
 		
-		return arrayProperty;
+		dbControl.fetchAllProperty();
 		
 	}
 	

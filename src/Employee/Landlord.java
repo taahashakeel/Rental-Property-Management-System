@@ -60,9 +60,11 @@ public class Landlord {
 
 	}
 
-//<---->//
+
 	// Could we make them pay a fee first before creating a property???
 	public int payFee(int propertyID) {
+		email.sendEmail(email, newProperty.getLandlordEmail(), newProperty.getPropertyFee(), propertyID);
+
 
 	}
 

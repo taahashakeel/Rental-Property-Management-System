@@ -19,13 +19,17 @@ public class Property {
 	private String landlordEmail;
 	private String address; 
 	private int landlordID;
-//	private ArrayList<Property> newProperty;
+	private String dateListed;
+	private String dateRented;
+
+
+	private ArrayList<Property> newProperty;
 
 	private DatabaseController dbControl;
 
 	public Property() {
 	}
-
+	
 	public String getPropertyID() {
 		return propertyID;
 	}
@@ -78,6 +82,17 @@ public class Property {
 	{
 		return address;
 	}
+
+	
+	public String getDateListed()
+	{
+		return dateListed;
+	}
+
+	public String getDateRented()
+	{
+		return dateRented;
+	}
 	public void setPropertyID(String propertyID) 
 	{
 		this.propertyID = propertyID;
@@ -129,9 +144,19 @@ public class Property {
 	{
 		this.budget = budget;
 	}
-	public void getAddress(String address)
+
+	public void setAddress(String address)
 	{
 		this.address = address;
+	}
+	public void setDateListed(String dateListed)
+	{
+		this.dateListed = dateListed;
+	}
+	
+	public void setDateRented (String dateRented)
+	{
+		this.dateRented = dateRented;
 	}
 	////
 	public void createProperty()
@@ -139,8 +164,9 @@ public class Property {
 		newProperty = new ArrayList<Property>();
 	}
 	//<---->//
-	public boolean registerProperty(String propertyID, String state)
+	public void registerProperty(Property property)
 	{
+		saveNewProperty(Property property);
 	}
 	
 }
