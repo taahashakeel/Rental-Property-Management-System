@@ -59,7 +59,8 @@ public class PropertyDetails extends FocusPanel{
     GridBagLayout centerLayout = new GridBagLayout();
     centerPanel.setLayout(centerLayout);
 
-    JLabel idLabel = new JLabel(String.valueOf(propertyRep.getPropertyID()));
+    JLabel idLabel = new JLabel("Id: ");
+    JLabel idValue = new JLabel(String.valueOf(propertyRep.getPropertyID()));
     JLabel addressLabel = new JLabel(propertyRep.getAddress()
         + " " + propertyRep.getQuadrant());
     JLabel bedroomLabel = new JLabel("Number of bedrooms: ");
@@ -80,7 +81,13 @@ public class PropertyDetails extends FocusPanel{
     centerPanel.add(addressLabel, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.anchor = GridBagConstraints.WEST;
     centerPanel.add(idLabel, gbc);
+    gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
+    gbc.anchor = GridBagConstraints.EAST;
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    centerPanel.add(idValue, gbc);
 
     // property cost
     gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
@@ -94,7 +101,7 @@ public class PropertyDetails extends FocusPanel{
     centerPanel.add(bedroomLabel, gbc);
     gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
-    gbc.weightx = 2;
+    gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(bedroomCount, gbc);
 
