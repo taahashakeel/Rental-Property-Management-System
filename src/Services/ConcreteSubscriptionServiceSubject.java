@@ -21,9 +21,10 @@ import java.util.*;
 import Employee.Property;
 import BackEnd.DatabaseController;
 import Services.SubscriptionServiceSubject;
+import Services.SubscribedObserver;
 
 public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSubject{
-//	private static ConcreteSubscriptionServiceSubject onlyInstance;
+	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;
 	static private ArrayList<Property> newProperty;
@@ -41,7 +42,7 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	 *
 	 * @param subscriber The renter (SearchObserver) wishing to subscribe 
 	 */
-	static public void registerSubscribedObserver(SearchObserver subscriber) {
+	static public void registerSubscribedObserver(SubscribedObserver subscriber) {
 		subscribers.add(subscriber);
 		subscribers.update(newProperty);
 	}
@@ -53,7 +54,7 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	 *
 	 * @param subscriber The renter (SearchObserver) wishing to unsubscribe 
 	 */
-	static public void removeSubscribedObserver(SearchObserver subscriber) {
+	static public void removeSubscribedObserver(SubscribedObserver subscriber) {
 		subscribers.remove(subscriber);
 	}
 
@@ -64,7 +65,7 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	 */
 	static public void notifyAllSubscribedObservers() {
 		for (int i = 0; i < subscribers.size(); i++) {
-			SearchObserver subscribers = subscribers.get(i);
+			SubscribedObserver subscribers = subscribers.get(i);
 			subscribers.update(newProperty);
 		}
 	}

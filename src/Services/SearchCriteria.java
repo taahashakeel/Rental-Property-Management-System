@@ -61,10 +61,9 @@ public class SearchCriteria {
 	public void editSearchCriteria(String houseType, int[] numBedrooms, int[] numBathrooms, boolean ifFurnished,
 			String quadrant, int budget) {
 		setHouseType(houseType);
-		setNumBedrooms(numBedrooms);
-		setNumBathrooms(numBathrooms);
+		this.numBedrooms = numBedrooms;
+		this.numBathrooms = numBathrooms;
 		setIfFurnished(ifFurnished);
-		setAddress(address);
 		setQuadrant(quadrant);
 		setBudget(budget);
 	}
