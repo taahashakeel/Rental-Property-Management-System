@@ -119,6 +119,11 @@ public class PropertyDetails extends FocusPanel{
     gbc.anchor = GridBagConstraints.WEST;
     centerPanel.add(furnishedLabel, gbc);
 
+    gbc = FocusPanel.generateConstraints(0, 5, 2, 1);
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    centerPanel.add(contactLandlord, gbc);
+
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     add(centerPanel, gbc);
   }
