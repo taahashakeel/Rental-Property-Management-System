@@ -16,7 +16,7 @@
  */
 package gui.elements;
 
-// import Employee.Property;
+import Employee.Property;
 
 import gui.FocusPanel;
 

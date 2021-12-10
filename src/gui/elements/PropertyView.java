@@ -41,8 +41,9 @@ public class PropertyView extends JPanel{
   }
 
   //
-  public PropertyView(Property propertyRep){
+  public PropertyView(Property propertyRep, int index){
     this.propertyRep = propertyRep;
+    this.index = index;
     init();
   } // */
 
