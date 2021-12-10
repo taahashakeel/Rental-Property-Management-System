@@ -62,6 +62,13 @@ public class ButtonListener implements ActionListener {
 
 		System.out.println("Pressed: id = " + id);
 
+    Matcher m = propertyLinkEvent.matcher(id);
+    if(m.matches()){
+      // Switch to specified property to view.
+      int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
+      System.out.println("Switching to property " + index);
+    }
+
 		switch (id) {
 		case (GUI.BACK_BUTTON_ID):
 			mainGui.popHistoryStack();
