@@ -148,7 +148,10 @@ public class PropertyDetails extends FocusPanel{
    * Generate the component with the text area to write messages to the landlord.
    */
   private JPanel emailComponent(){
+    GridBagLayout emailLayout = new GridBagLayout();
+
     JPanel emailPanel = new JPanel();
+    emailPanel.setLayout(emailLayout);
     emailPanel.setName("Contact Landlord");
 
     JButton contactLandlord = new JButton("Email Landlord");
