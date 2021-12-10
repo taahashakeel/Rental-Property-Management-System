@@ -43,12 +43,10 @@ public class Manager {
 		this.password = password;
 	} 
 
-	public ArrayList<Property> getSummary()
-	{
-		
-		return arrayProperty;
-		
-	}
+//	public ArrayList<Property> getSummary()
+//	{
+//		return arrayProperty;
+//	}
 	
 	/**
 	 * Generates grid bag constraints with provided values.

@@ -20,8 +20,9 @@ import java.io.*;
 import java.util.*;
 import Employee.Property;
 import BackEnd.DatabaseController;
+import Services.SubscriptionServiceSubject;
 
-public class ConcreteSubscriptionServiceSubject implements Subject{
+public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSubject{
 //	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;

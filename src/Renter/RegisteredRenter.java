@@ -17,7 +17,7 @@ import BackEnd.EmailSystem;
 import BackEnd.DatabaseController;
 import Employee.Property;
 
-public class RegisteredRenter implements SubscribedObserver{
+public class RegisteredRenter implements SubscribedObserver {
 	// Observer pattern implimentation
 	private ConcreteSubscriptionServiceSubject renterSubject;
 	private String username;
@@ -52,14 +52,13 @@ public class RegisteredRenter implements SubscribedObserver{
 	}
 
 	/**
-   * Subscribes a registered renter to a specific search criteria.
-   *
-   * @param RRID Renter ID needed to be passed to the dbControl function
-   * @param search search criteria object to be saved to the database
-   *
-   */
-	public void subscribeToSearch(String RRID, SearchCriteria search)
-	{
+	 * Subscribes a registered renter to a specific search criteria.
+	 *
+	 * @param RRID   Renter ID needed to be passed to the dbControl function
+	 * @param search search criteria object to be saved to the database
+	 *
+	 */
+	public void subscribeToSearch(String RRID, SearchCriteria search) {
 		dbControl.saveSearchCriteria(String, SearchCriteria);
 		renterSubject.registerSubscribedObserver(this);
 	}
@@ -80,10 +79,12 @@ public class RegisteredRenter implements SubscribedObserver{
 			if(newProperty.getHouseType() != search.getHouseType())
 				return false;
 		
-			if(newProperty.getNumBedrooms() != search.getNumBedrooms())
+			if(newProperty.getNumBedrooms() < search.getNumBedrooms().[0] 
+					|| newProperty.getNumBedrooms() > search.getNumBedrooms().[1])
 				return false;
 			
-			if(newProperty.getNumBathrooms() != search.getNumBathrooms())
+			if(newProperty.getNumBathrooms() < search.getNumBathrooms().[0] 
+					|| newProperty.getNumBathooms() > search.getNumBathrooms().[1])
 				return false;
 			
 			if(newProperty.getIfFurnished() != search.getIfFurnished())
@@ -92,7 +93,7 @@ public class RegisteredRenter implements SubscribedObserver{
 			if(newProperty.getQuadrant() != search.getQuadrant())
 				return false;
 
-			if(newProperty.getbudget() != search.getbudget())
+			if(newProperty.getbudget() >= search.getbudget())
 				return false;
 			
 			return true;
