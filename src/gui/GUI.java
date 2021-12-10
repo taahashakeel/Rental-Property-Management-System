@@ -133,4 +133,11 @@ public class GUI extends JFrame{
     add(panelHistory.peek(), gbc);
     SwingUtilities.updateComponentTreeUI(this);
   } // 
+
+  /**
+   * Returns the top-most panel
+   */
+  protected FocusPanel getCurrentPanel(){
+    return panelHistory.peek();
+  }
 }
