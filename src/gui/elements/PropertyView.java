@@ -15,6 +15,7 @@ package gui.elements;
 
 // import Employee.Property
 import gui.FocusPanel;
+import gui.GUI;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -71,6 +72,10 @@ public class PropertyView extends JPanel{
     setLayout(viewElementLayout);
 
     JButton propertyLink = generatePropertyLink();
+
+    // add appropreate action listeners and events to link
+    propertyLink.setActionCommand(PROPERTY_LINK_ID + index);
+    propertyLink.addActionListener(GUI.buttonListener);
 
     // Add button to current element
     GridBagConstraints gbc;
