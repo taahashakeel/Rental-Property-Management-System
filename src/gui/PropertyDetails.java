@@ -66,7 +66,7 @@ public class PropertyDetails extends FocusPanel{
     JLabel bedroomCount = new JLabel(String.valueOf(propertyRep.getNumBedrooms()));
     JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
     JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()));
-    JLabel costLabel = new JLabel(String.valueOf(propertyRep.getRentCost()));
+    JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()));
 
     JButton contactLandlord = new JButton("Email Landlord");
 
