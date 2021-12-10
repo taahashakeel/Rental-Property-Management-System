@@ -23,7 +23,7 @@ import javax.swing.JButton;
 public class ManagerUI extends FocusPanel{
   // private Manager userRepresentation;
   private Property[] listedProperties;
-  public static final int LIST_SIZE = 4;
+  public static final int LIST_SIZE = 9;
 
   public ManagerUI(){
     super();
@@ -49,7 +49,7 @@ public class ManagerUI extends FocusPanel{
 
     // create dummy properties for now.
     listedProperties = new Property[LIST_SIZE];
-    PropertyEdit[] dummyList = new PropertyEdit[4];
+    PropertyEdit[] dummyList = new PropertyEdit[LIST_SIZE];
 
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();

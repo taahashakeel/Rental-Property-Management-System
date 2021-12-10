@@ -26,7 +26,7 @@ import javax.swing.JButton;
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
   private Property[] listedProperties;
-  public static final int LIST_SIZE = 4;
+  public static final int LIST_SIZE = 5;
 
   public RegisteredRenterUI(){
     super();
@@ -42,7 +42,7 @@ public class RegisteredRenterUI extends FocusPanel{
 
     // create dummy properties for now.
     listedProperties = new Property[LIST_SIZE];
-    PropertyView[] dummyList = new PropertyView[4];
+    PropertyView[] dummyList = new PropertyView[LIST_SIZE];
 
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();

@@ -23,7 +23,7 @@ import javax.swing.JButton;
 public class LandlordUI extends FocusPanel{
   // private Landlord userRepresentation;
   private Property[] listedProperties;
-  public static final int LIST_SIZE = 4;
+  public static final int LIST_SIZE = 7;
 
   public LandlordUI(){
     super();
@@ -48,7 +48,7 @@ public class LandlordUI extends FocusPanel{
 
     // create dummy properties for now.
     listedProperties = new Property[LIST_SIZE];
-    PropertyEdit[] dummyList = new PropertyEdit[4];
+    PropertyEdit[] dummyList = new PropertyEdit[LIST_SIZE];
 
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();
