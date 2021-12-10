@@ -79,33 +79,33 @@ public class PropertyDetails extends FocusPanel{
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(addressLabel, gbc);
 
-    gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     centerPanel.add(idLabel, gbc);
 
+    // property cost
+    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+    gbc.anchor = GridBagConstraints.CENTER;
+    gbc.weightx = 1;
+    centerPanel.add(costLabel, gbc);
+
     // property composition
-    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
     gbc.anchor = GridBagConstraints.WEST;
     centerPanel.add(bedroomLabel, gbc);
-    gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
+    gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
     gbc.weightx = 2;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(bedroomCount, gbc);
 
-    gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
+    gbc = FocusPanel.generateConstraints(0, 3, 1, 1);
     gbc.anchor = GridBagConstraints.WEST;
     centerPanel.add(bathroomLabel, gbc);
-    gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
+    gbc = FocusPanel.generateConstraints(1, 3, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(bathroomCount, gbc);
-
-    // property cost
-    gbc = FocusPanel.generateConstraints(2, 1, 1, 1);
-    gbc.anchor = GridBagConstraints.CENTER;
-    gbc.weightx = 1;
-    centerPanel.add(costLabel, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     add(centerPanel, gbc);
