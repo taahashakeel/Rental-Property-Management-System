@@ -15,6 +15,7 @@ package gui.elements;
 
 // import Employee.Property
 import gui.FocusPanel;
+import gui.GUI;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -30,6 +31,9 @@ public class PropertyView extends JPanel{
   private String housingType;
   private boolean furnished;
   private int id;
+  int index;
+
+  public static final String PROPERTY_LINK_ID = "propertyLinkID=";
 
   public PropertyView(){
     super();
@@ -47,13 +51,15 @@ public class PropertyView extends JPanel{
       String quadrant,
       String housingType,
       boolean furnished,
-      int id){
+      int id,
+      int index){
     super();
     this.address = address;
     this.quadrant = quadrant;
     this.housingType = housingType;
     this.furnished = furnished;
     this.id = id;
+    this.index = index;
 
     init();
   }
@@ -66,6 +72,10 @@ public class PropertyView extends JPanel{
     setLayout(viewElementLayout);
 
     JButton propertyLink = generatePropertyLink();
+
+    // add appropreate action listeners and events to link
+    propertyLink.setActionCommand(PROPERTY_LINK_ID + index);
+    propertyLink.addActionListener(GUI.buttonListener);
 
     // Add button to current element
     GridBagConstraints gbc;

@@ -44,7 +44,8 @@ public class RegisteredRenterUI extends FocusPanel{
           "NE",
           "Condo",
           i % 2 == 0,
-          415);
+          415,
+          i);
     }
 
     PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);

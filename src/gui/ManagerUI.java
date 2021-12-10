@@ -52,6 +52,7 @@ public class ManagerUI extends FocusPanel{
           "Condo",
           i % 2 == 0,
           415,
+          i,
           statuses[i % 4]);
     }
 

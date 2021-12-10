@@ -24,11 +24,14 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
   // Determine if the user should have the option to email the renter
   private boolean viewer;
+
+  public static final String EMAIL_LANDLORD_ID = "emailLandlordButton";
 
   /*/ this empty constructor should not need to exist.
   public PropertyDetails(boolean viewer){
@@ -54,16 +57,23 @@ public class PropertyDetails extends FocusPanel{
     setLayout(panelLayout);
 
     // create all necessary elements
-    JLabel idLabel = new JLabel(String.valueOf(propertyRep.getPropertyID()));
+    JPanel centerPanel = new JPanel();
+    GridBagLayout centerLayout = new GridBagLayout();
+    centerPanel.setLayout(centerLayout);
+
+    JLabel idLabel = new JLabel("Id: ");
+    JLabel idValue = new JLabel("#" + String.valueOf(propertyRep.getPropertyID()));
     JLabel addressLabel = new JLabel(propertyRep.getAddress()
         + " " + propertyRep.getQuadrant());
     JLabel bedroomLabel = new JLabel("Number of bedrooms: ");
-    JLabel bedroomCount = new JLabel(String.valueOf(propertyRep.getNumBedrooms()));
+    JLabel bedroomCount = new JLabel(String.valueOf(propertyRep.getNumBedrooms()) + " bed");
     JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
-    JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()));
-    JLabel costLabel = new JLabel(String.valueOf(propertyRep.getRentCost()));
+    JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()) + " bath");
+    JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
+    JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished()? "Furnished" : "Unfurnished");
 
     JButton contactLandlord = new JButton("Email Landlord");
+    /// TODO: Add email textbox to write message to the landlord
 
     // place items as necessary
     // property identifiers
@@ -72,19 +82,52 @@ public class PropertyDetails extends FocusPanel{
     gbc.anchor = GridBagConstraints.WEST;
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    add(addressLabel, gbc);
+    centerPanel.add(addressLabel, gbc);
 
-    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
-    add(idLabel, gbc);
-
-    // property composition
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     gbc.anchor = GridBagConstraints.WEST;
-    add(bedroomLabel, gbc);
+    centerPanel.add(idLabel, gbc);
     gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    add(bedroomCount, gbc);
+    centerPanel.add(idValue, gbc);
+
+    // property cost
+    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+    gbc.anchor = GridBagConstraints.CENTER;
+    gbc.weightx = 1;
+    centerPanel.add(costLabel, gbc);
+
+    // property composition
+    gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    centerPanel.add(bedroomLabel, gbc);
+    gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
+    gbc.anchor = GridBagConstraints.EAST;
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    centerPanel.add(bedroomCount, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 3, 1, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    centerPanel.add(bathroomLabel, gbc);
+    gbc = FocusPanel.generateConstraints(1, 3, 1, 1);
+    gbc.anchor = GridBagConstraints.EAST;
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    centerPanel.add(bathroomCount, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 4, 2, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    centerPanel.add(furnishedLabel, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 5, 2, 1);
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    centerPanel.add(contactLandlord, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    add(centerPanel, gbc);
   }
 }

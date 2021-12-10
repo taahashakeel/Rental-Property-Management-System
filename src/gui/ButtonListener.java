@@ -25,6 +25,8 @@
  */
 package gui;
 
+import gui.elements.PropertyView;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
@@ -33,6 +35,9 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 import gui.elements.SearchMenu;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //import BackEnd.DatabaseController;
 //import Renter.RegisteredRenter;
@@ -43,12 +48,16 @@ import gui.elements.SearchMenu;
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
+<<<<<<< HEAD
 	// Users
 //	private RegisterRenter regRenter;
 //	private UnregisteredRenter unregRenter;
 //	private Landlord landlord;
 //	private Manager manager;
 
+=======
+  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
+>>>>>>> e37784b070b845e6ff66c7c5a14638e0196c7f85
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
@@ -66,6 +75,13 @@ public class ButtonListener implements ActionListener {
 		String id = evt.getActionCommand();
 
 		System.out.println("Pressed: id = " + id);
+
+    Matcher m = propertyLinkEvent.matcher(id);
+    if(m.matches()){
+      // Switch to specified property to view.
+      int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
+      System.out.println("Switching to property " + index);
+    }
 
 		switch (id) {
 		case (GUI.BACK_BUTTON_ID):
@@ -112,7 +128,8 @@ public class ButtonListener implements ActionListener {
 
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			break;
-
+    case(PropertyDetails.EMAIL_LANDLORD_ID):
+      break;
 		}
 	}
 }
