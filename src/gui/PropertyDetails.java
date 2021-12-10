@@ -76,6 +76,8 @@ public class PropertyDetails extends FocusPanel{
   private JPanel detailComponent(){
     // create all necessary elements
     JPanel centerPanel = new JPanel();
+    centerPanel.setName("Property Details");
+
     GridBagLayout centerLayout = new GridBagLayout();
     centerPanel.setLayout(centerLayout);
 
