@@ -21,13 +21,13 @@ import Employee.Property;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-import java.awt.Dimension;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
