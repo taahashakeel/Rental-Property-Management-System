@@ -39,6 +39,10 @@ import javax.swing.SwingUtilities;
 
 import java.util.Stack;
 
+// For window closing 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
+
 public class GUI extends JFrame{
   private static final int INIT_WIDTH = 600;
   private static final int INIT_HEIGHT = 400;
@@ -77,6 +81,12 @@ public class GUI extends JFrame{
     setSize(width, height);
     windowLayout = new GridBagLayout();
     setLayout(windowLayout);
+    addWindowListener(new WindowAdapter() {
+    	@Override
+    	public void windowClosing(WindowEvent e) {
+    		System.exit(0);
+    	}
+    });
 
     // set up back button within main GUI
     JButton backButton = new JButton("< Back");

@@ -21,7 +21,7 @@ import java.util.*;
 import Employee.Property;
 import BackEnd.DatabaseController;
 
-public class ConcreteSubscriptionServiceSubject {
+public class ConcreteSubscriptionServiceSubject impliments Subject{
 //	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;

@@ -33,12 +33,12 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 
-import BackEnd.DatabaseController;
+//import BackEnd.DatabaseController;
 
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
-	private DatabaseController dbConnect;
+//	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
 		this.mainGui = mainGui;
