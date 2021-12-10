@@ -50,6 +50,7 @@ public class PropertyEdit extends PropertyView{
       String propertyStatus){
     super();
     this.propertyStatus = propertyStatus;
+    init();
   }
 
   /**
