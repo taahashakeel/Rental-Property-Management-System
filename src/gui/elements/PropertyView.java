@@ -15,6 +15,7 @@ package gui.elements;
 
 // import Employee.Property
 import gui.FocusPanel;
+import gui.GUI;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -25,11 +26,14 @@ import javax.swing.JPanel;
 
 public class PropertyView extends JPanel{
   // private Property propertyRep;
-  String address;
-  String quadrant;
-  String housingType;
-  boolean furnished;
-  int id;
+  private String address;
+  private String quadrant;
+  private String housingType;
+  private boolean furnished;
+  private int id;
+  int index;
+
+  public static final String PROPERTY_LINK_ID = "propertyLinkID=";
 
   public PropertyView(){
     super();
@@ -47,13 +51,15 @@ public class PropertyView extends JPanel{
       String quadrant,
       String housingType,
       boolean furnished,
-      int id){
+      int id,
+      int index){
     super();
     this.address = address;
     this.quadrant = quadrant;
     this.housingType = housingType;
     this.furnished = furnished;
     this.id = id;
+    this.index = index;
 
     init();
   }
@@ -65,6 +71,27 @@ public class PropertyView extends JPanel{
     GridBagLayout viewElementLayout = new GridBagLayout();
     setLayout(viewElementLayout);
 
+    JButton propertyLink = generatePropertyLink();
+
+    // add appropreate action listeners and events to link
+    propertyLink.setActionCommand(PROPERTY_LINK_ID + index);
+    propertyLink.addActionListener(GUI.buttonListener);
+
+    // Add button to current element
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.weightx = 0.8;
+    add(propertyLink, gbc);
+  }
+
+  /**
+   * Generates the base property link instance.
+   *
+   * this instance contains general information about a given property, and
+   * will link to a Property page when clicked.
+   */
+  protected JButton generatePropertyLink(){
     // Create main button to link to properties
     GridBagLayout buttonLayout = new GridBagLayout();
     JButton propertyLink = new JButton();
@@ -93,10 +120,6 @@ public class PropertyView extends JPanel{
     gbc.fill = GridBagConstraints.HORIZONTAL;
     propertyLink.add(furnishedLabel, gbc);
 
-    // Add button to current element
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    gbc.weightx = 0.8;
-    add(propertyLink, gbc);
+    return propertyLink;
   }
 }

@@ -1,11 +1,11 @@
 package Employee;
 
 import java.util.ArrayList;
-import BackEnd.DatabaseController;
+// import BackEnd.DatabaseController;
 
 public class Property {
 
-	private String propertyID;
+	private int propertyID;
 	private String status;
 	private String houseType;
 	private int numBedrooms;
