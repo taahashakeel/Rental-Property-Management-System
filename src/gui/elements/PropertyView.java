@@ -32,7 +32,7 @@ public class PropertyView extends JPanel{
   private int id;
   int index;
 
-  private static final String PROPERTY_LINK_ID = "propertyLinkID=";
+  public static final String PROPERTY_LINK_ID = "propertyLinkID=";
 
   public PropertyView(){
     super();
