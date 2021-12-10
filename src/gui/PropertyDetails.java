@@ -95,5 +95,11 @@ public class PropertyDetails extends FocusPanel{
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     add(bathroomCount, gbc);
+
+    // property cost
+    gbc = FocusPanel.generateConstraints(2, 1, 1, 1);
+    gbc.anchor = GridBagConstraints.CENTER;
+    gbc.weightx = 1;
+    add(costLabel, gbc);
   }
 }
