@@ -59,6 +59,7 @@ public class PropertyDetails extends FocusPanel{
 
     JPanel detailPanel = detailComponent();
 
+    GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     add(detailPanel, gbc);
   }
@@ -133,7 +134,6 @@ public class PropertyDetails extends FocusPanel{
     gbc = FocusPanel.generateConstraints(0, 5, 2, 1);
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    centerPanel.add(contactLandlord, gbc);
   }
 
   /**
@@ -142,5 +142,6 @@ public class PropertyDetails extends FocusPanel{
   private void emailComponent(){
     JButton contactLandlord = new JButton("Email Landlord");
     /// TODO: Add email textbox to write message to the landlord
+    // centerPanel.add(contactLandlord, gbc);
   }
 }
