@@ -147,6 +147,7 @@ public class PropertyDetails extends FocusPanel{
    */
   private JPanel emailComponent(){
     JPanel emailPanel = new JPanel();
+    emailPanel.setName("Contact Landlord");
 
     JButton contactLandlord = new JButton("Email Landlord");
     /// TODO: Add email textbox to write message to the landlord
