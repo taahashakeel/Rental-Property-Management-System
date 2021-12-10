@@ -24,6 +24,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class PropertyEdit extends PropertyView{
   private String propertyStatus;
@@ -33,7 +34,7 @@ public class PropertyEdit extends PropertyView{
     "Rented",
     "Cancelled",
     "Suspended"
-  }
+  };
 
   /*/ constructor to use
   public PropertyEdit(Property propertyRep){
