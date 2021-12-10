@@ -3,13 +3,15 @@ package Employee;
 import java.util.ArrayList;
 //FeeController?
 import BackEnd.DatabaseController;
+
 public class Manager {
 
 	private String username;
 	private String password;
 	private FeeController feeControl;
 	private DatabaseController dbControl;
-	private ArrayList <Property> properties = new ArrayList<Property>();
+	private ConcreteSubscriptionServiceSubject subscribed;
+//	private ArrayList <Property> properties = new ArrayList<Property>();
 	
 	public Manager() 
 	{
@@ -19,6 +21,7 @@ public class Manager {
 	{
 		this.username=username;
 		this.password=password;
+		this.dbControl = new DatabaseController();
 	} 
 	
 	public String getUsername()
@@ -41,12 +44,10 @@ public class Manager {
 		this.password = password;
 	} 
 
-	public ArrayList<Property> getSummary()
-	{
-		
-		dbControl.fetchAllProperty();
-		
-	}
+//	public ArrayList<Property> getSummary()
+//	{
+//		return arrayProperty;
+//	}
 	
 	/**
 	 * Generates grid bag constraints with provided values.
@@ -57,6 +58,10 @@ public class Manager {
 	 * @return If state change was successful
 	 */
 	public boolean changeState(String propertyID, String state) {
+		if (state == "active")
+		{
+			subscribed.addProperty(dbConnect.fetchProperty(propertyID)); // notifies subscribed renters
+		}
 		return dbControl.changePropertyState(propertyID, state);
 	}
 	

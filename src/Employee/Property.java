@@ -1,7 +1,7 @@
 package Employee;
 
 import java.util.ArrayList;
-import BackEnd.DatabaseController;
+//import BackEnd.DatabaseController;
 
 public class Property {
 
@@ -25,7 +25,7 @@ public class Property {
 
 	private ArrayList<Property> newProperty;
 
-	private DatabaseController dbControl;
+	//private DatabaseController dbControl;
 
 	public Property() {
 	}
@@ -161,12 +161,7 @@ public class Property {
 	////
 	public void createProperty()
 	{
-		newProperty = new ArrayList<Property>();
-	}
-	//<---->//
-	public void registerProperty(Property property)
-	{
-		saveNewProperty(Property property);
+		//newProperty = new ArrayList<Property>();
 	}
 	
 }

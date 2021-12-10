@@ -12,6 +12,8 @@ package Employee;
 import java.util.ArrayList;
 import BackEnd.EmailSystem;
 import Services.ConcreteSubscriptionServiceSubject;
+import BackEnd.DatabaseController;
+
 public class Landlord {
 
 	private String username;
@@ -28,6 +30,7 @@ public class Landlord {
 		this.password = password;
 		this.landlordEmail = email;
 		this.subscribed = ConcreteSubscriptionServiceSubject.getOnlyInstance();
+		this.dbControl = new DatabaseController();
 	}
 
 	public String getUsername() {
@@ -77,8 +80,8 @@ public class Landlord {
 	 */
 	public void createProperty(Property newProperty)
 	{
-		dbControl.saveNewProperty(newProperty);
-		subscribed.add(newProperty); // notifies subscribed renters
+		dbControl.saveNewProperty(newProperty); // will be saved as not active
+		payFee(int propertyID);
 	}
 
 }
