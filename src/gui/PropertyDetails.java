@@ -64,6 +64,7 @@ public class PropertyDetails extends FocusPanel{
     JButton contactLandlord = new JButton("Email Landlord");
 
     // place items as necessary
+    // property identifiers
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 2, 1);
     gbc.anchor = GridBagConstraints.WEST;
@@ -73,5 +74,15 @@ public class PropertyDetails extends FocusPanel{
 
     gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
     add(idLabel, gbc);
+
+    // property composition
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    add(bedroomLabel, gbc);
+    gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
+    gbc.anchor = GridBagConstraints.EAST;
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    add(bedroomCount, gbc);
   }
 }
