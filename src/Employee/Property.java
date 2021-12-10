@@ -77,6 +77,11 @@ public class Property {
 	{
 		return address;
 	}
+
+  public void setAddress(String address){
+    this.address = address;
+  }
+
 	public void setPropertyID(String propertyID) 
 	{
 		this.propertyID = propertyID;
