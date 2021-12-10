@@ -10,6 +10,7 @@ public class Manager {
 	private String password;
 	private FeeController feeControl;
 	private DatabaseController dbControl;
+	private ConcreteSubscriptionServiceSubject subscribed;
 //	private ArrayList <Property> properties = new ArrayList<Property>();
 	
 	public Manager() 
@@ -57,6 +58,10 @@ public class Manager {
 	 * @return If state change was successful
 	 */
 	public boolean changeState(String propertyID, String state) {
+		if (state == "active")
+		{
+			subscribed.addProperty(dbConnect.fetchProperty(propertyID)); // notifies subscribed renters
+		}
 		return dbControl.changePropertyState(propertyID, state);
 	}
 	

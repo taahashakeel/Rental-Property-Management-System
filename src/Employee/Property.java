@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Property {
 
-	private int propertyID;
+	private String propertyID;
 	private String status;
 	private String houseType;
 	private int numBedrooms;
@@ -20,7 +20,7 @@ public class Property {
 	private String address; 
 	private int landlordID;
 
-	private DatabaseController dbControl;
+//	private DatabaseController dbControl;
 
 	public Property() {
 	}
@@ -135,11 +135,12 @@ public class Property {
 	////
 	public void createProperty()
 	{
-		newProperty = new ArrayList<Property>();
+//		newProperty = new ArrayList<Property>();
 	}
 	//<---->//
-	public boolean registerProperty(String propertyID, String state)
-	{
-	}
+//	public boolean registerProperty(String propertyID, String state)
+//	{
+//		
+//	}
 	
 }

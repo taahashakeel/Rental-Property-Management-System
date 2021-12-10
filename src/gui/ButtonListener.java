@@ -48,16 +48,14 @@ import java.util.regex.Pattern;
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
-<<<<<<< HEAD
 	// Users
 //	private RegisterRenter regRenter;
 //	private UnregisteredRenter unregRenter;
 //	private Landlord landlord;
 //	private Manager manager;
 
-=======
   private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
->>>>>>> e37784b070b845e6ff66c7c5a14638e0196c7f85
+
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
@@ -110,20 +108,23 @@ public class ButtonListener implements ActionListener {
 			System.out.println("Password: " + password);
 
 			if (userType == "renter") {
-//				regRenter = checkRenterLogin(username, password);
+//				regRenter = checkUserLogin(username, password, userType);
 //				if (regRenter != NULL)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
 			} else if (userType == "landlord") {
-//				landlord = checkLandlordLogin(username, password);
+//				landlord = checkUserLogin(username, password, userType);
 //				if (landlord != NULL)
 				mainGui.setCurrentPanel(new LandlordUI());
 			} else if (userType == "manager") {
-//				manager = checkManagerLogin(username, password);
+//				manager = checkUserLogin(username, password, userType);
 //				if (manager != NULL)
 				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
 		case (SearchMenu.SEARCH_BUTTON_ID):
+			
+			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
+					ifFurnished: boolean, address: String, quadrant: String): Property []);
 			break;
 
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):

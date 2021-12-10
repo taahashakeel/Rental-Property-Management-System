@@ -23,7 +23,6 @@ public class Landlord {
 	private EmailSystem email;
 	private String landlordEmail;
 	private String LLID;
-	private ConcreteSubscriptionServiceSubject subscribed;
 
 	public Landlord(String username, String password, String email) {
 		this.username = username;
@@ -63,7 +62,6 @@ public class Landlord {
 
 	}
 
-//<---->//
 	// Could we make them pay a fee first before creating a property???
 	public int payFee(int propertyID) {
 
@@ -78,8 +76,8 @@ public class Landlord {
 	 */
 	public void createProperty(Property newProperty)
 	{
-		dbControl.saveNewProperty(newProperty);
-		subscribed.add(newProperty); // notifies subscribed renters
+		dbControl.saveNewProperty(newProperty); // will be saved as not active
+		payFee(int propertyID);
 	}
 
 }
