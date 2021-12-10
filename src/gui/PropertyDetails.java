@@ -70,5 +70,8 @@ public class PropertyDetails extends FocusPanel{
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     add(addressLabel, gbc);
+
+    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+    add(idLabel, gbc);
   }
 }
