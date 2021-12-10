@@ -36,11 +36,14 @@ public class PropertyEdit extends PropertyView{
     "Suspended"
   };
 
-  /*/ constructor to use
-  public PropertyEdit(Property propertyRep){
-    super(propertyRep);
+  // constructor to use
+  public PropertyEdit(Property propertyRep, int index){
+    super(propertyRep, index);
+    this.propertyStatus = propertyRep.getStatus();
+    init();
   } // */
 
+  /*/
   public PropertyEdit(
       String address,
       String quadrant,
@@ -52,7 +55,7 @@ public class PropertyEdit extends PropertyView{
     super(address, quadrant, housingType, furnished, id, index);
     this.propertyStatus = propertyStatus;
     init();
-  }
+  }// */
 
   /**
    * Initializes the current PropertyEdit instance.
