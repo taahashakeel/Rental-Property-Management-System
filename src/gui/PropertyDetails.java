@@ -153,7 +153,7 @@ public class PropertyDetails extends FocusPanel{
     GridBagLayout emailLayout = new GridBagLayout();
 
     JPanel emailPanel = new JPanel();
-    emailPanel.setPreferredSize(new Dimension(400, 300));
+    emailPanel.setPreferredSize(new Dimension(600, 450));
     emailPanel.setLayout(emailLayout);
     emailPanel.setName("Contact Landlord");
 
