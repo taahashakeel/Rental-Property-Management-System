@@ -34,16 +34,28 @@ import java.awt.Component;
 // button listener imports
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
+import gui.elements.SearchMenu;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //import BackEnd.DatabaseController;
+//import Renter.RegisteredRenter;
+//import Renter.UnregisteredRenter;
+//import Employee.Landlord;
+//import Employee.Manager;
 
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
-  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
+	// Users
+//	private RegisterRenter regRenter;
+//	private UnregisteredRenter unregRenter;
+//	private Landlord landlord;
+//	private Manager manager;
+
+	private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
+
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
@@ -94,13 +106,28 @@ public class ButtonListener implements ActionListener {
 			System.out.println("Username: " + username);
 			String password = LoginMenu.getPasswordField();
 			System.out.println("Password: " + password);
-			if (userType == "renter") { // add && checkRenterLogin(username, password)
+
+			if (userType == "renter") {
+//				regRenter = checkUserLogin(username, password, userType);
+//				if (regRenter != NULL)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
-			} else if (userType == "landlord") { // && checkLandlordLogin(username, password)
+			} else if (userType == "landlord") {
+//				landlord = checkUserLogin(username, password, userType);
+//				if (landlord != NULL)
 				mainGui.setCurrentPanel(new LandlordUI());
-			} else if (userType == "manager") { // && checkManagerLogin(username, password)
+			} else if (userType == "manager") {
+//				manager = checkUserLogin(username, password, userType);
+//				if (manager != NULL)
 				mainGui.setCurrentPanel(new ManagerUI());
 			}
+			break;
+		case (SearchMenu.SEARCH_BUTTON_ID):
+			
+			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
+					ifFurnished: boolean, address: String, quadrant: String): Property []);
+			break;
+
+		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			break;
     case(PropertyDetails.EMAIL_LANDLORD_ID):
       break;

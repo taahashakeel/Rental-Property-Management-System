@@ -17,8 +17,7 @@ import BackEnd.EmailSystem;
 import BackEnd.DatabaseController;
 import Employee.Property;
 
-public class RegisteredRenter
-impliments SubscribedObserver{
+public class RegisteredRenter implements SubscribedObserver {
 	// Observer pattern implimentation
 	private ConcreteSubscriptionServiceSubject renterSubject;
 	private String username;
@@ -33,7 +32,7 @@ impliments SubscribedObserver{
 	public RegisteredRenter(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
-		this.dbControl = new DataDatabaseController();
+		this.dbControl = new DatabaseController();
 	}
 
 	public String getUsername() {
@@ -53,15 +52,14 @@ impliments SubscribedObserver{
 	}
 
 	/**
-   * Subscribes a registered renter to a specific search criteria.
-   *
-   * @param RRID Renter ID needed to be passed to the dbControl function
-   * @param search search criteria object to be saved to the database
-   *
-   */
-	public void subscribeToSearch(String RRID, SearchCriteria search)
-	{
-		dbControl.saveSearchCriteria(RRID: String, search: SearchCriteria): bool
+	 * Subscribes a registered renter to a specific search criteria.
+	 *
+	 * @param RRID   Renter ID needed to be passed to the dbControl function
+	 * @param search search criteria object to be saved to the database
+	 *
+	 */
+	public void subscribeToSearch(String RRID, SearchCriteria search) {
+		dbControl.saveSearchCriteria(String, SearchCriteria);
 		renterSubject.registerSubscribedObserver(this);
 	}
 
@@ -78,22 +76,27 @@ impliments SubscribedObserver{
 	   */
 		public boolean isMatch(Property newProperty)
 		{
+			int[] numBed = search.getNumBedrooms();
+			int[] numBath = search.getNumBathrooms();
+			
 			if(newProperty.getHouseType() != search.getHouseType())
 				return false;
 		
-			if(newProperty.getNumBedrooms() != search.getNumBedrooms())
+			if(newProperty.getNumBedrooms() < numBed[0]
+					|| newProperty.getNumBedrooms() >numBed[1])
 				return false;
 			
-			if(newProperty.getNumBathrooms() != search.getNumBathrooms())
+			if(newProperty.getNumBathrooms() < numBath[0] 
+					|| newProperty.getNumBathooms() > numBath[1])
 				return false;
 			
-			if(newProperty.getIfFurnished()  != search.getIfFurnished()
+			if(newProperty.getIfFurnished() != search.getIfFurnished())
 				return false;
 		
 			if(newProperty.getQuadrant() != search.getQuadrant())
 				return false;
 
-			if(newProperty.getbudget() != search.getbudget())
+			if(newProperty.getbudget() >= search.getbudget())
 				return false;
 			
 			return true;

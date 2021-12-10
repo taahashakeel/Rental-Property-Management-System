@@ -20,17 +20,18 @@ import java.io.*;
 import java.util.*;
 import Employee.Property;
 import BackEnd.DatabaseController;
+import Services.SubscriptionServiceSubject;
+import Services.SubscribedObserver;
 
-public class ConcreteSubscriptionServiceSubject impliments Subject{
-//	private static ConcreteSubscriptionServiceSubject onlyInstance;
+public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSubject{
+	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;
-	static private ArrayList<Property> newProperty;
+	static private Property newProperty;
 
 	public ConcreteSubscriptionServiceSubject() {
 		dbControl = new DatabaseController();
 		subscribers = new ArrayList<SearchObserver>();
-		newProperty = new ArrayList<Property>();
 	}
 
 	/**
@@ -40,7 +41,7 @@ public class ConcreteSubscriptionServiceSubject impliments Subject{
 	 *
 	 * @param subscriber The renter (SearchObserver) wishing to subscribe 
 	 */
-	static public void registerSubscribedObserver(SearchObserver subscriber) {
+	static public void registerSubscribedObserver(SubscribedObserver subscriber) {
 		subscribers.add(subscriber);
 		subscribers.update(newProperty);
 	}
@@ -52,7 +53,7 @@ public class ConcreteSubscriptionServiceSubject impliments Subject{
 	 *
 	 * @param subscriber The renter (SearchObserver) wishing to unsubscribe 
 	 */
-	static public void removeSubscribedObserver(SearchObserver subscriber) {
+	static public void removeSubscribedObserver(SubscribedObserver subscriber) {
 		subscribers.remove(subscriber);
 	}
 
@@ -63,8 +64,8 @@ public class ConcreteSubscriptionServiceSubject impliments Subject{
 	 */
 	static public void notifyAllSubscribedObservers() {
 		for (int i = 0; i < subscribers.size(); i++) {
-			SearchObserver subscribers = subscribers.get(i);
-			subscribers.update(newProperty);
+			SubscribedObserver subscriber = subscribers.get(i);
+			subscriber.update(newProperty);
 		}
 	}
 
@@ -76,10 +77,19 @@ public class ConcreteSubscriptionServiceSubject impliments Subject{
 	 * @param subscriber The renter (SearchObserver) wishing to unsubscribe 
 	 */
 	public void addProperty(Property p) {
-		newProperty.add(p);
+		this.newProperty = p;
 		notifyAllSubscribedObservers();
 	}
 
+	/**
+	 * Returns the onlyInstance of ConcreteSubscriptionServiceSubject.
+	 * Used by Landlord to get the only instance. Impliments the Singleton 
+	 * design pattern
+	 * 
+	 * This method is made static such that any element is able to use it.
+	 *
+	 * @return The only instance of ConcreteSubscriptionServiceSubject
+	 */
 	public static ConcreteSubscriptionServiceSubject getOnlyInstance() {
 		if (onlyInstance == null)
 			onlyInstance = new ConcreteSubscriptionServiceSubject();

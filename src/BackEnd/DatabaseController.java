@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-package BackEnd;
-
 import Employee.Property;
 import Emplpyee.Landlord;
 
