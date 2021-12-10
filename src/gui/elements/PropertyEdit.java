@@ -57,20 +57,11 @@ public class PropertyEdit extends PropertyView{
    * Initializes the current PropertyEdit instance.
    */
   private void init(){
-    GridBagLayout viewElementLayout = new GridBagLayout();
-    setLayout(viewElementLayout);
-
-    JButton propertyLink = generatePropertyLink();
     JComboBox<String> statusMenu = new JComboBox<String>(statuses);
 
     statusMenu.setSelectedItem(propertyStatus);
 
     GridBagConstraints gbc;
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    gbc.weightx = 0.8;
-    add(propertyLink, gbc);
-
     gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
     add(statusMenu, gbc);
   }
