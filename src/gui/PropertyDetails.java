@@ -57,11 +57,17 @@ public class PropertyDetails extends FocusPanel{
     GridBagLayout panelLayout = new GridBagLayout();
     setLayout(panelLayout);
 
+    // nest a JTabbedPane here.
+    JTabbedPane tabbedPane = new JTabbedPane();
+
     JPanel detailPanel = detailComponent();
 
+    tabbedPane.add(detailPanel);
+
+    // Add pane to current page
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    add(detailPanel, gbc);
+    add(tabbedPane, gbc);
   }
 
   /**
