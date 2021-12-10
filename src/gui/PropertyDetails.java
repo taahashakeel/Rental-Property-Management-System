@@ -17,6 +17,9 @@
  */
 package gui;
 
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
 public class PropertyDetails extends FocusPanel{
   // private Property propertyRep;
   // Determine if the user should have the option to email the renter
@@ -42,5 +45,14 @@ public class PropertyDetails extends FocusPanel{
    * This panel displays all information about a selected property
    */
   private void init(){
+    // create all necessary elements
+    JLabel idLabel = new JLabel(propertyRep.getPropertyID());
+    JLabel addressLabel = new JLabel(propertyRep.getAddress()
+        + " " + propertyRep.getQuadrant());
+    JLabel bedroomLabel = new JLabel("Number of bedrooms: ");
+    JLabel bedroomCount = new JLabel(propertyRep.getNumBedrooms());
+    JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
+    JLabel bathroomCount = new JLabel(propertyRep.getNumBathrooms());
+    JLabel costLabel = new JLabel(propertyRep.getRentCost());
   }
 }
