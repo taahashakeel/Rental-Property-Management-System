@@ -20,6 +20,9 @@ package gui.elements;
 
 import gui.FocusPanel;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JComboBox;
 
 public class PropertyEdit extends PropertyView{
@@ -39,5 +42,13 @@ public class PropertyEdit extends PropertyView{
       String propertyStatus){
     super();
     this.propertyStatus = propertyStatus;
+  }
+
+  /**
+   * Initializes the current PropertyEdit instance.
+   */
+  private void init(){
+    GridBagLayout viewElementLayout = new GridBagLayout();
+    setLayout(viewElementLayout);
   }
 }
