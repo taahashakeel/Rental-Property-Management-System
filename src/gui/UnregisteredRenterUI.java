@@ -24,7 +24,6 @@ import java.awt.Insets;
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
   public static final int LIST_SIZE = 4;
-  private Property[] listedProperties;
 
   public UnregisteredRenterUI(){
     super();

@@ -22,7 +22,6 @@ import javax.swing.JButton;
 
 public class LandlordUI extends FocusPanel{
   // private Landlord userRepresentation;
-  private Property[] listedProperties;
   public static final int LIST_SIZE = 7;
 
   public LandlordUI(){

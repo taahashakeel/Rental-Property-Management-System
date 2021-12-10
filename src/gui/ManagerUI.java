@@ -22,7 +22,6 @@ import javax.swing.JButton;
 
 public class ManagerUI extends FocusPanel{
   // private Manager userRepresentation;
-  private Property[] listedProperties;
   public static final int LIST_SIZE = 9;
 
   public ManagerUI(){

@@ -25,7 +25,6 @@ import javax.swing.JButton;
 
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
-  private Property[] listedProperties;
   public static final int LIST_SIZE = 5;
 
   public RegisteredRenterUI(){

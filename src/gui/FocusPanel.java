@@ -20,6 +20,7 @@ public abstract class FocusPanel extends JPanel{
   private static final int PADDING = 5;
   protected GridBagLayout panelLayout;
   protected static GridBagConstraints panelConstraints;
+  private Property[] listedProperties;
 
   public FocusPanel(){
     super();
