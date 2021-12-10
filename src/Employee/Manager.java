@@ -3,13 +3,14 @@ package Employee;
 import java.util.ArrayList;
 //FeeController?
 import BackEnd.DatabaseController;
+
 public class Manager {
 
 	private String username;
 	private String password;
 	private FeeController feeControl;
 	private DatabaseController dbControl;
-	private ArrayList <Property> properties = new ArrayList<Property>();
+//	private ArrayList <Property> properties = new ArrayList<Property>();
 	
 	public Manager() 
 	{
@@ -19,6 +20,7 @@ public class Manager {
 	{
 		this.username=username;
 		this.password=password;
+		this.dbControl = new DatabaseController();
 	} 
 	
 	public String getUsername()

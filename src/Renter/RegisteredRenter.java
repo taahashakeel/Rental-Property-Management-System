@@ -17,8 +17,7 @@ import BackEnd.EmailSystem;
 import BackEnd.DatabaseController;
 import Employee.Property;
 
-public class RegisteredRenter
-impliments SubscribedObserver{
+public class RegisteredRenter implements SubscribedObserver{
 	// Observer pattern implimentation
 	private ConcreteSubscriptionServiceSubject renterSubject;
 	private String username;
@@ -61,7 +60,7 @@ impliments SubscribedObserver{
    */
 	public void subscribeToSearch(String RRID, SearchCriteria search)
 	{
-		dbControl.saveSearchCriteria(RRID: String, search: SearchCriteria): bool
+		dbControl.saveSearchCriteria(String, SearchCriteria);
 		renterSubject.registerSubscribedObserver(this);
 	}
 
@@ -87,7 +86,7 @@ impliments SubscribedObserver{
 			if(newProperty.getNumBathrooms() != search.getNumBathrooms())
 				return false;
 			
-			if(newProperty.getIfFurnished()  != search.getIfFurnished()
+			if(newProperty.getIfFurnished() != search.getIfFurnished())
 				return false;
 		
 			if(newProperty.getQuadrant() != search.getQuadrant())

@@ -21,7 +21,7 @@ import java.util.*;
 import Employee.Property;
 import BackEnd.DatabaseController;
 
-public class ConcreteSubscriptionServiceSubject impliments Subject{
+public class ConcreteSubscriptionServiceSubject implements Subject{
 //	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;
@@ -80,6 +80,15 @@ public class ConcreteSubscriptionServiceSubject impliments Subject{
 		notifyAllSubscribedObservers();
 	}
 
+	/**
+	 * Returns the onlyInstance of ConcreteSubscriptionServiceSubject.
+	 * Used by Landlord to get the only instance. Impliments the Singleton 
+	 * design pattern
+	 * 
+	 * This method is made static such that any element is able to use it.
+	 *
+	 * @return The only instance of ConcreteSubscriptionServiceSubject
+	 */
 	public static ConcreteSubscriptionServiceSubject getOnlyInstance() {
 		if (onlyInstance == null)
 			onlyInstance = new ConcreteSubscriptionServiceSubject();

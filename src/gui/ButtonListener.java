@@ -35,10 +35,20 @@ import gui.elements.LoginMenu;
 import gui.elements.SearchMenu;
 
 //import BackEnd.DatabaseController;
+//import Renter.RegisteredRenter;
+//import Renter.UnregisteredRenter;
+//import Employee.Landlord;
+//import Employee.Manager;
 
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
+	// Users
+//	private RegisterRenter regRenter;
+//	private UnregisteredRenter unregRenter;
+//	private Landlord landlord;
+//	private Manager manager;
+
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
@@ -82,19 +92,27 @@ public class ButtonListener implements ActionListener {
 			System.out.println("Username: " + username);
 			String password = LoginMenu.getPasswordField();
 			System.out.println("Password: " + password);
-			if (userType == "renter") { // add && checkRenterLogin(username, password)
+
+			if (userType == "renter") {
+//				regRenter = checkRenterLogin(username, password);
+//				if (regRenter != NULL)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
-			} else if (userType == "landlord") { // && checkLandlordLogin(username, password)
-//				mainGui.setCurrentPanel(new LandlordUI());
-			} else if (userType == "manager") { // && checkManagerLogin(username, password)
-//				mainGui.setCurrentPanel(new ManagerUI());
+			} else if (userType == "landlord") {
+//				landlord = checkLandlordLogin(username, password);
+//				if (landlord != NULL)
+				mainGui.setCurrentPanel(new LandlordUI());
+			} else if (userType == "manager") {
+//				manager = checkManagerLogin(username, password);
+//				if (manager != NULL)
+				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
-		case(SearchMenu.SEARCH_BUTTON_ID):
+		case (SearchMenu.SEARCH_BUTTON_ID):
 			break;
-		
-		case(SearchMenu.SUBSCRIBE_BUTTON_ID):
+
+		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			break;
-		
+
+		}
 	}
 }

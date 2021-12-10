@@ -19,7 +19,6 @@ public class Property {
 	private String landlordEmail;
 	private String address; 
 	private int landlordID;
-//	private ArrayList<Property> newProperty;
 
 	private DatabaseController dbControl;
 
