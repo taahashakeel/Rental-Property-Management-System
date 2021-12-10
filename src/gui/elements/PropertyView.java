@@ -30,6 +30,7 @@ public class PropertyView extends JPanel{
   private String housingType;
   private boolean furnished;
   private int id;
+  int index;
 
   private static final String PROPERTY_LINK_ID = "propertyLinkID=";
 
@@ -49,13 +50,15 @@ public class PropertyView extends JPanel{
       String quadrant,
       String housingType,
       boolean furnished,
-      int id){
+      int id,
+      int index){
     super();
     this.address = address;
     this.quadrant = quadrant;
     this.housingType = housingType;
     this.furnished = furnished;
     this.id = id;
+    this.index = index;
 
     init();
   }
