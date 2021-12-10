@@ -33,12 +33,12 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 
-//import BackEnd.DatabaseController;
+import BackEnd.DatabaseController;
 
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
-//	private DatabaseController dbConnect;
+	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
 		this.mainGui = mainGui;
@@ -81,11 +81,11 @@ public class ButtonListener implements ActionListener {
 			System.out.println("Username: " + username);
 			String password = LoginMenu.getPasswordField();
 			System.out.println("Password: " + password);
-			if (userType == "renter" && ) {
+			if (userType == "renter") { // add && checkRenterLogin(username, password)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
-//			} else if (userType == "landlord") {
-				mainGui.setCurrentPanel(new LandlordUI());
-			} else if (userType == "manager") {
+			} else if (userType == "landlord") { // && checkLandlordLogin(username, password)
+//				mainGui.setCurrentPanel(new LandlordUI());
+			} else if (userType == "manager") { // && checkManagerLogin(username, password)
 //				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
