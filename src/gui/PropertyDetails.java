@@ -24,6 +24,7 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
@@ -54,6 +55,10 @@ public class PropertyDetails extends FocusPanel{
     setLayout(panelLayout);
 
     // create all necessary elements
+    JPanel centerPanel = new JPanel();
+    GridBagLayout centerLayout = new GridBagLayout();
+    centerPanel.setLayout(centerLayout);
+
     JLabel idLabel = new JLabel(String.valueOf(propertyRep.getPropertyID()));
     JLabel addressLabel = new JLabel(propertyRep.getAddress()
         + " " + propertyRep.getQuadrant());
@@ -72,34 +77,37 @@ public class PropertyDetails extends FocusPanel{
     gbc.anchor = GridBagConstraints.WEST;
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    add(addressLabel, gbc);
+    centerPanel.add(addressLabel, gbc);
 
     gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
-    add(idLabel, gbc);
+    centerPanel.add(idLabel, gbc);
 
     // property composition
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     gbc.anchor = GridBagConstraints.WEST;
-    add(bedroomLabel, gbc);
+    centerPanel.add(bedroomLabel, gbc);
     gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
-    gbc.weightx = 1;
+    gbc.weightx = 2;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    add(bedroomCount, gbc);
+    centerPanel.add(bedroomCount, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
     gbc.anchor = GridBagConstraints.WEST;
-    add(bathroomLabel, gbc);
+    centerPanel.add(bathroomLabel, gbc);
     gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
     gbc.anchor = GridBagConstraints.EAST;
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
-    add(bathroomCount, gbc);
+    centerPanel.add(bathroomCount, gbc);
 
     // property cost
     gbc = FocusPanel.generateConstraints(2, 1, 1, 1);
     gbc.anchor = GridBagConstraints.CENTER;
     gbc.weightx = 1;
-    add(costLabel, gbc);
+    centerPanel.add(costLabel, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    add(centerPanel, gbc);
   }
 }
