@@ -31,6 +31,8 @@ public class PropertyDetails extends FocusPanel{
   // Determine if the user should have the option to email the renter
   private boolean viewer;
 
+  private static final String EMAIL_LANDLORD_ID = "emailLandlordButton";
+
   /*/ this empty constructor should not need to exist.
   public PropertyDetails(boolean viewer){
     super();

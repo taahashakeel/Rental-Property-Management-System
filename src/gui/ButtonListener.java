@@ -89,6 +89,8 @@ public class ButtonListener implements ActionListener {
 //				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
+    case(PropertyDetails.EMAIL_LANDLORD_ID):
+      break;
 		}
 	}
 }
