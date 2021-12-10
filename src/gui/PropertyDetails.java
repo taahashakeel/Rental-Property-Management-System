@@ -17,6 +17,9 @@
  */
 package gui;
 
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -45,6 +48,9 @@ public class PropertyDetails extends FocusPanel{
    * This panel displays all information about a selected property
    */
   private void init(){
+    GridBagLayout panelLayout = new GridBagLayout();
+    setLayout(panelLayout);
+
     // create all necessary elements
     JLabel idLabel = new JLabel(propertyRep.getPropertyID());
     JLabel addressLabel = new JLabel(propertyRep.getAddress()
