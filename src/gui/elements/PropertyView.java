@@ -68,6 +68,7 @@ public class PropertyView extends JPanel{
     JButton propertyLink = generatePropertyLink();
 
     // Add button to current element
+    GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gbc.weightx = 0.8;
