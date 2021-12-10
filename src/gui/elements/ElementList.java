@@ -22,19 +22,19 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
-public class PropertyList<T extends Component> extends JPanel {
+public class ElementList<T extends Component> extends JPanel {
 	private ArrayList<T> propertyList;
 	private GridBagLayout panelLayout;
 	private JPanel contentList;
 	private JScrollPane scrollPane;
 
-	public PropertyList() {
+	public ElementList() {
 		super();
 		this.propertyList = new ArrayList<T>();
 		init();
 	}
 
-	public PropertyList(T[] propertyList) {
+	public ElementList(T[] propertyList) {
 		super();
 		this.propertyList = new ArrayList<T>();
 
