@@ -71,6 +71,7 @@ public class PropertyDetails extends FocusPanel{
     JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished()? "Furnished" : "Unfurnished");
 
     JButton contactLandlord = new JButton("Email Landlord");
+    /// TODO: Add email textbox to write message to the landlord
 
     // place items as necessary
     // property identifiers
