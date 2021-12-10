@@ -19,6 +19,8 @@ package gui.elements;
 // import Employee.Property;
 
 import gui.FocusPanel;
+import gui.ButtonListener;
+import gui.GUI;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -28,6 +30,8 @@ import javax.swing.JButton;
 
 public class PropertyEdit extends PropertyView{
   private String propertyStatus;
+  public static final String STATUS_BUTTON_ID = "statusButton1";
+
 
   private String[] statuses = {
     "Active",
@@ -60,10 +64,13 @@ public class PropertyEdit extends PropertyView{
   private void init(){
     JComboBox<String> statusMenu = new JComboBox<String>(statuses);
 
+
     statusMenu.setSelectedItem(propertyStatus);
 
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+    statusMenu.setActionCommand(STATUS_BUTTON_ID);
+    statusMenu.addActionListener(GUI.buttonListener);
     add(statusMenu, gbc);
   }
 }

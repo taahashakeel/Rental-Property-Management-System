@@ -37,6 +37,7 @@ import gui.elements.LoginMenu;
 import gui.elements.SearchMenu;
 import gui.elements.CreatePropertyView;
 import gui.elements.PropertyView;
+import gui.elements.PropertyEdit;
 
 //import gui.elements.InvalidEntryView;
 
@@ -145,7 +146,7 @@ public class ButtonListener implements ActionListener {
 			break;
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
-		
+
 			break;
 		case (PropertyDetails.EMAIL_LANDLORD_ID):
 			break;
@@ -156,16 +157,16 @@ public class ButtonListener implements ActionListener {
 		case (CreatePropertyView.SAVE_BUTTON_ID):
 			mainGui.popHistoryStack();
 			JOptionPane.showMessageDialog(mainGui, "Property saved successfully!");
-		//creating a property to be displayed and saved to database
-//			PropertyView newProperty (CreatePropertyView.getAddress(), CreatePropertyView.getQuadrant(), 
-//					CreatePropertyView.getHouseType(), CreatePropertyView.getIfFurnished(),  
-//				      String address,
-//				      String quadrant,
-//				      String housingType,
-//				      boolean furnished,
-//				      int id,
-//				      int index)
-		break;
+			// creating a property to be displayed and saved to database
+
+			break;
+		case (PropertyEdit.STATUS_BUTTON_ID):
+			JOptionPane.showMessageDialog(mainGui, "Status changed successfully!");
+			break;
+
+		// ManagerUI
+		case (ManagerUI.GET_SUMMARY_BUTTON):
+
 		}
 	}
 }
