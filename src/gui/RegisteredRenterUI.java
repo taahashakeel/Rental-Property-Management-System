@@ -11,7 +11,7 @@
 package gui;
 
 import gui.elements.SearchMenu;
-import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyView;
 
 import java.awt.Component;
@@ -48,7 +48,7 @@ public class RegisteredRenterUI extends FocusPanel{
           i);
     }
 
-    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
+    ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
 
     // Create necessary elements
     SearchMenu search = new SearchMenu(true);

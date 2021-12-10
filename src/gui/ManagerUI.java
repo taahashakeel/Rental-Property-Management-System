@@ -10,7 +10,7 @@
  */
 package gui;
 
-import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
 
 import java.awt.GridBagLayout;
@@ -56,7 +56,7 @@ public class ManagerUI extends FocusPanel{
           statuses[i % 4]);
     }
 
-    PropertyList<PropertyEdit> results = new PropertyList<PropertyEdit>(dummyList);
+    ElementList<PropertyEdit> results = new ElementList<PropertyEdit>(dummyList);
 
     // populate window
     GridBagConstraints gbc;

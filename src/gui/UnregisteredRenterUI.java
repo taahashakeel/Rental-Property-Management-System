@@ -11,7 +11,7 @@
 package gui;
 
 import gui.elements.SearchMenu;
-import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyView;
 
 import java.awt.Component;
@@ -49,7 +49,7 @@ public class UnregisteredRenterUI extends FocusPanel{
           i);
     }
 
-    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
+    ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
