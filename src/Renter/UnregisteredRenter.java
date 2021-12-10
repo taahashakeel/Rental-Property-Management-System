@@ -11,7 +11,7 @@ public class UnregisteredRenter {
 	 
 	 public UnregisteredRenter()
 	 {
-		 
+		this.dbControl = new DatabaseController();
 	 }
 	////
 	 public void createSearchCriteria()
