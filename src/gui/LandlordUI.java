@@ -34,7 +34,7 @@ public class LandlordUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create elements
-    JButton createPropertyButton = new JButton("List a new property to rent");
+    JButton createPropertyButton = new JButton("List a new property for rent");
     // create dummy properties for now.
     PropertyEdit[] dummyList = new PropertyEdit[10];
 
