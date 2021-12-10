@@ -13,6 +13,7 @@ import java.awt.Insets;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 public abstract class FocusPanel extends JPanel{
@@ -108,9 +109,17 @@ public abstract class FocusPanel extends JPanel{
   }
 
   /**
-   * MOVED FROM GUI -- please update documentation when able
+   * Transforms and scales an ImageIcon to a specified width and height
+   *
+   * This method is made static such that any element is able to use it.
+   *
+   * @param image The image to be resized
+   * @param w The desired width of the image.
+   * @param h The desired height of the image.
+   * 
+   * @return The resized ImageIcon
    */
-  protected ImageIcon transformImage(ImageIcon image, int w, int h) {
+  protected static ImageIcon transformImage(ImageIcon image, int w, int h) {
     Image imageNew = image.getImage(); // transform it
     Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
     ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
