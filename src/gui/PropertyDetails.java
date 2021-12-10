@@ -26,6 +26,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import java.awt.Dimension;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
@@ -151,13 +153,21 @@ public class PropertyDetails extends FocusPanel{
     GridBagLayout emailLayout = new GridBagLayout();
 
     JPanel emailPanel = new JPanel();
+    emailPanel.setPreferredSize(new Dimension(400, 300));
     emailPanel.setLayout(emailLayout);
     emailPanel.setName("Contact Landlord");
 
     JButton contactLandlord = new JButton("Email Landlord");
+    JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
     /// TODO: Add email textbox to write message to the landlord
 
     GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.weightx = 1;
+    gbc.weighty = 1;
+    gbc.fill = GridBagConstraints.BOTH;
+    emailPanel.add(messageBox, gbc);
+
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
