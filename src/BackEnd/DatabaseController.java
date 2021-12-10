@@ -1,12 +1,11 @@
-package BackEnd;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+
+package BackEnd;
 
 public class DatabaseController {
 
@@ -78,7 +77,6 @@ public class DatabaseController {
     				temp.setPropertyID(result.getString("PID"));
     				temp.setStatus(result.getString("Status"));
     				temp.sethouseType(result.getString("HouseType"));
-    				temp.setAddress(result.getString("Address"));
     				temp.setNumBedrooms(result.getInt("BedroomNumber"));
     				temp.setNumBathrooms(result.getInt("BathroomNumber"));
     				temp.setIfFurnished(result.getInt("Furnished"));
@@ -125,7 +123,6 @@ public class DatabaseController {
 				temp.setPropertyFee(result.getInt("Fee"));
 				temp.setFeePaid(result.getInt("FeePaid"));
 				temp.setLandlordID(result.getString("LLID"));
-				temp.setAddress(result.getString("Address"));
 				
 				all.add(temp);	//adds the active property to the list
     			
@@ -161,7 +158,6 @@ public class DatabaseController {
     				temp.setPropertyFee(result.getInt("Fee"));
     				temp.setFeePaid(result.getInt("FeePaid"));
     				temp.setLandlordID(result.getString("LLID"));
-    				temp.setAddress(result.getString("Address"));
     				
     				properties.add(temp);	//adds the active property to the list
     			}
@@ -197,7 +193,6 @@ public class DatabaseController {
     				temp.setPropertyFee(result.getInt("Fee"));
     				temp.setFeePaid(result.getInt("FeePaid"));
     				temp.setLandlordID(result.getString("LLID"));
-    				temp.setAddress(result.getString("Address"));
     				
     				properties.add(temp);	//adds the active property to the list
     			}
@@ -237,7 +232,6 @@ public class DatabaseController {
     				temp.setPropertyFee(result.getInt("Fee"));
     				temp.setFeePaid(result.getInt("FeePaid"));
     				temp.setLandlordID(result.getString("LLID"));
-    				temp.setAddress(result.getString("Address"));
     				
     				properties.add(temp);	//adds the active property to the list
     			}
@@ -287,7 +281,7 @@ public class DatabaseController {
 		
 		try {
     		Statement state = dbConnect.createStatement();
-    		ResultSet result = state.executeQuery("SELECT * FROM " + "registeredrenters"); //selects all data from the table property
+    		ResultSet result = state.executeQuery("SELECT * FROM " + "landlord"); //selects all data from the table property
     		
     		while(result.next()) {	
 				
@@ -298,7 +292,7 @@ public class DatabaseController {
 				temp.setEmail(result.getString("Email"));
 				temp.setIsSubscribed(result.getInt("Subscribed"));
 				
-				all.add(temp);
+				all.add(temp);	//adds the active property to the list
     			
     		}
     		state.close();
@@ -308,120 +302,7 @@ public class DatabaseController {
 
 		return all;
 	}
-    
-    public <T> Object checkUserLogin(String username, String password, String type) {
-    		
-    	try {
-    		Statement state = dbConnect.createStatement();
-    		ResultSet result = state.executeQuery("SELECT * FROM " + type); //selects all data from the table chair
-    		
-    		while(result.next()) {	
-    			if(result.getString("Username").equals(username) && result.getString("Password").equals(password)) {
-    				if(type.equals("manager")) {
-    		    		Manager temp = new Manager();
-    		    		temp.setUsername(result.getString("Username"));
-    		    		temp.setPassword(result.getString("Password"));
-    		    		state.close();
-    		    		temp.setProperties(fetchAllProperty());
-    		    		return temp;
-    		    	}
-    		    	else if(type.equals("landlord")) {
-    		    		Landlord temp = new Landlord();
-    		    		temp.setUsername(result.getString("Username"));
-    		    		temp.setPassword(result.getString("Password"));
-    		    		temp.setLLID(result.getString("LLID"));
-    		    		state.close();
-    		    		temp.setProperties(fetchLandlordProperties(result.getString("LLID")));
-    		    		return temp;
-    		    	}
-    		    	else if(type.equals("registeredrenter")) {
-    		    		RegisteredRenter temp = new RegisteredRenter();
-    		    		temp.setUsername(result.getString("Username"));
-    		    		temp.setPassword(result.getString("Password"));
-    		    		temp.setRRID(result.getString("RRID"));
-    		    		state.close();
-    		    		return temp;
-    		    	}
-    			}
-    		}
-    		state.close();
-    	} catch(SQLException e) {
-    		e.printStackTrace();
-    	
-    	return null;
-    	}
-    	
-    }	
-    	
-    public void saveSearchCriteria(String RRID, SearchCriteria sub){
-    	
-		try {
-			String query = "INSERT INTO subscription (HouseType,BedroomNumber,BathroomNumber,Furnished,Quadrant,Budget,SID,RRID) VALUES (?,?,?,?,?,?,?,?)";
-			PreparedStatement state = dbConnect.prepareStatement(query);
-		
-			state.setString(1, sub.getHouseType());
-			state.setString(2, sub.getNumBedrooms());
-			state.setString(3, sub.getNumBedrooms());
-			state.setInt(4, sub.getIfFurnished());
-			state.setString(5, sub.getQuadrant());
-			state.setInt(6, sub.getBudget());
-			state.setString(7, "S0003"); //this should change, to give a unique id each time if nessesary. If we are doing 1 sub per renter we dont need this
-			state.setString(8, RRID);
-		
-			state.executeUpdate();
-			state.close();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-    	
-    }
-    
-    public void saveNewProperty(Property property){
-    	
-    	int length = fetchAllProperty().size();
-    	
-    	String number = String.valueOf(length);
-    	
-    	String id = "P000" + number;
-    	
-		try {
-			String query = "INSERT INTO PROPERTY (Status,HouseType,Address,BedroomNumber,BathroomNumber,Furnished,Quadrant,RentCost,Fee,FeePaid,FeePeriod,PID,LLID) VALUES (?,?,?,?,?,?,?,?)";
-			PreparedStatement state = dbConnect.prepareStatement(query);
-		
-			state.setString(1, property.getStatus());
-			state.setString(2, property.getHouseType());
-			state.setString(3, property.getAddress());
-			state.setString(4, property.getNumBedrooms());
-			state.setString(5, property.getNumBathrooms());
-			state.setInt(6, property.getIfFurnished());
-			state.setString(7, property.getQuadrant());
-			state.setInt(8, property.getRentCost());
-			state.setInt(9, property.getPropertyFee());
-			state.setInt(10, property.getFeePaid());
-			state.setInt(11, property.getFeePeriod());
-			state.setString(12, id);  //set a property id better
-			state.setString(13, property.getLandlordID());
-		
-			state.executeUpdate();
-			state.close();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-    	
-    }
    
-    public boolean changePropertyState(String PID, String state){
-		
-		try {
-    		Statement state = dbConnect.createStatement();
-    		state.executeUpdate("UPDATE property SET Status='"+ state +"'WHERE PID = '" + PID +"'");  		
-    		state.close();
-    		return true;
-    	} catch(SQLException e) {
-    		e.printStackTrace();
-    	}
-
-		return false;
-	}
+  
     
 }
