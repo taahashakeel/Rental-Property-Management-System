@@ -61,8 +61,10 @@ public class PropertyDetails extends FocusPanel{
     JTabbedPane tabbedPane = new JTabbedPane();
 
     JPanel detailPanel = detailComponent();
+    JPanel emailPanel = emailComponent();
 
     tabbedPane.add(detailPanel);
+    tabbedPane.add(emailPanel);
 
     // Add pane to current page
     GridBagConstraints gbc;
