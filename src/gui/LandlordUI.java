@@ -21,6 +21,7 @@ public class LandlordUI extends FocusPanel{
 
   public LandlordUI(){
     super();
+    init();
   }
 
   /**
