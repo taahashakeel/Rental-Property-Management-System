@@ -19,16 +19,20 @@ package gui;
 
 public class PropertyDetails extends FocusPanel{
   // private Property propertyRep;
+  // Determine if the user should have the option to email the renter
+  private boolean viewer;
 
   // this empty constructor should not need to exist.
-  public PropertyDetails(){
+  public PropertyDetails(boolean viewer){
     super();
+    this.viewer = viewer;
   } // */
 
   /*/ this is the constructor that is needed
-  public PropertyDetails(Property propertyRep){
+  public PropertyDetails(Property propertyRep, boolean viewer){
     super();
     this.propertyRep = propertyRep;
+    this.viewer = viewer;
     init();
   } // */
 
