@@ -24,17 +24,17 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class PropertyDetails extends FocusPanel{
-  // private Property propertyRep;
+  private Property propertyRep;
   // Determine if the user should have the option to email the renter
   private boolean viewer;
 
-  // this empty constructor should not need to exist.
+  /*/ this empty constructor should not need to exist.
   public PropertyDetails(boolean viewer){
     super();
     this.viewer = viewer;
   } // */
 
-  /*/ this is the constructor that is needed
+  // this is the constructor that is needed
   public PropertyDetails(Property propertyRep, boolean viewer){
     super();
     this.propertyRep = propertyRep;
