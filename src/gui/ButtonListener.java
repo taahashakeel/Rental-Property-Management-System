@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
-  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID);
+  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {
