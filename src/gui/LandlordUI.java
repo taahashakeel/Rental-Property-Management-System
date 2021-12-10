@@ -48,7 +48,7 @@ public class LandlordUI extends FocusPanel{
 
     // create dummy properties for now.
     listedProperties = new Property[LIST_SIZE];
-    PropertyView[] dummyList = new PropertyView[4];
+    PropertyEdit[] dummyList = new PropertyEdit[4];
 
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();
@@ -69,7 +69,7 @@ public class LandlordUI extends FocusPanel{
           415,
           i);
       // */
-      dummyList[i] = new PropertyView(currProperty);
+      dummyList[i] = new PropertyEdit(currProperty);
     }
 
     ElementList<PropertyEdit> results = new ElementList<PropertyEdit>(dummyList);
