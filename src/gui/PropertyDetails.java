@@ -27,6 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
@@ -158,22 +159,33 @@ public class PropertyDetails extends FocusPanel{
     emailPanel.setLayout(emailLayout);
     emailPanel.setName("Contact Landlord");
 
+    JTextField subjectField = new JTextField("[Subject]");
     JButton contactLandlord = new JButton("Email Landlord");
     JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
     JScrollPane textScroll = new JScrollPane(messageBox);
+    JTextField senderField = new JTextField("From:");
 
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    emailPanel.add(subjectField, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     gbc.weightx = 1;
     gbc.weighty = 1;
     gbc.fill = GridBagConstraints.BOTH;
     emailPanel.add(textScroll, gbc);
 
-    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    emailPanel.add(senderField, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 3, 1, 1);
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     emailPanel.add(contactLandlord, gbc);
-
 
     return emailPanel;
   }
