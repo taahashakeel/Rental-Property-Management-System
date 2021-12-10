@@ -54,7 +54,7 @@ public class ButtonListener implements ActionListener {
 //	private Landlord landlord;
 //	private Manager manager;
 
-  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
+	private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
 
 //	private DatabaseController dbConnect;
 
