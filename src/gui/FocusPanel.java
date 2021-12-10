@@ -129,4 +129,13 @@ public abstract class FocusPanel extends JPanel{
 
     return newImageIcon;
   }
+
+  /**
+   * Gets the Property wihin listedProperties at the provided index.
+   *
+   * @param index the index to fetch values from.
+   */
+  public Property getProperty(int index){
+    return listedProperties[index];
+  }
 }
