@@ -25,6 +25,8 @@
  */
 package gui;
 
+import gui.elements.PropertyView;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
@@ -33,11 +35,15 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 //import BackEnd.DatabaseController;
 
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
+  private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID);
 //	private DatabaseController dbConnect;
 
 	public ButtonListener(GUI mainGui) {

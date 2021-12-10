@@ -31,6 +31,8 @@ public class PropertyView extends JPanel{
   private boolean furnished;
   private int id;
 
+  private static final String PROPERTY_LINK_ID = "propertyLinkID="
+
   public PropertyView(){
     super();
     init();
