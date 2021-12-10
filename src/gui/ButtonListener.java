@@ -35,6 +35,7 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 import gui.elements.SearchMenu;
+import gui.elements.CreatePropertyView;
 //import gui.elements.InvalidEntryView;
 
 import java.util.regex.Matcher;
@@ -138,13 +139,18 @@ public class ButtonListener implements ActionListener {
 			}
 			break;
 		case (SearchMenu.SEARCH_BUTTON_ID):
-//			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
-//					ifFurnished: boolean, address: String, quadrant: String): Property []);
+			
+//			fetchActiveProperty(SearchMenu.getHouseType(), SearchMenu.getBedroom(), SearchMenu.getBathroom(), 
+//					SearchMenu.getIfFurnished(), SearchMenu.getQuadrant): Property []);
 			break;
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			break;
 	    case(PropertyDetails.EMAIL_LANDLORD_ID):
 	      break;
+	    // LandlordUI
+	    case(LandlordUI.CREATE_PROP_BUTTON):
+	    	mainGui.setCurrentPanel(new CreatePropertyUI());
 		}
+		case(CreatePropertyView.SAVE_BUTTON_ID)
 	}
 }
