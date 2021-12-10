@@ -25,6 +25,7 @@ import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
@@ -56,6 +57,16 @@ public class PropertyDetails extends FocusPanel{
     GridBagLayout panelLayout = new GridBagLayout();
     setLayout(panelLayout);
 
+    JPanel detailPanel = detailComponent();
+
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    add(detailPanel, gbc);
+  }
+
+  /**
+   * Generate the JPanel with the details of the property.
+   */
+  private void detailComponent(){
     // create all necessary elements
     JPanel centerPanel = new JPanel();
     GridBagLayout centerLayout = new GridBagLayout();
@@ -71,9 +82,6 @@ public class PropertyDetails extends FocusPanel{
     JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()) + " bath");
     JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
     JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished()? "Furnished" : "Unfurnished");
-
-    JButton contactLandlord = new JButton("Email Landlord");
-    /// TODO: Add email textbox to write message to the landlord
 
     // place items as necessary
     // property identifiers
@@ -126,8 +134,13 @@ public class PropertyDetails extends FocusPanel{
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(contactLandlord, gbc);
+  }
 
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    add(centerPanel, gbc);
+  /**
+   * Generate the component with the text area to write messages to the landlord.
+   */
+  private void emailComponent(){
+    JButton contactLandlord = new JButton("Email Landlord");
+    /// TODO: Add email textbox to write message to the landlord
   }
 }
