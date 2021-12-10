@@ -57,10 +57,14 @@ public class LandlordUI extends FocusPanel{
     PropertyList<PropertyEdit> results = new PropertyList<PropertyEdit>(dummyList);
 
     // populate window
-    GridBagConstraints gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     gbc.fill = GridBagConstraints.BOTH;
     gbc.weightx = 100;
     gbc.weighty = 100;
     add(results, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    add(createPropertyButton, gbc);
   }
 }
