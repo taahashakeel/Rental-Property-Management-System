@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 public class PropertyDetails extends FocusPanel{
   private Property propertyRep;
@@ -159,19 +160,20 @@ public class PropertyDetails extends FocusPanel{
 
     JButton contactLandlord = new JButton("Email Landlord");
     JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
-    /// TODO: Add email textbox to write message to the landlord
+    JScrollPane textScroll = new JScrollPane(messageBox);
 
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     gbc.weightx = 1;
     gbc.weighty = 1;
     gbc.fill = GridBagConstraints.BOTH;
-    emailPanel.add(messageBox, gbc);
+    emailPanel.add(textScroll, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     emailPanel.add(contactLandlord, gbc);
+
 
     return emailPanel;
   }
