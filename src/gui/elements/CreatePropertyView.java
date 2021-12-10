@@ -158,7 +158,7 @@ public class CreatePropertyView extends JPanel {
 	}
 
 	public static String getAddress() {
-		return addressField.getText());
+		return addressField.getText();
 	}
 	
 	public static String getHouseType() {

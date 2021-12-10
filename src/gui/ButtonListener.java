@@ -40,6 +40,7 @@ import gui.elements.CreatePropertyView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.*;
 
 //import BackEnd.DatabaseController;
 //import Renter.RegisteredRenter;
@@ -77,12 +78,12 @@ public class ButtonListener implements ActionListener {
 
 		System.out.println("Pressed: id = " + id);
 
-    Matcher m = propertyLinkEvent.matcher(id);
-    if(m.matches()){
-      // Switch to specified property to view.
-      int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
-      System.out.println("Switching to property " + index);
-    }
+		Matcher m = propertyLinkEvent.matcher(id);
+		if (m.matches()) {
+			// Switch to specified property to view.
+			int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
+			System.out.println("Switching to property " + index);
+		}
 
 		switch (id) {
 		// Main GUI frame buttons
@@ -115,13 +116,11 @@ public class ButtonListener implements ActionListener {
 			System.out.println("Username: " + username);
 			String password = LoginMenu.getPasswordField();
 			System.out.println("Password: " + password);
-			if (usernameInvalid)
-			{
+			if (usernameInvalid) {
 				usernameInvalid = !usernameInvalid;
 				System.out.println("Found invalid entry!");
 				mainGui.setCurrentPanel(new InvalidLoginUI());
-			}
-			else if (userType == "renter") {
+			} else if (userType == "renter") {
 				usernameInvalid = !usernameInvalid;
 //				regRenter = checkUserLogin(username, password, userType);
 //				if (regRenter != NULL)
@@ -139,18 +138,22 @@ public class ButtonListener implements ActionListener {
 			}
 			break;
 		case (SearchMenu.SEARCH_BUTTON_ID):
-			
+
 //			fetchActiveProperty(SearchMenu.getHouseType(), SearchMenu.getBedroom(), SearchMenu.getBathroom(), 
 //					SearchMenu.getIfFurnished(), SearchMenu.getQuadrant): Property []);
 			break;
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			break;
-	    case(PropertyDetails.EMAIL_LANDLORD_ID):
-	      break;
-	    // LandlordUI
-	    case(LandlordUI.CREATE_PROP_BUTTON):
-	    	mainGui.setCurrentPanel(new CreatePropertyUI());
+		case (PropertyDetails.EMAIL_LANDLORD_ID):
+			break;
+		// LandlordUI
+		case (LandlordUI.CREATE_PROP_BUTTON):
+			mainGui.setCurrentPanel(new CreatePropertyUI());
+			break;
+		case (CreatePropertyView.SAVE_BUTTON_ID):
+			mainGui.popHistoryStack();
+			JOptionPane.showMessageDialog(mainGui, "Property saved successfully!");
+		break;
 		}
-		case(CreatePropertyView.SAVE_BUTTON_ID)
 	}
 }
