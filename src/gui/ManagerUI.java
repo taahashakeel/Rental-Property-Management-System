@@ -16,6 +16,8 @@ import gui.elements.PropertyEdit;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
+import javax.swing.JButton;
+
 public class ManagerUI extends FocusPanel{
   // private Manager userRepresentation;
 
@@ -32,6 +34,8 @@ public class ManagerUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create elements
+    JButton summaryButton = new JButton("Form Summary");
+
     // create dummy properties for now.
     PropertyEdit[] dummyList = new PropertyEdit[10];
 
