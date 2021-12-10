@@ -145,7 +145,9 @@ public class PropertyDetails extends FocusPanel{
   /**
    * Generate the component with the text area to write messages to the landlord.
    */
-  private void emailComponent(){
+  private JPanel emailComponent(){
+    JPanel emailPanel = new JPanel();
+
     JButton contactLandlord = new JButton("Email Landlord");
     /// TODO: Add email textbox to write message to the landlord
 
@@ -153,5 +155,6 @@ public class PropertyDetails extends FocusPanel{
     // gbc.weightx = 1;
     // gbc.fill = GridBagConstraints.HORIZONTAL;
     // centerPanel.add(contactLandlord, gbc);
+    return emailPanel;
   }
 }
