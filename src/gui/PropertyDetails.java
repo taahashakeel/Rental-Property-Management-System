@@ -68,6 +68,7 @@ public class PropertyDetails extends FocusPanel{
     JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
     JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()));
     JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()));
+    JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished()? "Furnished" : "Unfurnished");
 
     JButton contactLandlord = new JButton("Email Landlord");
 
@@ -113,6 +114,10 @@ public class PropertyDetails extends FocusPanel{
     gbc.weightx = 1;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     centerPanel.add(bathroomCount, gbc);
+
+    gbc = FocusPanel.generateConstraints(0, 4, 2, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    centerPanel.add(furnishedLabel, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     add(centerPanel, gbc);
