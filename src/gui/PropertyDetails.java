@@ -62,5 +62,13 @@ public class PropertyDetails extends FocusPanel{
     JLabel costLabel = new JLabel(propertyRep.getRentCost());
 
     JButton contactLandlord = new JButton("Email Landlord");
+
+    // place items as necessary
+    GridBagConstraints gbc;
+    gbc = FocusPanel.generateConstraints(0, 0, 2, 1);
+    gbc.anchor = GridBagConstraints.WEST;
+    gbc.weightx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    add(addressLabel, gbc);
   }
 }
