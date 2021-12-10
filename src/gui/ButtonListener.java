@@ -97,9 +97,9 @@ public class ButtonListener implements ActionListener {
 			if (userType == "renter") { // add && checkRenterLogin(username, password)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
 			} else if (userType == "landlord") { // && checkLandlordLogin(username, password)
-//				mainGui.setCurrentPanel(new LandlordUI());
+				mainGui.setCurrentPanel(new LandlordUI());
 			} else if (userType == "manager") { // && checkManagerLogin(username, password)
-//				mainGui.setCurrentPanel(new ManagerUI());
+				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
     case(PropertyDetails.EMAIL_LANDLORD_ID):
