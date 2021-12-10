@@ -27,6 +27,8 @@ package gui;
 
 import gui.elements.PropertyView;
 
+import Employee.Property;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
@@ -79,6 +81,10 @@ public class ButtonListener implements ActionListener {
       // Switch to specified property to view.
       int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
       System.out.println("Switching to property " + index);
+      FocusPanel currPanel = mainGui.getCurrentPanel();
+      Property selectedProperty = currPanel.getProperty(index);
+      boolean landlord = (boolean) (currPanel instanceof LandlordUI); // bad practice but oh well
+      mainGui.setCurrentPanel(new PropertyDetails(selectedProperty, !landlord));
     }
 
 		switch (id) {
