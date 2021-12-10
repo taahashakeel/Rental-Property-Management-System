@@ -34,7 +34,7 @@ public class ManagerUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create elements
-    JButton summaryButton = new JButton("Form Summary");
+    JButton summaryButton = new JButton("Generate Summary");
 
     // create dummy properties for now.
     PropertyEdit[] dummyList = new PropertyEdit[10];
