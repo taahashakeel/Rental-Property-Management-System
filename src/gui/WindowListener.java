@@ -1,5 +1,5 @@
 /**
- * @author Ethan Sengsavang <a href="mailto:ethan.sengsavang@ucalgary.ca">email</a>
+W * @author Ethan Sengsavang <a href="mailto:ethan.sengsavang@ucalgary.ca">email</a>
  *
  * Listens for events that occur to a specific window.
  *

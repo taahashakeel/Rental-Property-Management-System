@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="0"/>
+	<item key="GitSelectRepositoryPage.lastRepository" value="/Users/rachelrenegado/Desktop/code/ensf480/project/Rental-Property-Management-System/.git"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/tshakeel-debug/Rental-Property-Management-System"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+</section>
