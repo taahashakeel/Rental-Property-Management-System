@@ -64,7 +64,7 @@ public class UnregisteredRenterUI extends FocusPanel{
           415,
           i);
       // */
-      dummyList[i] = new PropertyView(currProperty);
+      dummyList[i] = new PropertyView(currProperty, i);
     }
 
     ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);

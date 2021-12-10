@@ -70,7 +70,7 @@ public class ManagerUI extends FocusPanel{
           415,
           i);
       // */
-      dummyList[i] = new PropertyEdit(currProperty);
+      dummyList[i] = new PropertyEdit(currProperty, i);
     }
 
     ElementList<PropertyEdit> results = new ElementList<PropertyEdit>(dummyList);
