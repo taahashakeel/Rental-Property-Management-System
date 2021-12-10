@@ -27,12 +27,11 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	private static ConcreteSubscriptionServiceSubject onlyInstance;
 	private DatabaseController dbControl;
 	static private ArrayList<SubscribedObserver> subscribers;
-	static private ArrayList<Property> newProperty;
+	static private Property newProperty;
 
 	public ConcreteSubscriptionServiceSubject() {
 		dbControl = new DatabaseController();
 		subscribers = new ArrayList<SearchObserver>();
-		newProperty = new ArrayList<Property>();
 	}
 
 	/**
@@ -65,8 +64,8 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	 */
 	static public void notifyAllSubscribedObservers() {
 		for (int i = 0; i < subscribers.size(); i++) {
-			SubscribedObserver subscribers = subscribers.get(i);
-			subscribers.update(newProperty);
+			SubscribedObserver subscriber = subscribers.get(i);
+			subscriber.update(newProperty);
 		}
 	}
 
@@ -78,7 +77,7 @@ public class ConcreteSubscriptionServiceSubject implements SubscriptionServiceSu
 	 * @param subscriber The renter (SearchObserver) wishing to unsubscribe 
 	 */
 	public void addProperty(Property p) {
-		newProperty.add(p);
+		this.newProperty = p;
 		notifyAllSubscribedObservers();
 	}
 
