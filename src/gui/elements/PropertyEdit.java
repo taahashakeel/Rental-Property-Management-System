@@ -47,8 +47,9 @@ public class PropertyEdit extends PropertyView{
       String housingType,
       boolean furnished,
       int id,
+      int index,
       String propertyStatus){
-    super(address, quadrant, housingType, furnished, id);
+    super(address, quadrant, housingType, furnished, id, index);
     this.propertyStatus = propertyStatus;
     init();
   }
