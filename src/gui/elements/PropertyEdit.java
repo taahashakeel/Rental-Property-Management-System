@@ -22,7 +22,7 @@ import gui.FocusPanel;
 
 import javax.swing.JComboBox;
 
-public class PropertyEdit extends PropertyView(){
+public class PropertyEdit extends PropertyView{
   private String propertyStatus;
 
   /*/ constructor to use
@@ -30,7 +30,7 @@ public class PropertyEdit extends PropertyView(){
     super(propertyRep);
   } // */
 
-  public PropertyView(
+  public PropertyEdit(
       String address,
       String quadrant,
       String housingType,
