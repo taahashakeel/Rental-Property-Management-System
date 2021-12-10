@@ -62,6 +62,8 @@ public class PropertyEdit extends PropertyView{
     JButton propertyLink = generatePropertyLink();
     JComboBox<String> statusMenu = new JComboBox<String>(statuses);
 
+    statusMenu.setSelectedItem(propertyStatus);
+
     GridBagConstraints gbc;
     gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
     gbc.fill = GridBagConstraints.HORIZONTAL;
