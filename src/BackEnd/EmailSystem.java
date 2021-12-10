@@ -41,14 +41,15 @@ public class EmailSystem {
 	}
 	
 	
-	public static void main(String[]args) {
+/*	public static void main(String[]args) {
 		//EmailSystem email = new EmailSystem("hoodie.the.mage@gmail.com","angrybacca@gmail.com");
 		//email.sendEmail("Welcome to the body.","This is a header.");
 		EmailSystem.sendEmail("angrybacca@gmail.com","hoodie.the.mage@gmail.com","This is the body","this is the header");
 		System.out.println("Program Done");
+		
 	}
 	
-	
+	*/
 	
 
 }
