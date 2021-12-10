@@ -5,11 +5,11 @@
  *  @since 1.0
  *  
  * Services impliments the Observer Design Pattern and represents the Subject 
- * interface that is implimented by the ConcreteSubscriptionServer Subject
- * This element briefly summarizes information on the property, including:
- * - city quadrant
- * - housing type
- * - furnish state
+ * interface that is implimented by the ConcreteSubscriptionServerSubject.
+ * 
+ * The class contains abstract methods that the ConcreteSubscriptionServerSubject
+ * must define and contain. Functions include the ability to register an observer, 
+ * remove an observer, and notify all the observers of a change to the data.
  */
  */
 

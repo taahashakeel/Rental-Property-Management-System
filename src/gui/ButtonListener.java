@@ -32,6 +32,7 @@ import java.awt.Component;
 // button listener imports
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
+import gui.elements.SearchMenu;
 
 //import BackEnd.DatabaseController;
 
@@ -89,6 +90,11 @@ public class ButtonListener implements ActionListener {
 //				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
-		}
+		case(SearchMenu.SEARCH_BUTTON_ID):
+			break;
+		
+		case(SearchMenu.SUBSCRIBE_BUTTON_ID):
+			break;
+		
 	}
 }
