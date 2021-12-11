@@ -12,7 +12,7 @@ package Services;
 
 import java.io.*;
 import java.util.*;
-import BackEnd.DatabaseController;
+// import BackEnd.DatabaseController;
 import Employee.Property;
 
 /**
@@ -21,7 +21,7 @@ import Employee.Property;
  */
 public class SearchCriteria {
 
-	private DatabaseController dbControl;
+	// private DatabaseController dbControl;
 	private String houseType;
 	private int[] numBedrooms = new int[2]; // saves min and max num bedrooms
 	private int[] numBathrooms = new int[2]; // saves min and max num bedrooms
