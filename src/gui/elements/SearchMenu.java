@@ -18,6 +18,8 @@ import gui.FocusPanel;
 import gui.ButtonListener;
 import gui.GUI;
 
+import Services.SearchCriteria;
+
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
