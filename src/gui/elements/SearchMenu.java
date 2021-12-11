@@ -207,5 +207,15 @@ public class SearchMenu extends JPanel {
    * Generates a new search criteria instance based off the selected fields.
    */
   public SearchCriteria generateSearch(){
+    SearchCriteria search = new SearchCriteria();
+
+    search.editSearchCriteria(getHouseType(),
+        getBedroom(),
+        getBathroom(),
+        furnishCheckbox.isSelected(),
+        getQuadrant(),
+        getBudget());
+
+    return search;
   }
 }
