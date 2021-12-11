@@ -56,13 +56,19 @@ public class Landlord {
 	 * @param propertyID Property id representing the property being changed
 	 * @param state The new state of the property
 	 * 
-	 * @return If state change was successful
+	 * @return If state change was successful 
 	 */
 	public boolean changeState(String propertyID, String state) {
 		return dbControl.changePropertyState(propertyID, state);
 
 	}
 
+
+	/**
+	 * sends email which contains a link to paypal 
+	 * @param propertyID Property id is the property which would get its fee paid
+	 * @return 0 is false and 1 is true. 
+	 */
 
 	// Could we make them pay a fee first before creating a property???
 	public int payFee(int propertyID) {
@@ -74,7 +80,7 @@ public class Landlord {
 
 	/**
 	 * Landlord creates a a new property. The landlord is prompted to pay 
-	 * a free, if the fee is payed, the property is listed for renters to view.
+	 * a fee, if the fee is payed, the property is listed for renters to view.
 	 * For those that are subscribed, they will be notified if the property 
 	 * matches their search criteria
 	 */
