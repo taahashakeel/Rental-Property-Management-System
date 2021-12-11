@@ -129,8 +129,17 @@ public class ButtonListener implements ActionListener {
 			break;
 		case (SearchMenu.SEARCH_BUTTON_ID):
 			
-			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
-					ifFurnished: boolean, address: String, quadrant: String): Property []);
+//			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
+//					ifFurnished: boolean, address: String, quadrant: String): Property []);
+      FocusPanel currPanel = mainGui.getCurrentPanel();
+      SearchMenu search;
+      if(currPanel instanceof RegisteredRenterUI){
+        RegisteredRenterUI rr = (RegisteredRenterUI) currPanel;
+        search = rr.getSearchMenu();
+      }else{
+        UnregisteredRenterUI ur = (UnregisteredRenterUI) currPanel;
+        search = ur.getSearchMenu();
+      }
 			break;
 
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
