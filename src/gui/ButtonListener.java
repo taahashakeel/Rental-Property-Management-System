@@ -59,6 +59,7 @@ public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
 	private boolean usernameInvalid = true;
+  private boolean subscribeStatus = false; // default is not subscribed
 	// Users
 //	private RegisterRenter regRenter;
 //	private UnregisteredRenter unregRenter;
@@ -156,10 +157,16 @@ public class ButtonListener implements ActionListener {
 //			fetchActiveProperty(SearchMenu.getHouseType(), SearchMenu.getBedroom(), SearchMenu.getBathroom(), 
 //					SearchMenu.getIfFurnished(), SearchMenu.getQuadrant): Property []);
 			break;
-		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
-			JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
-
-			break;
+    case (SearchMenu.SUBSCRIBE_BUTTON_ID):
+      if (!subscribeStatus)
+      {
+          JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
+          subscribeStatus = !subscribeStatus;
+      }else {
+          JOptionPane.showMessageDialog(mainGui, "You have been unsubscribed to the current search criteria!");
+          subscribeStatus = !subscribeStatus;
+      }
+      break;
 		case (PropertyDetails.EMAIL_LANDLORD_ID):
 			if (EmailSystem.sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ) 
 					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
