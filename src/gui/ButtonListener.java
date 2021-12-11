@@ -26,6 +26,7 @@
 package gui;
 
 import gui.elements.PropertyView;
+import Services.SearchCriteria;
 
 import Employee.Property;
 
@@ -140,6 +141,7 @@ public class ButtonListener implements ActionListener {
         UnregisteredRenterUI ur = (UnregisteredRenterUI) currPanel;
         search = ur.getSearchMenu();
       }
+      SearchCriteria sc = search.generateSearch();
 			break;
 
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
