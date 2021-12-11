@@ -202,4 +202,10 @@ public class SearchMenu extends JPanel {
 	public static int getBudget() {
 		return Integer.parseInt(budget.getText());
 	}//	private static JTextField budget= new JTextField(5); // max = $999,999
+
+  /**
+   * Generates a new search criteria instance based off the selected fields.
+   */
+  public SearchCriteria generateSearch(){
+  }
 }
