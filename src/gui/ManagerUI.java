@@ -14,7 +14,6 @@ import gui.FocusPanel;
 import gui.ButtonListener;
 import gui.GUI;
 
-import gui.elements.PropertyList;
 import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
 

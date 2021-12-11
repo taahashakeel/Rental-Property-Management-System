@@ -19,7 +19,6 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import gui.elements.PropertyList;
 import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
 

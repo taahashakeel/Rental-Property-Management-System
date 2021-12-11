@@ -20,7 +20,6 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JButton;
 
-import gui.elements.PropertyList;
 import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
 
