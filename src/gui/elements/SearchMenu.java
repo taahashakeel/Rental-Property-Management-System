@@ -43,19 +43,19 @@ public class SearchMenu extends JPanel {
 	private static String[] housingTypes = { "Apartment", "Attached House", "Detached House", "Townhouse", "Condo" };
 
 	// Feilds that collect user input
-	private static JTextField bedroomLower = new JTextField(2); // allow for a 2 digit value
-	private static JTextField bedroomUpper = new JTextField(2);
-	private static JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
-	private static JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
-	private static JTextField bathroomLower = new JTextField(2);
-	private static JTextField bathroomUpper = new JTextField(2);
-	private static JTextField budget= new JTextField(5); // max = $999,999
+	private JTextField bedroomLower = new JTextField(2); // allow for a 2 digit value
+	private JTextField bedroomUpper = new JTextField(2);
+	private JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
+	private JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
+	private JTextField bathroomLower = new JTextField(2);
+	private JTextField bathroomUpper = new JTextField(2);
+	private JTextField budget= new JTextField(5); // max = $999,999
 
 	// allow for boundries to be set
 	private JLabel bathroomRangeLabel = new JLabel("<");
 
 	// Checkboxes
-	private static JCheckBox furnishCheckbox = new JCheckBox("Furnished");
+	private JCheckBox furnishCheckbox = new JCheckBox("Furnished");
 
 	public SearchMenu() {
 		super();
@@ -171,7 +171,7 @@ public class SearchMenu extends JPanel {
 		}
 	}
 
-	public static int[] getBedroom() {
+	public int[] getBedroom() {
 		int[] numBedroom = new int[2];
 		numBedroom[0] = Integer.parseInt(bedroomLower.getText());
 		numBedroom[1] = Integer.parseInt(bedroomUpper.getText());
@@ -180,17 +180,17 @@ public class SearchMenu extends JPanel {
 	// bedroomLower = new JTextField(2); // allow for a 2 digit value
 	// JTextField bedroomUpper = new JTextField(2);
 
-	public static String getQuadrant() {
+	public String getQuadrant() {
 		return (String) cityQuadMenu.getSelectedItem();// get the selected item as a string
 	}
 	//	JComboBox<String> cityQuadMenu = new JComboBox<String>(QUADRANTS);
 
-	public static String getHouseType() {
+	public String getHouseType() {
 		return (String) houseTypeMenu.getSelectedItem();// get the selected item as a string
 	}
 	// JComboBox<String> houseTypeMenu = new JComboBox<String>(housingTypes);
 
-	public static int[] getBathroom() {
+	public int[] getBathroom() {
 		int[] numBathroom = new int[2];
 		numBathroom[0] = Integer.parseInt(bathroomLower.getText());
 		numBathroom[1] = Integer.parseInt(bathroomUpper.getText());
@@ -199,7 +199,7 @@ public class SearchMenu extends JPanel {
 	//	JTextField bathroomLower = new JTextField(2);
 	//  JTextField bathroomUpper = new JTextField(2);
 	
-	public static int getBudget() {
+	public int getBudget() {
 		return Integer.parseInt(budget.getText());
 	}//	private static JTextField budget= new JTextField(5); // max = $999,999
 
