@@ -106,6 +106,6 @@ public class ManagerUI extends FocusPanel {
 	}
 
 	public static String getMonths() {
-		return (String)monthsMenu.getSelectedItem();
+		return (String) monthsMenu.getSelectedItem();
 	}
 }

@@ -109,21 +109,11 @@ public class GUI extends JFrame {
 		dateLabel = new JLabel("Today's date is:" + date);
 		dateLabel.setForeground(Color.BLACK);
 		dateLabel.setFont(new Font("Avenir", Font.PLAIN, 10));
-		
+
 		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.anchor = GridBagConstraints.NORTH;
 		add(dateLabel, gbc);
-
-//		// set up date refresh button within main gui
-//		dateRefreshButton = new JButton("Refresh date");
-//		gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
-//		gbc.fill = GridBagConstraints.HORIZONTAL;
-//		gbc.anchor = GridBagConstraints.NORTH;
-//
-//		backButton.setActionCommand(DATE_BUTTON_ID);
-//		backButton.addActionListener(buttonListener);
-//		add(dateRefreshButton, gbc);
 
 		FocusPanel currUI = new StartUI();
 
@@ -162,7 +152,14 @@ public class GUI extends JFrame {
 		remove(currPanel);
 		add(panelHistory.peek(), gbc);
 		SwingUtilities.updateComponentTreeUI(this);
-	}
+	} //
+
+	/**
+	   * Returns the top-most panel
+	   */
+	  protected FocusPanel getCurrentPanel(){
+	    return panelHistory.peek();
+	  }
 
 	/**
 	 * Generates the current date

@@ -24,7 +24,6 @@ import java.awt.Insets;
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
   public static final int LIST_SIZE = 4;
-  private Property[] listedProperties;
 
   public UnregisteredRenterUI(){
     super();
@@ -48,11 +47,11 @@ public class UnregisteredRenterUI extends FocusPanel{
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();
 
-      currProperty.setAddress("415" + "i" + " Eagle Drive");
+      currProperty.setAddress("415" + i + " Eagle Drive");
       currProperty.setQuadrant("NE");
       currProperty.setHouseType("Condo");
       currProperty.setIfFurnished(i % 2 == 0);
-      currProperty.setPropertyID("P12");
+      currProperty.setPropertyID("P" + i);
       currProperty.setStatus("Active");
 
       listedProperties[i] = currProperty;

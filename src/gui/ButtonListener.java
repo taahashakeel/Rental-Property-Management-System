@@ -27,6 +27,8 @@ package gui;
 
 import gui.elements.PropertyView;
 
+import Employee.Property;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
@@ -38,6 +40,8 @@ import gui.elements.SearchMenu;
 import gui.elements.CreatePropertyView;
 import gui.elements.PropertyView;
 import gui.elements.PropertyEdit;
+
+import BackEnd.EmailSystem;
 
 //import gui.elements.InvalidEntryView;
 
@@ -81,12 +85,16 @@ public class ButtonListener implements ActionListener {
 
 		System.out.println("Pressed: id = " + id);
 
-		Matcher m = propertyLinkEvent.matcher(id);
-		if (m.matches()) {
-			// Switch to specified property to view.
-			int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
-			System.out.println("Switching to property " + index);
-		}
+    Matcher m = propertyLinkEvent.matcher(id);
+    if(m.matches()){
+      // Switch to specified property to view.
+      int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
+      System.out.println("Switching to property " + index);
+      FocusPanel currPanel = mainGui.getCurrentPanel();
+      Property selectedProperty = currPanel.getProperty(index);
+      boolean landlord = (boolean) (currPanel instanceof LandlordUI); // bad practice but oh well
+      mainGui.setCurrentPanel(new PropertyDetails(selectedProperty, !landlord));
+    }
 
 		switch (id) {
 		// Main GUI frame buttons
@@ -153,7 +161,10 @@ public class ButtonListener implements ActionListener {
 
 			break;
 		case (PropertyDetails.EMAIL_LANDLORD_ID):
-			
+			if (sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ) 
+					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
+			else 
+				JOptionPane.showMessageDialog(mainGui, "Email send failure!");
 			break;
 		
 		// LandlordUI

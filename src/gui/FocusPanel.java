@@ -6,6 +6,8 @@
  */
 package gui;
 
+import Employee.Property;
+
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -20,6 +22,7 @@ public abstract class FocusPanel extends JPanel{
   private static final int PADDING = 5;
   protected GridBagLayout panelLayout;
   protected static GridBagConstraints panelConstraints;
+  protected Property[] listedProperties;
 
   public FocusPanel(){
     super();
@@ -125,5 +128,14 @@ public abstract class FocusPanel extends JPanel{
     ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
 
     return newImageIcon;
+  }
+
+  /**
+   * Gets the Property wihin listedProperties at the provided index.
+   *
+   * @param index the index to fetch values from.
+   */
+  public Property getProperty(int index){
+    return listedProperties[index];
   }
 }
