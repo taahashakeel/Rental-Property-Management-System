@@ -6,8 +6,21 @@ import javax.mail.internet.*;
 import javax.activation.*;
 
 @SuppressWarnings("unused")
+/**
+ * Used to send emails
+ * @author Alexander
+ *
+ */
 public class EmailSystem {
-
+	
+	/**
+	 * sends an email
+	 * @param to, the email address of the intended recipient
+	 * @param sender, the senders email, a copy gets sent to the sender
+	 * @param body, the body of the email
+	 * @param header, the subject line
+	 * @return sent(true), not sent(false)
+	 */
 	public static boolean sendEmail(String to, String sender, String body, String header) {
 		
 	// Get system properties

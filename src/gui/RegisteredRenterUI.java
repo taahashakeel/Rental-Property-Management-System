@@ -26,7 +26,6 @@ import javax.swing.JButton;
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
   public static final int LIST_SIZE = 5;
-  private SearchMenu search;
 
   public RegisteredRenterUI(){
     super();
@@ -50,7 +49,7 @@ public class RegisteredRenterUI extends FocusPanel{
       currProperty.setAddress("415" + i + " Eagle Drive");
       currProperty.setQuadrant("NE");
       currProperty.setHouseType("Condo");
-      currProperty.setIfFurnished(i % 2 == 0);
+      currProperty.setIfFurnished(0);
       currProperty.setPropertyID("P12");
       currProperty.setRentCost(1000*i);
       currProperty.setStatus("Active");
@@ -70,7 +69,7 @@ public class RegisteredRenterUI extends FocusPanel{
     ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
 
     // Create necessary elements
-    search = new SearchMenu(true);
+    SearchMenu search = new SearchMenu(true);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;
@@ -85,12 +84,5 @@ public class RegisteredRenterUI extends FocusPanel{
     gbc.weightx = 100;
     gbc.weighty = 100;
     add(results, gbc);
-  }
-
-  /**
-   * Returns the SearchMenu instance search
-   */
-  public SearchMenu getSearchMenu(){
-    return this.search;
   }
 }

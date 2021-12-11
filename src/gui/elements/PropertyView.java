@@ -79,7 +79,11 @@ public class PropertyView extends JPanel {
 		// Create elements that will be added to the button
 		JLabel addressLabel = new JLabel(propertyRep.getAddress());
 		JLabel cityQuadrantLabel = new JLabel(propertyRep.getQuadrant());
-		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
+		String temp = "Furnished";
+		if(propertyRep.getIfFurnished()==0) {
+			temp = "Unfurnished";
+		}
+		JLabel furnishedLabel = new JLabel(temp);
 	    JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
 		
 		// Add elements to the button

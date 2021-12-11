@@ -1,15 +1,8 @@
 /**
  * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
  * 
- *  @version 1.1 Added documentation
+ *  @version 1.0
  *  @since 1.0
- *  
- * Services impliments the Observer Design Pattern and represents the Subject 
- * interface that is implimented by the ConcreteSubscriptionServerSubject.
- * 
- * The class contains abstract methods that the ConcreteSubscriptionServerSubject
- * must define and contain. Functions include the ability to register an observer, 
- * remove an observer, and notify all the observers of a change to the data.
  */
 
 package Services;

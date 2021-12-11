@@ -26,7 +26,6 @@
 package gui;
 
 import gui.elements.PropertyView;
-import Services.SearchCriteria;
 
 import Employee.Property;
 
@@ -42,7 +41,7 @@ import gui.elements.CreatePropertyView;
 import gui.elements.PropertyView;
 import gui.elements.PropertyEdit;
 
-//import BackEnd.EmailSystem;
+import BackEnd.EmailSystem;
 
 //import gui.elements.InvalidEntryView;
 
@@ -152,29 +151,19 @@ public class ButtonListener implements ActionListener {
 			}
 			break;
 			
-//			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
-//					ifFurnished: boolean, address: String, quadrant: String): Property []);
-    case(SearchMenu.SEARCH_BUTTON_ID):
-      FocusPanel currPanel = mainGui.getCurrentPanel();
-      SearchMenu search;
-      if(currPanel instanceof RegisteredRenterUI){
-        RegisteredRenterUI rr = (RegisteredRenterUI) currPanel;
-        search = rr.getSearchMenu();
-      }else{
-        UnregisteredRenterUI ur = (UnregisteredRenterUI) currPanel;
-        search = ur.getSearchMenu();
-      }
-      SearchCriteria sc = search.generateSearch();
+		// Search Menu actions
+		case (SearchMenu.SEARCH_BUTTON_ID):
+//			fetchActiveProperty(SearchMenu.getHouseType(), SearchMenu.getBedroom(), SearchMenu.getBathroom(), 
+//					SearchMenu.getIfFurnished(), SearchMenu.getQuadrant): Property []);
 			break;
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
 			JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
 
 			break;
 		case (PropertyDetails.EMAIL_LANDLORD_ID):
-//			if (sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ){ 
-//					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
-//					mainGui.popHistoryStack();
-//			}else 
+			if (EmailSystem.sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ) 
+					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
+			else 
 				JOptionPane.showMessageDialog(mainGui, "Email send failure!");
 			break;
 		

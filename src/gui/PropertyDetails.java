@@ -98,7 +98,11 @@ public class PropertyDetails extends FocusPanel {
 		JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
 		JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()) + " bath");
 		JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
-		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
+		String temp = "Furnished";
+		if(propertyRep.getIfFurnished()==0) {
+			temp = "Unfurnished";
+		}
+		JLabel furnishedLabel = new JLabel(temp);
 
 		// place items as necessary
 		// property identifiers
@@ -207,6 +211,7 @@ public class PropertyDetails extends FocusPanel {
 	}
 
 	public static String getSenderEmail() {
-		return senderField.getText();// get the selected item as a string
+		return senderField.getText();
+		// get the selected item as a string
 	}
 }

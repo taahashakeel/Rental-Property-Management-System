@@ -66,7 +66,7 @@ public class ManagerUI extends FocusPanel {
 			currProperty.setAddress("415" + "i" + " Eagle Drive");
 			currProperty.setQuadrant("NE");
 			currProperty.setHouseType("Condo");
-			currProperty.setIfFurnished(i % 2 == 0);
+			currProperty.setIfFurnished(0);
 			currProperty.setPropertyID("P12");
 			currProperty.setStatus(statuses[i % 4]);
 

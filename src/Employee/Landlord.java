@@ -1,83 +1,127 @@
-/**
- * @author Taaha
- * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
- * 
- *  @version 1.2 added some documentation and added to create property
- *  @since 1.0
- *  
- *  
- */
 package Employee;
 
 import java.util.ArrayList;
+
+import BackEnd.DatabaseController;
 import BackEnd.EmailSystem;
 import Services.ConcreteSubscriptionServiceSubject;
-import BackEnd.DatabaseController;
-
+/**
+ * A class that represents a landlord
+ * @author Alexander
+ *
+ */
 public class Landlord {
 
-	private String username;
-	private String password;
-	private ArrayList<Property> newProperty;
-	private DatabaseController dbControl;
-	private EmailSystem email;
-	private String landlordEmail;
-	private String LLID;
-
-	public Landlord(String username, String password, String email) {
-		this.username = username;
-		this.password = password;
-		this.landlordEmail = email;
-		this.subscribed = ConcreteSubscriptionServiceSubject.getOnlyInstance();
-		this.dbControl = new DatabaseController();
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-//<---->//
-	/**
-	 * Generates grid bag constraints with provided values.
-	 *
-	 * @param propertyID Property id representing the property being changed
-	 * @param state The new state of the property
-	 * 
-	 * @return If state change was successful
-	 */
-	public boolean changeState(String propertyID, String state) {
-		return dbControl.changePropertyState(propertyID, state);
-
-	}
-
-	// Could we make them pay a fee first before creating a property???
-	public int payFee(int propertyID) {
-
-	}
-
+	 private String username; 
+	 private String password; 
+	 private ArrayList<Property> properties;
+	 private ArrayList<Property> newProperty;
+	 private DatabaseController dbControl;
+	 private EmailSystem email;
+	 private String LLID;
+	
+	 
+	 ConcreteSubscriptionServiceSubject subscribed;
 
 	/**
-	 * Landlord creates a a new property. The landlord is prompted to pay 
-	 * a free, if the fee is payed, the property is listed for renters to view.
-	 * For those that are subscribed, they will be notified if the property 
-	 * matches their search criteria
+	 * default constructor
 	 */
-	public void createProperty(Property newProperty)
+	 public Landlord() 
+	 {
+		
+	 }
+	 
+	 /**
+	  * Constructor
+	  * @param username
+	  * @param password
+	  */
+	 public Landlord(String username, String password)
+	 {
+		 	this.username = username;
+			this.password = password;
+			this.subscribed = ConcreteSubscriptionServiceSubject.getOnlyInstance();
+	 }
+	/**
+	 * Getter for username
+	 * @return username
+	 */
+	 public String getUsername() 
+	 {
+		 return username;
+	 }
+	/**
+	 * getter for pasword
+	 * @return password
+	 */
+	 public String getPassword() 
+	 {
+		 return password;
+	 } 
+	 /**
+	  * setter for username
+	  * @param username
+	  */
+	 public void setUsername(String username) 
+	 {
+		 this.username=username;
+	 } 
+	/**
+	 * setter for password
+	 * @param password
+	 */
+	 public void setPassword(String password)
+	 {
+		 this.password=password;
+	 } 
+	//<---->//
+	 /**
+	  * Changes the state of a property
+	  * @param propertyID
+	  */
+	 public void changeState(String propertyID)
+	 {
+		 dbControl.changePropertyState(LLID, propertyID);
+	 } 
+	/**
+	 * Pays the fee
+	 * @param propertyID
+	 * @return true (1) or false (0)
+	 */
+	public int payFee(int propertyID)
 	{
-		dbControl.saveNewProperty(newProperty); // will be saved as not active
-		payFee(propertyID);
+		return 0;	//not right 
+	} 
+	/**
+	 * create a new property
+	 */
+	public void createProperty()
+	{
+		newProperty = new ArrayList<Property>();
 	}
-
+	/**
+	 * setter for LLID
+	 * @param string
+	 */
+	public void setLLID(String string) {
+		this.LLID = string;
+		// TODO Auto-generated method stub
+	}
+	/**
+	 * getter for LLID
+	 * @return LLID
+	 */
+	public String getLLID() {
+		// TODO Auto-generated method stub
+		return this.LLID;
+	}
+	/**
+	 * setter for landlord properties
+	 * @param fetchLandlordProperties
+	 */
+	public void setProperties(ArrayList<Property> fetchLandlordProperties) {
+		this.properties = dbControl.fetchLandlordProperties(LLID);
+	}
+ 
+	
 }

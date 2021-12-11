@@ -9,12 +9,8 @@ package Services;
 
 import java.io.*;
 import java.util.*;
-import GUI.GUI;
+import gui.GUI;
 
 public class PropertyManagementSystem {
 	private GUI gui;
-
-	public static void main(String[] args){
-		    System.out.println("Running program...");
-		  }
 }
