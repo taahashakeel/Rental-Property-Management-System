@@ -24,6 +24,7 @@ import java.awt.Insets;
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
   public static final int LIST_SIZE = 4;
+  SearchMenu search;
 
   public UnregisteredRenterUI(){
     super();
@@ -38,7 +39,7 @@ public class UnregisteredRenterUI extends FocusPanel{
     setLayout(panelLayout);
 
     // Create necessary elements
-    SearchMenu search = new SearchMenu();
+    search = new SearchMenu();
 
     // create dummy properties for now.
     listedProperties = new Property[LIST_SIZE];
@@ -81,5 +82,12 @@ public class UnregisteredRenterUI extends FocusPanel{
     gbc.weightx = 100;
     gbc.weighty = 100;
     add(results, gbc);
+  }
+
+  /**
+   * Returns the SearchMenu instance search
+   */
+  public SearchMenu getSearchMenu(){
+    return this.search;
   }
 }
