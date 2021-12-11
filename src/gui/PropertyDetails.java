@@ -207,7 +207,6 @@ public class PropertyDetails extends FocusPanel {
 	}
 
 	public static String getSenderEmail() {
-		return senderField.getText();
-		;// get the selected item as a string
+		return senderField.getText();// get the selected item as a string
 	}
 }
