@@ -104,7 +104,10 @@ public class RegisteredRenter implements SubscribedObserver{
 			return true;
 		
 		}
-
+		/**
+		 * Function sees if RegisteredRenter is subscribed and their 
+		 * criteria meets their needs and if it does then an email is sent 
+		 */
 	public void update(Property newProperty) {
 		if (this.isSubscribed == true && isMatch(newProperty) == true)
 			email.sendEmail(email, newProperty.getLandlordEmail(), newProperty);
