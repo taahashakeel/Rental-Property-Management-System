@@ -16,6 +16,8 @@ import gui.FocusPanel;
 import gui.ButtonListener;
 import gui.GUI;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -35,7 +37,7 @@ public class LoginMenu extends JPanel {
 	public static final String LOGIN_BUTTON_ID = "loginButton1";
 	public static final String USERNAME_INPUT_ID = "usernameInput";
 	public static final String PASSWORD_INPUT_ID = "passwordInput";
-	
+
 	// Text Feilds - allow for 15 value max
 	private static JTextField usernameField = new JTextField(15);
 	private static JPasswordField passwordField = new JPasswordField(15);
@@ -95,31 +97,12 @@ public class LoginMenu extends JPanel {
 		add(loginButton, gbc);
 //		setLoginListener();
 	}
-	
-	public static String getUsernameField()
-	{
+
+	public static String getUsernameField() {
 		return usernameField.getText();
 	}
-	
-	public static String getPasswordField()
-	{
+
+	public static String getPasswordField() {
 		return String.valueOf(passwordField.getPassword());
 	}
-
-//	/**
-//	 * Creates action listeners for the actions on the login menu
-//	 *
-//	 * @param startMenuListener
-//	 * 
-//	 */
-//	public void setLoginListener() {
-//		usernameField.setActionCommand(USERNAME_INPUT_ID);
-//		usernameField.addActionListener(GUI.buttonListener);
-//		
-//		passwordField.setActionCommand(PASSWORD_INPUT_ID);
-//		passwordField.addActionListener(GUI.buttonListener);
-//	
-//		loginButton.setActionCommand(LOGIN_BUTTON_ID);
-//		loginButton.addActionListener(GUI.buttonListener);
-//	}
 }

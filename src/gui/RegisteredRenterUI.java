@@ -51,7 +51,8 @@ public class RegisteredRenterUI extends FocusPanel{
       currProperty.setQuadrant("NE");
       currProperty.setHouseType("Condo");
       currProperty.setIfFurnished(i % 2 == 0);
-      currProperty.setPropertyID("P" + i);
+      currProperty.setPropertyID("P12");
+      currProperty.setRentCost(1000*i);
       currProperty.setStatus("Active");
 
       listedProperties[i] = currProperty;

@@ -10,6 +10,11 @@
  */
 package gui;
 
+import gui.FocusPanel;
+import gui.ButtonListener;
+import gui.GUI;
+
+import gui.elements.PropertyList;
 import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
 
@@ -21,6 +26,8 @@ import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 
 public class LandlordUI extends FocusPanel{
+	public static final String CREATE_PROP_BUTTON = "createPropertyButton";
+
   // private Landlord userRepresentation;
   public static final int LIST_SIZE = 7;
 
@@ -82,6 +89,8 @@ public class LandlordUI extends FocusPanel{
     add(results, gbc);
 
     gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+    createPropertyButton.setActionCommand(CREATE_PROP_BUTTON);
+    createPropertyButton.addActionListener(GUI.buttonListener);
     add(createPropertyButton, gbc);
   }
 }

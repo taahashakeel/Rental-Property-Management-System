@@ -1,12 +1,16 @@
 /**
- * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
- * 
- *  @version 1.0
- *  @since 1.0
+ * @author Rachel Renegado
+ * <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
+ *
+ * The user interface all users will view when they enter the
+ * application.
+ *
+ * Users have the ability to choose to login or enter the RPMS as
+ * guest
  */
 package gui;
 
-import gui.elements.LoginMenu;
+import gui.elements.CreatePropertyView;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -15,13 +19,9 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-public class Login extends FocusPanel {
-
-	private String loginType;
-	
-	public Login(String loginType) {
+public class CreatePropertyUI extends FocusPanel {
+	public CreatePropertyUI() {
 		super();
-		this.loginType = loginType;
 		init();
 	}
 
@@ -33,7 +33,7 @@ public class Login extends FocusPanel {
 		setLayout(panelLayout);
 
 		// Create necessary elements
-		LoginMenu loginPanel = new LoginMenu();
+		CreatePropertyView createP = new CreatePropertyView();
 
 		// populate window assuming a 4-column, 5-row grid.
 		GridBagConstraints gbc;
@@ -42,7 +42,7 @@ public class Login extends FocusPanel {
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.weightx = 100;
 		gbc.weighty = 100;
-		add(loginPanel, gbc);
+		add(createP, gbc);
 	}
-
 }
+

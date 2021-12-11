@@ -38,9 +38,17 @@ import java.awt.Component;
 import gui.elements.StartMenu;
 import gui.elements.LoginMenu;
 import gui.elements.SearchMenu;
+import gui.elements.CreatePropertyView;
+import gui.elements.PropertyView;
+import gui.elements.PropertyEdit;
+
+//import BackEnd.EmailSystem;
+
+//import gui.elements.InvalidEntryView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.*;
 
 //import BackEnd.DatabaseController;
 //import Renter.RegisteredRenter;
@@ -51,6 +59,7 @@ import java.util.regex.Pattern;
 public class ButtonListener implements ActionListener {
 	private GUI mainGui;
 	private String userType;
+	private boolean usernameInvalid = true;
 	// Users
 //	private RegisterRenter regRenter;
 //	private UnregisteredRenter unregRenter;
@@ -89,9 +98,15 @@ public class ButtonListener implements ActionListener {
     }
 
 		switch (id) {
+		// Main GUI frame buttons
 		case (GUI.BACK_BUTTON_ID):
 			mainGui.popHistoryStack();
 			break;
+//		case (GUI.DATE_BUTTON_ID):
+//			mainGui.refreshDate(); // recalls the date function
+//			break;
+
+		// Start menu panel buttons
 		case (StartMenu.RENTER_BUTTON_ID):
 			userType = "renter";
 			mainGui.setCurrentPanel(new Login(userType));
@@ -108,30 +123,38 @@ public class ButtonListener implements ActionListener {
 			userType = "guest";
 			mainGui.setCurrentPanel(new UnregisteredRenterUI());
 			break;
+
+		// Login menu buttons
 		case (LoginMenu.LOGIN_BUTTON_ID):
 			String username = LoginMenu.getUsernameField();
 			System.out.println("Username: " + username);
 			String password = LoginMenu.getPasswordField();
 			System.out.println("Password: " + password);
-
-			if (userType == "renter") {
+			if (usernameInvalid) {
+				usernameInvalid = !usernameInvalid;
+				System.out.println("Found invalid entry!");
+				mainGui.setCurrentPanel(new InvalidLoginUI());
+			} else if (userType == "renter") {
+				usernameInvalid = !usernameInvalid;
 //				regRenter = checkUserLogin(username, password, userType);
 //				if (regRenter != NULL)
 				mainGui.setCurrentPanel(new RegisteredRenterUI());
 			} else if (userType == "landlord") {
+				usernameInvalid = !usernameInvalid;
 //				landlord = checkUserLogin(username, password, userType);
 //				if (landlord != NULL)
 				mainGui.setCurrentPanel(new LandlordUI());
 			} else if (userType == "manager") {
+				usernameInvalid = !usernameInvalid;
 //				manager = checkUserLogin(username, password, userType);
 //				if (manager != NULL)
 				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
-		case (SearchMenu.SEARCH_BUTTON_ID):
 			
 //			fetchActiveProperty(houseType: String, numBedrooms: int [], numBathrooms: int [], 
 //					ifFurnished: boolean, address: String, quadrant: String): Property []);
+    case(SearchMenu.SEARCH_BUTTON_ID):
       FocusPanel currPanel = mainGui.getCurrentPanel();
       SearchMenu search;
       if(currPanel instanceof RegisteredRenterUI){
@@ -143,11 +166,48 @@ public class ButtonListener implements ActionListener {
       }
       SearchCriteria sc = search.generateSearch();
 			break;
-
 		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
+			JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
+
 			break;
-    case(PropertyDetails.EMAIL_LANDLORD_ID):
-      break;
+		case (PropertyDetails.EMAIL_LANDLORD_ID):
+//			if (sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ){ 
+//					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
+//					mainGui.popHistoryStack();
+//			}else 
+				JOptionPane.showMessageDialog(mainGui, "Email send failure!");
+			break;
+		
+		// LandlordUI
+		case (LandlordUI.CREATE_PROP_BUTTON):
+			mainGui.setCurrentPanel(new CreatePropertyUI());
+			break;
+		case (CreatePropertyView.SAVE_BUTTON_ID):
+			mainGui.popHistoryStack();
+			JOptionPane.showMessageDialog(mainGui, "Property saved successfully!");
+			// creating a property to be displayed and saved to database
+
+			break;
+		case (PropertyEdit.STATUS_BUTTON_ID):
+			// if ()
+			JOptionPane.showMessageDialog(mainGui, "Status changed successfully!");
+			break;
+
+		// ManagerUI
+		case (ManagerUI.GET_SUMMARY_BUTTON):
+			int months = Integer.parseInt(ManagerUI.getMonths());
+			if (months == 6) {
+//			Property[] p = new Property[5];
+//			for (Property prop: p)
+//			{
+//				
+//			}
+				mainGui.setCurrentPanel(new SummaryUI(months, 11, 11, 5));
+//			public SummaryUI(int months, int numListed, int numActive, int numRented, ArrayList<Property> rented) {
+			} else if (months == 3)
+//			Property[] p = new Property[2];
+				mainGui.setCurrentPanel(new SummaryUI(months, 6, 6, 2));
+			break;
 		}
 	}
 }
