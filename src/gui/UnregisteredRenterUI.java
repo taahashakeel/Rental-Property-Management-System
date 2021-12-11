@@ -11,8 +11,10 @@
 package gui;
 
 import gui.elements.SearchMenu;
-import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyView;
+
+import Employee.Property;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -21,6 +23,8 @@ import java.awt.Insets;
 
 public class UnregisteredRenterUI extends FocusPanel{
   // private UnregisteredRenter userRepresntation;
+  public static final int LIST_SIZE = 4;
+  private Property[] listedProperties;
 
   public UnregisteredRenterUI(){
     super();
@@ -38,18 +42,32 @@ public class UnregisteredRenterUI extends FocusPanel{
     SearchMenu search = new SearchMenu();
 
     // create dummy properties for now.
+    listedProperties = new Property[LIST_SIZE];
     PropertyView[] dummyList = new PropertyView[4];
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < LIST_SIZE; i++){
+      Property currProperty = new Property();
+
+      currProperty.setAddress("415" + "i" + " Eagle Drive");
+      currProperty.setQuadrant("NE");
+      currProperty.setHouseType("Condo");
+      currProperty.setIfFurnished(i % 2 == 0);
+      currProperty.setPropertyID("P12");
+      currProperty.setStatus("Active");
+
+      listedProperties[i] = currProperty;
+      /*/
       dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
           "NE",
           "Condo",
           i % 2 == 0,
           415,
           i);
+      // */
+      dummyList[i] = new PropertyView(currProperty, i);
     }
 
-    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
+    ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
 
     // populate window assuming a 4-column, 5-row grid.
     GridBagConstraints gbc;

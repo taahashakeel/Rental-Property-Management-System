@@ -85,6 +85,7 @@ public class GUI extends JFrame {
 	 */ // *
 	private void init() {
 		setSize(width, height);
+		setTitle("Rental Property Management System");
 		windowLayout = new GridBagLayout();
 		setLayout(windowLayout);
 		addWindowListener(new WindowAdapter() {

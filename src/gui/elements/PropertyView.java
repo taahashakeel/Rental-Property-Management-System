@@ -13,8 +13,7 @@
  */
 package gui.elements;
 
-//
-//import Employee.Property;
+import Employee.Property;
 import gui.FocusPanel;
 import gui.GUI;
 
@@ -26,12 +25,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PropertyView extends JPanel {
-//	private Property propertyRep;
-	private String address;
-	private String quadrant;
-	private String housingType;
-	private boolean furnished;
-	private int id;
+	private Property propertyRep;
+
 	int index;
 
 	public static final String PROPERTY_LINK_ID = "propertyLinkID=";
@@ -41,24 +36,12 @@ public class PropertyView extends JPanel {
 		init();
 	}
 
-//
-//	public PropertyView(Property propertyRep, int index) {
-//		this.index = index;
-//		this.propertyRep = propertyRep;
-//		init();
-//	}
-//
-	public PropertyView(String address, String quadrant, String housingType, boolean furnished, int id, int index) {
-		super();
-		this.address = address;
-		this.quadrant = quadrant;
-		this.housingType = housingType;
-		this.furnished = furnished;
-		this.id = id;
+	//
+	public PropertyView(Property propertyRep, int index) {
+		this.propertyRep = propertyRep;
 		this.index = index;
-
 		init();
-	}
+	} // */
 
 	/**
 	 * Initialies the current PropertyView element.
@@ -94,9 +77,9 @@ public class PropertyView extends JPanel {
 		propertyLink.setLayout(buttonLayout);
 
 		// Create elements that will be added to the button
-		JLabel addressLabel = new JLabel(address);
-		JLabel cityQuadrantLabel = new JLabel(quadrant);
-		JLabel furnishedLabel = new JLabel(furnished ? "Furnished" : "Unfurnished");
+		JLabel addressLabel = new JLabel(propertyRep.getAddress());
+		JLabel cityQuadrantLabel = new JLabel(propertyRep.getQuadrant());
+		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
 
 		// Add elements to the button
 		GridBagConstraints gbc;

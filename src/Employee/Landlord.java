@@ -77,7 +77,7 @@ public class Landlord {
 	public void createProperty(Property newProperty)
 	{
 		dbControl.saveNewProperty(newProperty); // will be saved as not active
-		payFee(int propertyID);
+		payFee(propertyID);
 	}
 
 }

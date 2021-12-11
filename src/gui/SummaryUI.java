@@ -9,70 +9,46 @@
 
 package gui;
 
-import gui.FocusPanel;
-import gui.ButtonListener;
-import gui.GUI;
+import gui.elements.SummaryView;
 
-import gui.elements.PropertyList;
-import gui.elements.PropertyEdit;
+import gui.FocusPanel;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JButton;
 
-public class SummaryUI  extends FocusPanel{
-  // private Manager userRepresentation;
+import gui.elements.PropertyList;
+import gui.elements.ElementList;
+import gui.elements.PropertyEdit;
 
-  public SummaryUI(){
-    super();
-    init();
-  }
+import Employee.Property;
 
-  /**
-   * Initializes the Landlord graphical user interface for usage.
-   */
-  private void init(){
-    panelLayout = new GridBagLayout();
-    setLayout(panelLayout);
+public class SummaryUI extends FocusPanel {
+	private SummaryView summary;
 
-    // Create elements
+	public SummaryUI(int months, int numListed, int numRented, ) {
+		super();
+		// Create necessary elements
+		SummaryView summary = new SummaryView(months, numListed, numRented, 
+				ArrayList<Property> active);
+		init();
+	}
 
-    // create dummy properties for now.
-    PropertyEdit[] dummyList = new PropertyEdit[10];
+	/**
+	 * Initializes the Landlord graphical user interface for usage.
+	 */
+	private void init() {
+		panelLayout = new GridBagLayout();
+		setLayout(panelLayout);
 
-    String[] statuses = {
-      "Active",
-      "Rented",
-      "Cancelled",
-      "Suspended"
-    };
-
-    for(int i = 0; i < 10; i++){
-      dummyList[i] = new PropertyEdit("415" + i + " Eagle Drive",
-          "NE",
-          "Condo",
-          i % 2 == 0,
-          415,
-          i,
-          statuses[i % 4]);
-    }
-
-    PropertyList<PropertyEdit> results = new PropertyList<PropertyEdit>(dummyList);
-
-    // populate window
-    GridBagConstraints gbc;
-    
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.weighty = 0;
-    gbc.fill = GridBagConstraints.NONE;
-    summaryButton.setActionCommand(GET_SUMMARY_BUTTON);
-    summaryButton.addActionListener(GUI.buttonListener);
-    add(summaryButton, gbc);
-    
-    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
-    gbc.fill = GridBagConstraints.BOTH;
-    gbc.weightx = 100;
-    gbc.weighty = 100;
-    add(results, gbc);
-  }
+		// populate window assuming a 4-column, 5-row grid.
+		GridBagConstraints gbc;
+		gbc = generateConstraints(0, 0, 1, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.weightx = 100;
+		gbc.weighty = 100;
+		add(summary, gbc);
+	}
+}

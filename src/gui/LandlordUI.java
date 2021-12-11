@@ -15,7 +15,10 @@ import gui.ButtonListener;
 import gui.GUI;
 
 import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyEdit;
+
+import Employee.Property;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -26,6 +29,8 @@ public class LandlordUI extends FocusPanel{
 	public static final String CREATE_PROP_BUTTON = "createPropertyButton";
 
   // private Landlord userRepresentation;
+  private Property[] listedProperties;
+  public static final int LIST_SIZE = 7;
 
   public LandlordUI(){
     super();
@@ -41,9 +46,6 @@ public class LandlordUI extends FocusPanel{
 
     // Create elements
     JButton createPropertyButton = new JButton("List a new property for rent");
-    // create dummy properties for now.
-    PropertyEdit[] dummyList = new PropertyEdit[10];
-
     String[] statuses = {
       "Active",
       "Rented",
@@ -51,17 +53,33 @@ public class LandlordUI extends FocusPanel{
       "Suspended"
     };
 
-    for(int i = 0; i < 10; i++){
-      dummyList[i] = new PropertyEdit("415" + i + " Eagle Drive",
+    // create dummy properties for now.
+    listedProperties = new Property[LIST_SIZE];
+    PropertyEdit[] dummyList = new PropertyEdit[LIST_SIZE];
+
+    for(int i = 0; i < LIST_SIZE; i++){
+      Property currProperty = new Property();
+
+      currProperty.setAddress("415" + "i" + " Eagle Drive");
+      currProperty.setQuadrant("NE");
+      currProperty.setHouseType("Condo");
+      currProperty.setIfFurnished(i % 2 == 0);
+      currProperty.setPropertyID("P12");
+      currProperty.setStatus(statuses[i % 4]);
+
+      listedProperties[i] = currProperty;
+      /*/
+      dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
           "NE",
           "Condo",
           i % 2 == 0,
           415,
-          i,
-          statuses[i % 4]);
+          i);
+      // */
+      dummyList[i] = new PropertyEdit(currProperty, i);
     }
 
-    PropertyList<PropertyEdit> results = new PropertyList<PropertyEdit>(dummyList);
+    ElementList<PropertyEdit> results = new ElementList<PropertyEdit>(dummyList);
 
     // populate window
     GridBagConstraints gbc;

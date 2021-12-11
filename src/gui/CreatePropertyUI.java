@@ -45,3 +45,4 @@ public class CreatePropertyUI extends FocusPanel {
 		add(createP, gbc);
 	}
 }
+

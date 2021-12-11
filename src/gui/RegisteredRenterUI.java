@@ -11,8 +11,10 @@
 package gui;
 
 import gui.elements.SearchMenu;
-import gui.elements.PropertyList;
+import gui.elements.ElementList;
 import gui.elements.PropertyView;
+
+import Employee.Property;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -23,6 +25,8 @@ import javax.swing.JButton;
 
 public class RegisteredRenterUI extends FocusPanel{
   // private RegisteredRenter userRepresntation;
+  private Property[] listedProperties;
+  public static final int LIST_SIZE = 5;
 
   public RegisteredRenterUI(){
     super();
@@ -37,18 +41,32 @@ public class RegisteredRenterUI extends FocusPanel{
     setLayout(panelLayout);
 
     // create dummy properties for now.
-    PropertyView[] dummyList = new PropertyView[10];
+    listedProperties = new Property[LIST_SIZE];
+    PropertyView[] dummyList = new PropertyView[LIST_SIZE];
 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < LIST_SIZE; i++){
+      Property currProperty = new Property();
+
+      currProperty.setAddress("415" + "i" + " Eagle Drive");
+      currProperty.setQuadrant("NE");
+      currProperty.setHouseType("Condo");
+      currProperty.setIfFurnished(i % 2 == 0);
+      currProperty.setPropertyID("P12");
+      currProperty.setStatus("Active");
+
+      listedProperties[i] = currProperty;
+      /*/
       dummyList[i] = new PropertyView("415" + i + " Eagle Drive",
           "NE",
           "Condo",
           i % 2 == 0,
           415,
           i);
+      // */
+      dummyList[i] = new PropertyView(currProperty, i);
     }
 
-    PropertyList<PropertyView> results = new PropertyList<PropertyView>(dummyList);
+    ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
 
     // Create necessary elements
     SearchMenu search = new SearchMenu(true);
