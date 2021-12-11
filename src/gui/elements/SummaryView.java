@@ -1,3 +1,4 @@
+
 /**
  * @author Rachel Renegado
  * <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
@@ -6,7 +7,9 @@
  * for a Manager to view.
  *
  */
+package gui.elements;
 
+import gui.FocusPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagLayout;
@@ -14,6 +17,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import gui.elements.PropertyList;
 import gui.elements.ElementList;
@@ -21,16 +25,20 @@ import gui.elements.PropertyEdit;
 
 import Employee.Property;
 
-
-package gui.elements;
-
-public class SummaryView extends JPanel  {
+public class SummaryView extends JPanel {
 	private GridBagLayout panelLayout;
 	private int months;
+	private int numListed;
+	private int numRented;
+	private int numActive;
 
-	public SummaryView(int months) {
+	public SummaryView(int months, int numListed, int numActive, int numRented) {
 		super();
 		this.months = months;
+		this.numListed = numListed;
+		this.numRented = numRented;
+		this.numActive = numActive;
+		this.numRented = numRented;
 		init();
 	}
 
@@ -41,58 +49,50 @@ public class SummaryView extends JPanel  {
 		panelLayout = new GridBagLayout();
 		setLayout(panelLayout);
 
-		// Labels
-		JLabel summaryLabel = new JLabel("RPMS Summary", JLabel.CENTER);
-        intro.setForeground(Color.BLACK);
-        intro.setFont(new Font("Avenir", Font.PLAIN, 30));
-
-		JLabel descriptionLabel = new JLabel("Over the past " + months + "months: ", JLabel.CENTER);
-        intro.setForeground(Color.GRAY);
-        intro.setFont(new Font("Avenir", Font.PLAIN, 15));
-        
-        
-
-		// Button
-		JButton loginButton = new JButton("Login");
-
-		// place items on grid.
+		// place items within a 5-column grid.
 		GridBagConstraints gbc;
 
+		// Labels
+		JLabel summaryLabel = new JLabel("RPMS Summary", JLabel.CENTER);
+		summaryLabel.setForeground(Color.BLACK);
+		summaryLabel.setFont(new Font("Avenir", Font.PLAIN, 30));
+
+		JLabel descriptionLabel = new JLabel("Over the past " + months + " months: ", JLabel.CENTER);
+		descriptionLabel.setForeground(Color.BLACK);
+		descriptionLabel.setFont(new Font("Avenir", Font.PLAIN, 15));
+
+		// Summary labels
+		JLabel rentedLabel = new JLabel(" - Total number of house rented = " + numRented, JLabel.LEFT);
+		rentedLabel.setForeground(Color.GRAY);
+		rentedLabel.setFont(new Font("Avenir", Font.PLAIN, 12));
+
+		JLabel activeLabel = new JLabel(" - Total number of house active = " + numActive, JLabel.LEFT);
+		activeLabel.setForeground(Color.GRAY);
+		activeLabel.setFont(new Font("Avenir", Font.PLAIN, 12));
+		
+		JLabel listedLabel = new JLabel(" - Total number of house listings = " + numListed, JLabel.LEFT);
+		listedLabel.setForeground(Color.GRAY);
+		listedLabel.setFont(new Font("Avenir", Font.PLAIN, 12));
+
 		// Adding Labels
-		gbc = FocusPanel.generateConstraints(0, 0, 3, 1);
-		add(welcomeLabel, gbc);
-		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
-		add(usernameLabel, gbc);
-		gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
-		add(passwordLabel, gbc);
+		gbc = FocusPanel.generateConstraints(0, 0, 4, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		add(summaryLabel, gbc);
 
-		// Adding text feilds
-		gbc = FocusPanel.generateConstraints(1, 1, 2, 1);
-		gbc.fill = GridBagConstraints.NONE;
-		usernameField.setActionCommand(USERNAME_INPUT_ID);
-		usernameField.addActionListener(GUI.buttonListener);
-		add(usernameField, gbc);
+		gbc = FocusPanel.generateConstraints(0, 1, 4, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		add(descriptionLabel, gbc);
 
-		gbc = FocusPanel.generateConstraints(1, 2, 2, 1);
-		gbc.fill = GridBagConstraints.NONE;
-		passwordField.setActionCommand(PASSWORD_INPUT_ID);
-		passwordField.addActionListener(GUI.buttonListener);
-		add(passwordField, gbc);
+		gbc = FocusPanel.generateConstraints(0, 2, 4, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		add(listedLabel, gbc);
 
-		// Adding button
-		gbc = FocusPanel.generateConstraints(0, 3, 3, 1);
-		loginButton.setActionCommand(LOGIN_BUTTON_ID);
-		loginButton.addActionListener(GUI.buttonListener);
-		add(loginButton, gbc);
-//	setLoginListener();
+		gbc = FocusPanel.generateConstraints(0, 3, 4, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		add(activeLabel, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 5, 4, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		add(rentedLabel, gbc);
 	}
-
-}
-
-	public static String getUsernameField() {
-		return usernameField.getText();
-	}
-
-public static String getPasswordField() {
-	return String.valueOf(passwordField.getPassword());
 }

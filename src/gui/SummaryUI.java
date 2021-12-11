@@ -10,6 +10,8 @@
 package gui;
 
 import gui.elements.SummaryView;
+import gui.elements.ElementList;
+import gui.elements.PropertyView;
 
 import gui.FocusPanel;
 
@@ -26,13 +28,18 @@ import Employee.Property;
 
 public class SummaryUI extends FocusPanel {
 	private SummaryView summary;
+//	private ArrayList<Property> rented;
+	private Property[] listedProperties;
+	private int numRented;
 
-	public SummaryUI(int months, int numListed, int numRented, ) {
+	public SummaryUI(int months, int numListed, int numActive, int numRented) {
 		super();
 		// Create necessary elements
-		SummaryView summary = new SummaryView(months, numListed, numRented, 
-				ArrayList<Property> active);
+//		this.rented = rented;
+		this.numRented = numRented;
+		this.summary = new SummaryView(months, numListed, numActive, numRented);
 		init();
+
 	}
 
 	/**
@@ -42,13 +49,43 @@ public class SummaryUI extends FocusPanel {
 		panelLayout = new GridBagLayout();
 		setLayout(panelLayout);
 
-		// populate window assuming a 4-column, 5-row grid.
+		// create dummy properties for now.
+		listedProperties = new Property[numRented];
+		PropertyView[] dummyList = new PropertyView[numRented];
+
+		for (int i = 0; i < numRented; i++) {
+			Property currProperty = new Property();
+
+			currProperty.setAddress("415" + "i" + " Eagle Drive");
+			currProperty.setQuadrant("NE");
+			currProperty.setHouseType("Condo");
+			currProperty.setIfFurnished(i % 2 == 0);
+			currProperty.setPropertyID("P12");
+			currProperty.setRentCost(1000 * i);
+			currProperty.setStatus("Active");
+
+			listedProperties[i] = currProperty;
+			/*
+			 * / dummyList[i] = new PropertyView("415" + i + " Eagle Drive", "NE", "Condo",
+			 * i % 2 == 0, 415, i); //
+			 */
+			dummyList[i] = new PropertyView(currProperty, i);
+		}
+
+		ElementList<PropertyView> results = new ElementList<PropertyView>(dummyList);
+
+		// populate window
 		GridBagConstraints gbc;
 		gbc = generateConstraints(0, 0, 1, 1);
-		gbc.fill = GridBagConstraints.BOTH;
+		gbc.fill = GridBagConstraints.VERTICAL;
 		gbc.anchor = GridBagConstraints.CENTER;
-		gbc.weightx = 100;
 		gbc.weighty = 100;
 		add(summary, gbc);
+
+		gbc = generateConstraints(0, 1, 1, 1);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 100;
+		gbc.weighty = 100;
+		add(results, gbc);
 	}
 }

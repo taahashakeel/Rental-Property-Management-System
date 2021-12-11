@@ -96,6 +96,7 @@ public class ButtonListener implements ActionListener {
 //		case (GUI.DATE_BUTTON_ID):
 //			mainGui.refreshDate(); // recalls the date function
 //			break;
+
 		// Start menu panel buttons
 		case (StartMenu.RENTER_BUTTON_ID):
 			userType = "renter";
@@ -113,6 +114,7 @@ public class ButtonListener implements ActionListener {
 			userType = "guest";
 			mainGui.setCurrentPanel(new UnregisteredRenterUI());
 			break;
+
 		// Login menu buttons
 		case (LoginMenu.LOGIN_BUTTON_ID):
 			String username = LoginMenu.getUsernameField();
@@ -140,6 +142,8 @@ public class ButtonListener implements ActionListener {
 				mainGui.setCurrentPanel(new ManagerUI());
 			}
 			break;
+			
+		// Search Menu actions
 		case (SearchMenu.SEARCH_BUTTON_ID):
 //			fetchActiveProperty(SearchMenu.getHouseType(), SearchMenu.getBedroom(), SearchMenu.getBathroom(), 
 //					SearchMenu.getIfFurnished(), SearchMenu.getQuadrant): Property []);
@@ -149,7 +153,9 @@ public class ButtonListener implements ActionListener {
 
 			break;
 		case (PropertyDetails.EMAIL_LANDLORD_ID):
+			
 			break;
+		
 		// LandlordUI
 		case (LandlordUI.CREATE_PROP_BUTTON):
 			mainGui.setCurrentPanel(new CreatePropertyUI());
@@ -161,12 +167,25 @@ public class ButtonListener implements ActionListener {
 
 			break;
 		case (PropertyEdit.STATUS_BUTTON_ID):
+			// if ()
 			JOptionPane.showMessageDialog(mainGui, "Status changed successfully!");
 			break;
 
 		// ManagerUI
 		case (ManagerUI.GET_SUMMARY_BUTTON):
-
+			int months = Integer.parseInt(ManagerUI.getMonths());
+			if (months == 6) {
+//			Property[] p = new Property[5];
+//			for (Property prop: p)
+//			{
+//				
+//			}
+				mainGui.setCurrentPanel(new SummaryUI(months, 11, 11, 5));
+//			public SummaryUI(int months, int numListed, int numActive, int numRented, ArrayList<Property> rented) {
+			} else if (months == 3)
+//			Property[] p = new Property[2];
+				mainGui.setCurrentPanel(new SummaryUI(months, 6, 6, 2));
+			break;
 		}
 	}
 }

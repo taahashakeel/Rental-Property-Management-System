@@ -47,11 +47,12 @@ public class RegisteredRenterUI extends FocusPanel{
     for(int i = 0; i < LIST_SIZE; i++){
       Property currProperty = new Property();
 
-      currProperty.setAddress("415" + "i" + " Eagle Drive");
+      currProperty.setAddress("415" + i + " Eagle Drive");
       currProperty.setQuadrant("NE");
       currProperty.setHouseType("Condo");
       currProperty.setIfFurnished(i % 2 == 0);
       currProperty.setPropertyID("P12");
+      currProperty.setRentCost(1000*i);
       currProperty.setStatus("Active");
 
       listedProperties[i] = currProperty;

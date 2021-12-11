@@ -80,7 +80,8 @@ public class PropertyView extends JPanel {
 		JLabel addressLabel = new JLabel(propertyRep.getAddress());
 		JLabel cityQuadrantLabel = new JLabel(propertyRep.getQuadrant());
 		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
-
+	    JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
+		
 		// Add elements to the button
 		GridBagConstraints gbc;
 		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
@@ -98,6 +99,11 @@ public class PropertyView extends JPanel {
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		propertyLink.add(furnishedLabel, gbc);
+		
+		gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
+		gbc.weightx = 0;
+		gbc.anchor = GridBagConstraints.EAST;
+		propertyLink.add(costLabel, gbc);
 
 		return propertyLink;
 	}

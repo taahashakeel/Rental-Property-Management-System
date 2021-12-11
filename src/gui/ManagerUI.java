@@ -103,6 +103,9 @@ public class ManagerUI extends FocusPanel {
 		gbc.weightx = 100;
 		gbc.weighty = 100;
 		add(results, gbc);
+	}
 
+	public static String getMonths() {
+		return (String)monthsMenu.getSelectedItem();
 	}
 }

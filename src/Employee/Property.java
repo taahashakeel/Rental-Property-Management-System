@@ -15,9 +15,9 @@ public class Property {
 	private int rentCost;
 	private int propertyFee;
 	private boolean feePaid;
-	private int budget;
+//	private int budget;
 	private String landlordEmail;
-	private String address; 
+	private String address;
 	private int landlordID;
 
 //	private DatabaseController dbControl;
@@ -65,25 +65,23 @@ public class Property {
 		return feePaid;
 	}
 
-	public int getLandlordID()
-	{
+	public int getLandlordID() {
 		return landlordID;
 	}
-	public int getBudget()
-	{
-		return budget;
-	}
-	public String getAddress()
-	{
+
+//	public int getBudget()
+//	{
+//		return budget;
+//	}
+	public String getAddress() {
 		return address;
 	}
 
-  public void setAddress(String address){
-    this.address = address;
-  }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-	public void setPropertyID(String propertyID) 
-	{
+	public void setPropertyID(String propertyID) {
 		this.propertyID = propertyID;
 	}
 
@@ -123,24 +121,22 @@ public class Property {
 	public void setFeePaid(boolean feePaid) {
 		this.feePaid = feePaid;
 	}
-	
-	public void setLandlordID(int landlordID) 
-	{
+
+	public void setLandlordID(int landlordID) {
 		this.landlordID = landlordID;
 	}
-	
-	public void setBudget(int budget)
-	{
-		this.budget = budget;
-	}
-	public void getAddress(String address)
-	{
+
+//	public void setBudget(int budget)
+//	{
+//		this.budget = budget;
+//	}
+	public void getAddress(String address) {
 		this.address = address;
 	}
+
 	////
-	public void createProperty()
-	{
+	public void createProperty() {
 //		newProperty = new ArrayList<Property>();
 	}
-	
+
 }
