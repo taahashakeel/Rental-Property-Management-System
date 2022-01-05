@@ -1,5 +1,5 @@
 /**
- * @author Taaha
+ * @author Taaha Shakeel <a href="mailto:muhammad.shakeel1@ucalgary.ca">email</a>
  * @author Rachel Renegado <a href="mailto:rachel.renegado@ucalgary.ca">email</a>
  * 
  *  @version 1.2 added some documentation and added to create property
