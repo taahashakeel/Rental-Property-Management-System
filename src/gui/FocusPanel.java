@@ -6,6 +6,8 @@
  */
 package gui;
 
+import Employee.Property;
+
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -13,12 +15,14 @@ import java.awt.Insets;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 public abstract class FocusPanel extends JPanel{
   private static final int PADDING = 5;
   protected GridBagLayout panelLayout;
   protected static GridBagConstraints panelConstraints;
+  protected Property[] listedProperties;
 
   public FocusPanel(){
     super();
@@ -108,13 +112,30 @@ public abstract class FocusPanel extends JPanel{
   }
 
   /**
-   * MOVED FROM GUI -- please update documentation when able
+   * Transforms and scales an ImageIcon to a specified width and height
+   *
+   * This method is made static such that any element is able to use it.
+   *
+   * @param image The image to be resized
+   * @param w The desired width of the image.
+   * @param h The desired height of the image.
+   * 
+   * @return The resized ImageIcon
    */
-  protected ImageIcon transformImage(ImageIcon image, int w, int h) {
+  protected static ImageIcon transformImage(ImageIcon image, int w, int h) {
     Image imageNew = image.getImage(); // transform it
     Image imageTrans = imageNew.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH); // scale it smoothly
     ImageIcon newImageIcon = new ImageIcon(imageTrans); // assign to a new ImageIcon instance
 
     return newImageIcon;
+  }
+
+  /**
+   * Gets the Property wihin listedProperties at the provided index.
+   *
+   * @param index the index to fetch values from.
+   */
+  public Property getProperty(int index){
+    return listedProperties[index];
   }
 }

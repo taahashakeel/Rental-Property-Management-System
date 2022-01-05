@@ -25,33 +25,177 @@
  */
 package gui;
 
+import gui.elements.PropertyView;
+
+import Employee.Property;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
 
-public class ButtonListener implements ActionListener{
-  private GUI mainGui;
+// button listener imports
+import gui.elements.StartMenu;
+import gui.elements.LoginMenu;
+import gui.elements.SearchMenu;
+import gui.elements.CreatePropertyView;
+import gui.elements.PropertyView;
+import gui.elements.PropertyEdit;
 
-  public ButtonListener(GUI mainGui){
-    this.mainGui = mainGui;
-  }
+//import BackEnd.EmailSystem;
 
-  /**
-   * Listen for button actions that have been made.
-   *
-   * As all buttons contain an instance of this ButtonListener, this method
-   * will be invoked whenever a button is pressed. As such, this method will
-   * need to determine which button called it and act accordingly.
-   */
-  public void actionPerformed(ActionEvent evt){
-    String id = evt.getActionCommand();
+//import gui.elements.InvalidEntryView;
 
-    System.out.println("Pressed: id = " + id);
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.*;
 
-    switch(id){
-      case(GUI.BACK_BUTTON_ID):
-        mainGui.popHistoryStack();
-        break;
+//import BackEnd.DatabaseController;
+//import Renter.RegisteredRenter;
+//import Renter.UnregisteredRenter;
+//import Employee.Landlord;
+//import Employee.Manager;
+
+public class ButtonListener implements ActionListener {
+	private GUI mainGui;
+	private String userType;
+	private boolean usernameInvalid = true;
+	// Users
+//	private RegisterRenter regRenter;
+//	private UnregisteredRenter unregRenter;
+//	private Landlord landlord;
+//	private Manager manager;
+
+	private Pattern propertyLinkEvent = Pattern.compile(PropertyView.PROPERTY_LINK_ID + "\\d++");
+
+//	private DatabaseController dbConnect;
+
+	public ButtonListener(GUI mainGui) {
+		this.mainGui = mainGui;
+	}
+
+	/**
+	 * Listen for button actions that have been made.
+	 *
+	 * As all buttons contain an instance of this ButtonListener, this method will
+	 * be invoked whenever a button is pressed. As such, this method will need to
+	 * determine which button called it and act accordingly.
+	 */
+	public void actionPerformed(ActionEvent evt) {
+		String id = evt.getActionCommand();
+
+		System.out.println("Pressed: id = " + id);
+
+    Matcher m = propertyLinkEvent.matcher(id);
+    if(m.matches()){
+      // Switch to specified property to view.
+      int index = Integer.parseInt(id.substring(PropertyView.PROPERTY_LINK_ID.length()));
+      System.out.println("Switching to property " + index);
+      FocusPanel currPanel = mainGui.getCurrentPanel();
+      Property selectedProperty = currPanel.getProperty(index);
+      boolean landlord = (boolean) (currPanel instanceof LandlordUI); // bad practice but oh well
+      mainGui.setCurrentPanel(new PropertyDetails(selectedProperty, !landlord));
     }
-  }
+
+		switch (id) {
+		// Main GUI frame buttons
+		case (GUI.BACK_BUTTON_ID):
+			mainGui.popHistoryStack();
+			break;
+//		case (GUI.DATE_BUTTON_ID):
+//			mainGui.refreshDate(); // recalls the date function
+//			break;
+
+		// Start menu panel buttons
+		case (StartMenu.RENTER_BUTTON_ID):
+			userType = "renter";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.LANDLORD_BUTTON_ID):
+			userType = "landlord";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.MANAGER_BUTTON_ID):
+			userType = "manager";
+			mainGui.setCurrentPanel(new Login(userType));
+			break;
+		case (StartMenu.GUEST_BUTTON_ID):
+			userType = "guest";
+			mainGui.setCurrentPanel(new UnregisteredRenterUI());
+			break;
+
+		// Login menu buttons
+		case (LoginMenu.LOGIN_BUTTON_ID):
+			String username = LoginMenu.getUsernameField();
+			System.out.println("Username: " + username);
+			String password = LoginMenu.getPasswordField();
+			System.out.println("Password: " + password);
+			if (usernameInvalid) {
+				usernameInvalid = !usernameInvalid;
+				System.out.println("Found invalid entry!");
+				mainGui.setCurrentPanel(new InvalidLoginUI());
+			} else if (userType == "renter") {
+				usernameInvalid = !usernameInvalid;
+//				regRenter = checkUserLogin(username, password, userType);
+//				if (regRenter != NULL)
+				mainGui.setCurrentPanel(new RegisteredRenterUI());
+			} else if (userType == "landlord") {
+				usernameInvalid = !usernameInvalid;
+//				landlord = checkUserLogin(username, password, userType);
+//				if (landlord != NULL)
+				mainGui.setCurrentPanel(new LandlordUI());
+			} else if (userType == "manager") {
+				usernameInvalid = !usernameInvalid;
+//				manager = checkUserLogin(username, password, userType);
+//				if (manager != NULL)
+				mainGui.setCurrentPanel(new ManagerUI());
+			}
+			break;
+			
+		// Search Menu actions
+		case (SearchMenu.SEARCH_BUTTON_ID):
+			break;
+		case (SearchMenu.SUBSCRIBE_BUTTON_ID):
+			JOptionPane.showMessageDialog(mainGui, "You have been subscribed to the current search criteria!");
+
+			break;
+		case (PropertyDetails.EMAIL_LANDLORD_ID):
+//			if (sendEmail("ensf480Landlord1@gmail.com", "ensf480Renter1@gmail.com", PropertyDetails.getMessage(), PropertyDetails.getSubject()) ){ 
+//					JOptionPane.showMessageDialog(mainGui, "Email sent successfully!");
+//					mainGui.popHistoryStack();
+//			}else 
+				JOptionPane.showMessageDialog(mainGui, "Email send failure!");
+			break;
+		
+		// LandlordUI
+		case (LandlordUI.CREATE_PROP_BUTTON):
+			mainGui.setCurrentPanel(new CreatePropertyUI());
+			break;
+		case (CreatePropertyView.SAVE_BUTTON_ID):
+			mainGui.popHistoryStack();
+			JOptionPane.showMessageDialog(mainGui, "Property saved successfully!");
+			// creating a property to be displayed and saved to database
+
+			break;
+		case (PropertyEdit.STATUS_BUTTON_ID):
+			// if ()
+			JOptionPane.showMessageDialog(mainGui, "Status changed successfully!");
+			break;
+
+		// ManagerUI
+		case (ManagerUI.GET_SUMMARY_BUTTON):
+			int months = Integer.parseInt(ManagerUI.getMonths());
+			if (months == 6) {
+//			Property[] p = new Property[5];
+//			for (Property prop: p)
+//			{
+//				
+//			}
+				mainGui.setCurrentPanel(new SummaryUI(months, 11, 11, 5));
+//			public SummaryUI(int months, int numListed, int numActive, int numRented, ArrayList<Property> rented) {
+			} else if (months == 3)
+//			Property[] p = new Property[2];
+				mainGui.setCurrentPanel(new SummaryUI(months, 6, 6, 2));
+			break;
+		}
+	}
 }

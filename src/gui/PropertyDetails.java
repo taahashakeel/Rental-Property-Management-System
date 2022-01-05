@@ -17,10 +17,196 @@
  */
 package gui;
 
-public class PropertyDetails extends FocusPanel{
-  // private Property focusProperty;
+import Employee.Property;
 
-  public PropertyDetails(){
-    super();
-  }
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+
+public class PropertyDetails extends FocusPanel {
+	private Property propertyRep;
+	// Determine if the user should have the option to email the renter
+	private boolean viewer;
+
+	public static final String EMAIL_LANDLORD_ID = "emailLandlordButton";
+
+	public static JTextField subjectField = new JTextField("[Subject]");
+	public static JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
+	public static JTextField senderField = new JTextField("From:");
+
+	/*
+	 * / this empty constructor should not need to exist. public
+	 * PropertyDetails(boolean viewer){ super(); this.viewer = viewer; } //
+	 */
+
+	// this is the constructor that is needed
+	public PropertyDetails(Property propertyRep, boolean viewer) {
+		super();
+		this.propertyRep = propertyRep;
+		this.viewer = viewer;
+		init();
+	} // */
+
+	/**
+	 * Initializes the current property details panel.
+	 *
+	 * This panel displays all information about a selected property
+	 */
+	private void init() {
+		GridBagLayout panelLayout = new GridBagLayout();
+		setLayout(panelLayout);
+
+		// nest a JTabbedPane here.
+		JTabbedPane tabbedPane = new JTabbedPane();
+
+		JPanel detailPanel = detailComponent();
+		JPanel emailPanel = emailComponent();
+
+		tabbedPane.add(detailPanel);
+		tabbedPane.add(emailPanel);
+
+		// Add pane to current page
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+		add(tabbedPane, gbc);
+	}
+
+	/**
+	 * Generate the JPanel with the details of the property.
+	 */
+	private JPanel detailComponent() {
+		// create all necessary elements
+		JPanel centerPanel = new JPanel();
+		centerPanel.setName("Property Details");
+
+		GridBagLayout centerLayout = new GridBagLayout();
+		centerPanel.setLayout(centerLayout);
+
+		JLabel idLabel = new JLabel("Id: ");
+		JLabel idValue = new JLabel("#" + String.valueOf(propertyRep.getPropertyID()));
+		JLabel addressLabel = new JLabel(propertyRep.getAddress() + " " + propertyRep.getQuadrant());
+		JLabel bedroomLabel = new JLabel("Number of bedrooms: ");
+		JLabel bedroomCount = new JLabel(String.valueOf(propertyRep.getNumBedrooms()) + " bed");
+		JLabel bathroomLabel = new JLabel("Number of bathrooms: ");
+		JLabel bathroomCount = new JLabel(String.valueOf(propertyRep.getNumBathrooms()) + " bath");
+		JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
+		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
+
+		// place items as necessary
+		// property identifiers
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 2, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		centerPanel.add(addressLabel, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		centerPanel.add(idLabel, gbc);
+		gbc = FocusPanel.generateConstraints(1, 1, 1, 1);
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		centerPanel.add(idValue, gbc);
+
+		// property cost
+		gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.weightx = 1;
+		centerPanel.add(costLabel, gbc);
+
+		// property composition
+		gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		centerPanel.add(bedroomLabel, gbc);
+		gbc = FocusPanel.generateConstraints(1, 2, 1, 1);
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		centerPanel.add(bedroomCount, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 3, 1, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		centerPanel.add(bathroomLabel, gbc);
+		gbc = FocusPanel.generateConstraints(1, 3, 1, 1);
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		centerPanel.add(bathroomCount, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 4, 2, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		centerPanel.add(furnishedLabel, gbc);
+
+		return centerPanel;
+	}
+
+	/**
+	 * Generate the component with the text area to write messages to the landlord.
+	 */
+	private JPanel emailComponent() {
+		GridBagLayout emailLayout = new GridBagLayout();
+
+		JPanel emailPanel = new JPanel();
+		emailPanel.setPreferredSize(new Dimension(600, 450));
+		emailPanel.setLayout(emailLayout);
+		emailPanel.setName("Contact Landlord");
+
+//    JTextField subjectField = new JTextField("[Subject]");
+		JButton contactLandlord = new JButton("Email Landlord");
+//    JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
+		JScrollPane textScroll = new JScrollPane(messageBox);
+//    JTextField senderField = new JTextField("From:");
+
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		emailPanel.add(subjectField, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 1, 1, 1);
+		gbc.weightx = 1;
+		gbc.weighty = 1;
+		gbc.fill = GridBagConstraints.BOTH;
+		emailPanel.add(textScroll, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 2, 1, 1);
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		emailPanel.add(senderField, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 3, 1, 1);
+		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		contactLandlord.setActionCommand(EMAIL_LANDLORD_ID);
+		contactLandlord.addActionListener(GUI.buttonListener);
+		emailPanel.add(contactLandlord, gbc);
+
+		return emailPanel;
+	}
+
+//	public static JTextField subjectField = new JTextField("[Subject]");
+//	public static JTextArea messageBox = new JTextArea("Hello,\n\nI would like to message you in regards to...");
+//	public static JTextField senderField = new JTextField("From:");
+
+	public static String getSubject() {
+		return subjectField.getText();// get the selected item as a string
+	}
+
+	public static String getMessage() {
+		return messageBox.getText();
+	}
+
+	public static String getSenderEmail() {
+		return senderField.getText();// get the selected item as a string
+	}
 }

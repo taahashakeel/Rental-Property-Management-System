@@ -13,8 +13,9 @@
  */
 package gui.elements;
 
-// import Employee.Property
+import Employee.Property;
 import gui.FocusPanel;
+import gui.GUI;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -23,80 +24,87 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PropertyView extends JPanel{
-  // private Property propertyRep;
-  String address;
-  String quadrant;
-  String housingType;
-  boolean furnished;
-  int id;
+public class PropertyView extends JPanel {
+	private Property propertyRep;
 
-  public PropertyView(){
-    super();
-    init();
-  }
+	int index;
 
-  /*/
-  public PropertyView(Property propertyRep){
-    this.propertyRep = propertyRep;
-    init();
-  } // */
+	public static final String PROPERTY_LINK_ID = "propertyLinkID=";
 
-  public PropertyView(
-      String address,
-      String quadrant,
-      String housingType,
-      boolean furnished,
-      int id){
-    super();
-    this.address = address;
-    this.quadrant = quadrant;
-    this.housingType = housingType;
-    this.furnished = furnished;
-    this.id = id;
+	public PropertyView() {
+		super();
+		init();
+	}
 
-    init();
-  }
+	//
+	public PropertyView(Property propertyRep, int index) {
+		this.propertyRep = propertyRep;
+		this.index = index;
+		init();
+	} // */
 
-  /**
-   * Initialies the current PropertyView element.
-   */
-  private void init(){
-    GridBagLayout viewElementLayout = new GridBagLayout();
-    setLayout(viewElementLayout);
+	/**
+	 * Initialies the current PropertyView element.
+	 */
+	private void init() {
+		GridBagLayout viewElementLayout = new GridBagLayout();
+		setLayout(viewElementLayout);
 
-    // Create main button to link to properties
-    GridBagLayout buttonLayout = new GridBagLayout();
-    JButton propertyLink = new JButton();
-    propertyLink.setLayout(buttonLayout);
+		JButton propertyLink = generatePropertyLink();
 
-    // Create elements that will be added to the button
-    JLabel addressLabel = new JLabel(address);
-    JLabel cityQuadrantLabel = new JLabel(quadrant);
-    JLabel furnishedLabel = new JLabel(furnished ? "Furnished" : "Unfurnished");
+		// add appropreate action listeners and events to link
+		propertyLink.setActionCommand(PROPERTY_LINK_ID + index);
+		propertyLink.addActionListener(GUI.buttonListener);
 
-    // Add elements to the button
-    GridBagConstraints gbc;
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.weightx = 0;
-    gbc.anchor = GridBagConstraints.WEST;
-    propertyLink.add(addressLabel, gbc);
+		// Add button to current element
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.weightx = 0.8;
+		add(propertyLink, gbc);
+	}
 
-    gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
-    gbc.weightx = 1;
-    gbc.anchor = GridBagConstraints.WEST;
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    propertyLink.add(cityQuadrantLabel, gbc);
+	/**
+	 * Generates the base property link instance.
+	 *
+	 * this instance contains general information about a given property, and will
+	 * link to a Property page when clicked.
+	 */
+	protected JButton generatePropertyLink() {
+		// Create main button to link to properties
+		GridBagLayout buttonLayout = new GridBagLayout();
+		JButton propertyLink = new JButton();
+		propertyLink.setLayout(buttonLayout);
 
-    gbc = FocusPanel.generateConstraints(0, 1, 2, 1);
-    gbc.anchor = GridBagConstraints.WEST;
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    propertyLink.add(furnishedLabel, gbc);
+		// Create elements that will be added to the button
+		JLabel addressLabel = new JLabel(propertyRep.getAddress());
+		JLabel cityQuadrantLabel = new JLabel(propertyRep.getQuadrant());
+		JLabel furnishedLabel = new JLabel(propertyRep.getIfFurnished() ? "Furnished" : "Unfurnished");
+	    JLabel costLabel = new JLabel("$" + String.valueOf(propertyRep.getRentCost()) + " / Month");
+		
+		// Add elements to the button
+		GridBagConstraints gbc;
+		gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
+		gbc.weightx = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		propertyLink.add(addressLabel, gbc);
 
-    // Add button to current element
-    gbc = FocusPanel.generateConstraints(0, 0, 1, 1);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    gbc.weightx = 0.8;
-    add(propertyLink, gbc);
-  }
+		gbc = FocusPanel.generateConstraints(1, 0, 1, 1);
+		gbc.weightx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		propertyLink.add(cityQuadrantLabel, gbc);
+
+		gbc = FocusPanel.generateConstraints(0, 1, 2, 1);
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		propertyLink.add(furnishedLabel, gbc);
+		
+		gbc = FocusPanel.generateConstraints(2, 0, 1, 1);
+		gbc.weightx = 0;
+		gbc.anchor = GridBagConstraints.EAST;
+		propertyLink.add(costLabel, gbc);
+
+		return propertyLink;
+	}
 }
